@@ -67,4 +67,54 @@ export const getChatHealth = async () => {
   return response.data;
 };
 
+// Citizen Support APIs
+export const getSupportRequests = async () => {
+  const response = await api.get('/api/support');
+  return response.data;
+};
+
+export const getSupportRequestById = async (supportId) => {
+  const response = await api.get(`/api/support/${supportId}`);
+  return response.data;
+};
+
+// Admin APIs (Includes X-User-Role: ADMIN header for server authorization)
+const getAdminHeaders = () => ({
+  headers: {
+    'X-User-Role': 'ADMIN',
+    'X-User-ID': 'admin_user'
+  }
+});
+
+export const getAdminHandoffs = async (status = null) => {
+  const params = status ? { status } : {};
+  const response = await api.get('/api/admin/handoffs', { ...getAdminHeaders(), params });
+  return response.data;
+};
+
+export const updateAdminHandoffStatus = async (handoffId, status) => {
+  const response = await api.patch(`/api/admin/handoffs/${handoffId}/status`, { status }, getAdminHeaders());
+  return response.data;
+};
+
+export const getAdminSchemes = async () => {
+  const response = await api.get('/api/admin/schemes', getAdminHeaders());
+  return response.data;
+};
+
+export const updateAdminScheme = async (schemeId, updateData) => {
+  const response = await api.patch(`/api/admin/schemes/${schemeId}`, updateData, getAdminHeaders());
+  return response.data;
+};
+
+export const getAdminSchemeVersions = async (schemeId) => {
+  const response = await api.get(`/api/admin/schemes/${schemeId}/versions`, getAdminHeaders());
+  return response.data;
+};
+
+export const getAdminSystemStatus = async () => {
+  const response = await api.get('/api/admin/system-status', getAdminHeaders());
+  return response.data;
+};
+
 export default api;

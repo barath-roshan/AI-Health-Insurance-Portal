@@ -8,6 +8,8 @@ from app.api.schemes import router as schemes_router
 from app.api.profile import router as profile_router
 from app.api.eligibility import router as eligibility_router
 from app.api.chat import router as chat_router
+from app.api.support import router as support_router
+from app.api.admin import router as admin_router
 
 load_dotenv()
 
@@ -41,6 +43,8 @@ app.include_router(schemes_router)
 app.include_router(profile_router)
 app.include_router(eligibility_router)
 app.include_router(chat_router)
+app.include_router(support_router)
+app.include_router(admin_router)
 
 @app.get("/health")
 def health():
@@ -57,7 +61,9 @@ def root():
         "schemes_endpoint": "/api/schemes",
         "profile_endpoint": "/api/profile",
         "eligibility_check": "/api/eligibility/check",
-        "rag_chat_endpoint": "/api/chat"
+        "rag_chat_endpoint": "/api/chat",
+        "support_endpoint": "/api/support",
+        "admin_endpoint": "/api/admin"
     }
 
 if __name__ == "__main__":

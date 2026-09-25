@@ -55,6 +55,7 @@ class SchemeBase(BaseModel):
     current_version: Optional[int] = 1
     source_url: Optional[str] = None
     verification_status: Optional[str] = "verified"
+    rag_stale: Optional[bool] = False
 
 class SchemeSummaryResponse(SchemeBase):
     id: str

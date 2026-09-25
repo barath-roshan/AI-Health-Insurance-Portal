@@ -10,6 +10,7 @@ class Profile(Base):
     id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     user_id = Column(String(36), unique=True, nullable=True)
     full_name = Column(String(255), nullable=True)
+    role = Column(String(50), default="USER", index=True)  # USER or ADMIN
     state = Column(String(100), nullable=True)
     district = Column(String(100), nullable=True)
     age = Column(Integer, nullable=True)
@@ -36,6 +37,7 @@ class Scheme(Base):
     current_version = Column(Integer, default=1)
     source_url = Column(Text, nullable=True)
     verification_status = Column(String(50), default="verified")
+    rag_stale = Column(Boolean, default=False)
     last_verified_at = Column(DateTime, default=datetime.utcnow)
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
@@ -104,3 +106,30 @@ class SchemeChunk(Base):
     created_at = Column(DateTime, default=datetime.utcnow)
 
     scheme = relationship("Scheme", back_populates="chunks")
+
+
+class HandoffRequest(Base):
+    __tablename__ = "handoff_requests"
+
+    id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    user_id = Column(String(36), nullable=True, index=True)
+    conversation_id = Column(String(255), nullable=True)
+    user_query = Column(Text, nullable=False)
+    intent = Column(String(100), nullable=True)
+    reason = Column(Text, nullable=True)
+    summary = Column(Text, nullable=True)
+    retrieved_schemes = Column(JSON, default=[])
+    status = Column(String(50), default="PENDING", index=True)  # PENDING, IN_PROGRESS, RESOLVED, CLOSED
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+
+class AuditLog(Base):
+    __tablename__ = "audit_logs"
+
+    id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    admin_user_id = Column(String(255), nullable=False)
+    action = Column(String(100), nullable=False)  # SCHEME_UPDATED, SCHEME_VERSION_CREATED, HANDOFF_STATUS_CHANGED, RAG_REINDEX_REQUIRED
+    affected_entity = Column(String(255), nullable=False)
+    details = Column(JSON, default={})
+    timestamp = Column(DateTime, default=datetime.utcnow)

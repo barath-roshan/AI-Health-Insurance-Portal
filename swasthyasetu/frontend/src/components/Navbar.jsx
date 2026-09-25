@@ -35,21 +35,27 @@ const Navbar = () => {
         </Link>
 
         {user && (
-          <div className="hidden md:flex items-center space-x-6">
-            <Link to="/dashboard" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
+          <div className="hidden md:flex items-center space-x-5">
+            <Link to="/dashboard" className="text-xs font-medium text-slate-300 hover:text-white transition-colors">
               Dashboard
             </Link>
-            <Link to="/profile" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
+            <Link to="/profile" className="text-xs font-medium text-slate-300 hover:text-white transition-colors">
               My Profile
             </Link>
-            <Link to="/results" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
+            <Link to="/results" className="text-xs font-medium text-slate-300 hover:text-white transition-colors">
               Eligibility Results
             </Link>
-            <Link to="/schemes" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
+            <Link to="/schemes" className="text-xs font-medium text-slate-300 hover:text-white transition-colors">
               Health Schemes
             </Link>
-            <Link to="/chat" className="text-sm font-medium text-emerald-400 hover:text-emerald-300 transition-colors">
+            <Link to="/chat" className="text-xs font-medium text-emerald-400 hover:text-emerald-300 transition-colors">
               🤖 AI Assistant
+            </Link>
+            <Link to="/support" className="text-xs font-medium text-slate-300 hover:text-white transition-colors">
+              🎧 Support
+            </Link>
+            <Link to="/admin" className="text-xs font-bold text-rose-400 hover:text-rose-300 bg-slate-800 px-2.5 py-1 rounded border border-slate-700 transition">
+              ⚙️ Admin
             </Link>
           </div>
         )}

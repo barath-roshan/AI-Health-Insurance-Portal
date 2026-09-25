@@ -1,12 +1,11 @@
 import os
 from typing import Generator
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 from sqlalchemy.orm import sessionmaker, declarative_base
 from dotenv import load_dotenv
 
 load_dotenv()
 
-# Get DB Connection URL or fallback to local SQLite for development testing
 DATABASE_URL = os.getenv("DATABASE_URL") or os.getenv("SUPABASE_DB_URL")
 
 if not DATABASE_URL or DATABASE_URL.startswith("https://placeholder"):
@@ -34,6 +33,25 @@ def get_db() -> Generator:
         db.close()
 
 def init_db():
-    """Ensure database schema tables are created."""
+    """Ensure database schema tables and columns are created."""
     from app.models import Base as ModelsBase
     ModelsBase.metadata.create_all(bind=engine)
+
+    # Ensure rag_stale and role columns exist for SQLite schema updates
+    with engine.connect() as conn:
+        if is_sqlite:
+            try:
+                conn.execute(text("ALTER TABLE schemes ADD COLUMN rag_stale BOOLEAN DEFAULT 0;"))
+                conn.commit()
+            except Exception:
+                pass
+            try:
+                conn.execute(text("ALTER TABLE profiles ADD COLUMN role TEXT DEFAULT 'USER';"))
+                conn.commit()
+            except Exception:
+                pass
+            try:
+                conn.execute(text("ALTER TABLE handoff_requests ADD COLUMN user_id TEXT;"))
+                conn.commit()
+            except Exception:
+                pass

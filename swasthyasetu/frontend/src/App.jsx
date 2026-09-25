@@ -10,6 +10,8 @@ import SchemeDetail from './pages/SchemeDetail';
 import ProfileForm from './pages/ProfileForm';
 import EligibilityResults from './pages/EligibilityResults';
 import ChatAssistant from './pages/ChatAssistant';
+import UserSupport from './pages/UserSupport';
+import AdminDashboard from './pages/AdminDashboard';
 
 function App() {
   return (
@@ -64,6 +66,22 @@ function App() {
             element={
               <ProtectedRoute>
                 <ChatAssistant />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/support"
+            element={
+              <ProtectedRoute>
+                <UserSupport />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute>
+                <AdminDashboard />
               </ProtectedRoute>
             }
           />

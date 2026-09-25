@@ -4,6 +4,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import or_
 
 from app.core.database import get_db
+from app.core.cache import get_cache, set_cache
 from app.models import Scheme
 from app.schemas.scheme import SchemeSummaryResponse, SchemeDetailResponse
 
@@ -24,7 +25,6 @@ def get_schemes(
     query = db.query(Scheme)
 
     if state:
-        # Match exact state or "All India" / "Central"
         query = query.filter(
             or_(
                 Scheme.state_or_region.ilike(f"%{state.strip()}%"),
@@ -57,7 +57,16 @@ def get_scheme_detail(
 ):
     """
     Retrieve full scheme details including rules, documents, and versions by ID or scheme_code.
+    Uses Redis cache with key format 'scheme:{scheme_id}' (TTL: 600s) and PostgreSQL fallback.
     """
+    cache_key = f"scheme:{scheme_id}"
+
+    # 1. Try Redis Cache
+    cached = get_cache(cache_key)
+    if cached:
+        return cached
+
+    # 2. Query PostgreSQL Database on Cache Miss
     scheme = db.query(Scheme).filter(
         or_(
             Scheme.id == scheme_id,
@@ -68,4 +77,10 @@ def get_scheme_detail(
     if not scheme:
         raise HTTPException(status_code=404, detail=f"Scheme with ID or code '{scheme_id}' not found")
 
-    return scheme
+    # Serialize object for response & cache
+    response_data = SchemeDetailResponse.model_validate(scheme).model_dump(mode="json")
+
+    # 3. Store in Redis Cache
+    set_cache(cache_key, response_data, ttl_seconds=600)
+
+    return response_data
