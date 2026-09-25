@@ -4,6 +4,7 @@ from datetime import datetime
 from fastapi import APIRouter, Depends, HTTPException, Query, Header
 from pydantic import BaseModel, ConfigDict
 from sqlalchemy.orm import Session
+from sqlalchemy import text
 
 from app.core.database import get_db, engine
 from app.core.cache import invalidate_cache, get_redis_status
@@ -239,7 +240,7 @@ async def get_system_status(
     """
     db_status = "connected"
     try:
-        db.execute("SELECT 1")
+        db.execute(text("SELECT 1"))
     except Exception as e:
         db_status = f"error: {str(e)}"
 
