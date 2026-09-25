@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { getBackendHealth } from '../services/api';
 import MainLayout from '../layouts/MainLayout';
@@ -30,7 +31,7 @@ const Dashboard = () => {
   const displayName = user?.user_metadata?.full_name || user?.email || 'Valued Citizen';
 
   const handlePlaceholderClick = (featureName) => {
-    setActiveNotice(`${featureName} will be available in Phase 2/3.`);
+    setActiveNotice(`${featureName} will be available in Phase 3/4.`);
   };
 
   return (
@@ -41,13 +42,13 @@ const Dashboard = () => {
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
             <div>
               <span className="inline-block px-2.5 py-1 text-xs font-semibold uppercase tracking-wider text-emerald-700 bg-emerald-50 rounded-md mb-2 border border-emerald-100">
-                Phase 1 Active Portal
+                SwasthyaSetu Citizen Portal
               </span>
               <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
                 Welcome to SwasthyaSetu
               </h1>
               <p className="text-sm sm:text-base text-slate-600 mt-1">
-                Citizen Insurance Scheme Discovery Platform
+                Government Health Insurance Scheme Discovery Platform
               </p>
             </div>
 
@@ -119,9 +120,9 @@ const Dashboard = () => {
           </div>
         )}
 
-        {/* Action Cards (Placeholders for Future Phases) */}
+        {/* Action Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {/* Card 1: Find Health Schemes */}
+          {/* Card 1: Find Health Schemes (Phase 2 Active) */}
           <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition flex flex-col justify-between">
             <div>
               <div className="w-10 h-10 bg-emerald-100 text-emerald-700 rounded-lg flex items-center justify-center font-bold mb-4">
@@ -129,15 +130,15 @@ const Dashboard = () => {
               </div>
               <h3 className="text-base font-bold text-slate-900">Find Health Schemes</h3>
               <p className="text-xs text-slate-500 mt-1">
-                Discover government health insurance schemes tailored to your eligibility and region.
+                Browse 130+ verified central and state government health schemes and eligibility criteria.
               </p>
             </div>
-            <button
-              onClick={() => handlePlaceholderClick('Find Health Schemes')}
-              className="mt-6 w-full py-2 px-3 bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs rounded-lg transition"
+            <Link
+              to="/schemes"
+              className="mt-6 w-full text-center py-2 px-3 bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs rounded-lg transition"
             >
-              Find Health Schemes
-            </button>
+              Explore Health Schemes →
+            </Link>
           </div>
 
           {/* Card 2: Complete Profile */}

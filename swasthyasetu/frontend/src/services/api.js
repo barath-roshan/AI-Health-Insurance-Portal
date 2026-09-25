@@ -31,4 +31,14 @@ export const getBackendHealth = async () => {
   return response.data;
 };
 
+export const getSchemes = async (params = {}) => {
+  const response = await api.get('/api/schemes', { params });
+  return response.data;
+};
+
+export const getSchemeDetail = async (schemeId) => {
+  const response = await api.get(`/api/schemes/${schemeId}`);
+  return response.data;
+};
+
 export default api;

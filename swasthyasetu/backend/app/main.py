@@ -3,7 +3,13 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 
+from app.core.database import init_db
+from app.api.schemes import router as schemes_router
+
 load_dotenv()
+
+# Initialize DB tables on application startup
+init_db()
 
 app = FastAPI(
     title="SwasthyaSetu Backend API",
@@ -27,6 +33,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Register API routers
+app.include_router(schemes_router)
+
 @app.get("/health")
 def health():
     return {
@@ -38,7 +47,8 @@ def health():
 def root():
     return {
         "message": "SwasthyaSetu API is running",
-        "health_endpoint": "/health"
+        "health_endpoint": "/health",
+        "schemes_endpoint": "/api/schemes"
     }
 
 if __name__ == "__main__":

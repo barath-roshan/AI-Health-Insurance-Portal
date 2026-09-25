@@ -34,11 +34,22 @@ const Navbar = () => {
           </div>
         </Link>
 
+        {user && (
+          <div className="hidden md:flex items-center space-x-6">
+            <Link to="/dashboard" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
+              Dashboard
+            </Link>
+            <Link to="/schemes" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
+              Health Schemes
+            </Link>
+          </div>
+        )}
+
         <nav className="flex items-center space-x-4">
           {user ? (
             <div className="flex items-center space-x-4">
               <span className="text-sm text-slate-300 hidden md:inline-block">
-                Signed in as <strong className="text-white">{displayName}</strong>
+                <strong className="text-white">{displayName}</strong>
               </span>
               <button
                 onClick={handleLogout}
