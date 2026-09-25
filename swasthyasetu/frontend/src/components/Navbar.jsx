@@ -39,6 +39,12 @@ const Navbar = () => {
             <Link to="/dashboard" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
               Dashboard
             </Link>
+            <Link to="/profile" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
+              My Profile
+            </Link>
+            <Link to="/results" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
+              Eligibility Results
+            </Link>
             <Link to="/schemes" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
               Health Schemes
             </Link>

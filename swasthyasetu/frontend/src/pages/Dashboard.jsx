@@ -31,7 +31,7 @@ const Dashboard = () => {
   const displayName = user?.user_metadata?.full_name || user?.email || 'Valued Citizen';
 
   const handlePlaceholderClick = (featureName) => {
-    setActiveNotice(`${featureName} will be available in Phase 3/4.`);
+    setActiveNotice(`${featureName} will be available in Phase 4.`);
   };
 
   return (
@@ -48,7 +48,7 @@ const Dashboard = () => {
                 Welcome to SwasthyaSetu
               </h1>
               <p className="text-sm sm:text-base text-slate-600 mt-1">
-                Government Health Insurance Scheme Discovery Platform
+                Government Health Insurance Scheme Eligibility Engine
               </p>
             </div>
 
@@ -122,7 +122,7 @@ const Dashboard = () => {
 
         {/* Action Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {/* Card 1: Find Health Schemes (Phase 2 Active) */}
+          {/* Card 1: Find Health Schemes */}
           <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition flex flex-col justify-between">
             <div>
               <div className="w-10 h-10 bg-emerald-100 text-emerald-700 rounded-lg flex items-center justify-center font-bold mb-4">
@@ -149,15 +149,15 @@ const Dashboard = () => {
               </div>
               <h3 className="text-base font-bold text-slate-900">Complete Profile</h3>
               <p className="text-xs text-slate-500 mt-1">
-                Add family, income, and location details to enhance scheme recommendations.
+                Add state, district, age, income, and family details to compute your scheme eligibility.
               </p>
             </div>
-            <button
-              onClick={() => handlePlaceholderClick('Complete Profile')}
-              className="mt-6 w-full py-2 px-3 bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs rounded-lg transition"
+            <Link
+              to="/profile"
+              className="mt-6 w-full text-center py-2 px-3 bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs rounded-lg transition"
             >
-              Complete Profile
-            </button>
+              Edit Profile & Check →
+            </Link>
           </div>
 
           {/* Card 3: Ask AI Assistant */}
@@ -173,7 +173,7 @@ const Dashboard = () => {
             </div>
             <button
               onClick={() => handlePlaceholderClick('Ask AI Assistant')}
-              className="mt-6 w-full py-2 px-3 bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs rounded-lg transition"
+              className="mt-6 w-full py-2 px-3 bg-slate-800 hover:bg-slate-700 text-white font-medium text-xs rounded-lg transition"
             >
               Ask AI Assistant
             </button>

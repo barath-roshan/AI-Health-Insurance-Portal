@@ -10,7 +10,6 @@ const api = axios.create({
   },
 });
 
-// Axios request interceptor to attach Supabase JWT token to FastAPI requests
 api.interceptors.request.use(
   async (config) => {
     try {
@@ -19,7 +18,7 @@ api.interceptors.request.use(
         config.headers.Authorization = `Bearer ${session.access_token}`;
       }
     } catch (err) {
-      // Suppress token error if auth is not initialized or user is guest
+      // Suppress token error
     }
     return config;
   },
@@ -38,6 +37,21 @@ export const getSchemes = async (params = {}) => {
 
 export const getSchemeDetail = async (schemeId) => {
   const response = await api.get(`/api/schemes/${schemeId}`);
+  return response.data;
+};
+
+export const getProfile = async (userId = 'demo_user') => {
+  const response = await api.get('/api/profile', { params: { user_id: userId } });
+  return response.data;
+};
+
+export const updateProfile = async (profileData, userId = 'demo_user') => {
+  const response = await api.put('/api/profile', profileData, { params: { user_id: userId } });
+  return response.data;
+};
+
+export const checkEligibility = async (payload = {}) => {
+  const response = await api.post('/api/eligibility/check', payload);
   return response.data;
 };
 

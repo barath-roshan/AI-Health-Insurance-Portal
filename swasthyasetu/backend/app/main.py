@@ -5,6 +5,8 @@ from dotenv import load_dotenv
 
 from app.core.database import init_db
 from app.api.schemes import router as schemes_router
+from app.api.profile import router as profile_router
+from app.api.eligibility import router as eligibility_router
 
 load_dotenv()
 
@@ -35,6 +37,8 @@ app.add_middleware(
 
 # Register API routers
 app.include_router(schemes_router)
+app.include_router(profile_router)
+app.include_router(eligibility_router)
 
 @app.get("/health")
 def health():
@@ -48,7 +52,9 @@ def root():
     return {
         "message": "SwasthyaSetu API is running",
         "health_endpoint": "/health",
-        "schemes_endpoint": "/api/schemes"
+        "schemes_endpoint": "/api/schemes",
+        "profile_endpoint": "/api/profile",
+        "eligibility_check": "/api/eligibility/check"
     }
 
 if __name__ == "__main__":

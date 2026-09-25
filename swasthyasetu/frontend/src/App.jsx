@@ -7,6 +7,8 @@ import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import SchemeList from './pages/SchemeList';
 import SchemeDetail from './pages/SchemeDetail';
+import ProfileForm from './pages/ProfileForm';
+import EligibilityResults from './pages/EligibilityResults';
 
 function App() {
   return (
@@ -21,6 +23,22 @@ function App() {
             element={
               <ProtectedRoute>
                 <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <ProfileForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/results"
+            element={
+              <ProtectedRoute>
+                <EligibilityResults />
               </ProtectedRoute>
             }
           />
