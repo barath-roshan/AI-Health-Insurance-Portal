@@ -9,6 +9,7 @@ import SchemeList from './pages/SchemeList';
 import SchemeDetail from './pages/SchemeDetail';
 import ProfileForm from './pages/ProfileForm';
 import EligibilityResults from './pages/EligibilityResults';
+import ChatAssistant from './pages/ChatAssistant';
 
 function App() {
   return (
@@ -55,6 +56,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <SchemeDetail />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/chat"
+            element={
+              <ProtectedRoute>
+                <ChatAssistant />
               </ProtectedRoute>
             }
           />

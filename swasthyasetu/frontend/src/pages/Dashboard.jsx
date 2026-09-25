@@ -9,7 +9,6 @@ const Dashboard = () => {
   const [backendHealth, setBackendHealth] = useState(null);
   const [healthError, setHealthError] = useState(null);
   const [isHealthLoading, setIsHealthLoading] = useState(true);
-  const [activeNotice, setActiveNotice] = useState(null);
 
   useEffect(() => {
     const fetchHealth = async () => {
@@ -30,10 +29,6 @@ const Dashboard = () => {
 
   const displayName = user?.user_metadata?.full_name || user?.email || 'Valued Citizen';
 
-  const handlePlaceholderClick = (featureName) => {
-    setActiveNotice(`${featureName} will be available in Phase 4.`);
-  };
-
   return (
     <MainLayout>
       <div className="space-y-6">
@@ -48,7 +43,7 @@ const Dashboard = () => {
                 Welcome to SwasthyaSetu
               </h1>
               <p className="text-sm sm:text-base text-slate-600 mt-1">
-                Government Health Insurance Scheme Eligibility Engine
+                Government Health Insurance Scheme Discovery & Integrated RAG AI Platform
               </p>
             </div>
 
@@ -102,24 +97,6 @@ const Dashboard = () => {
           )}
         </div>
 
-        {/* Placeholder Toast / Notification */}
-        {activeNotice && (
-          <div className="p-4 bg-blue-50 border border-blue-200 rounded-xl text-blue-900 text-sm flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <svg className="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span>{activeNotice}</span>
-            </div>
-            <button
-              onClick={() => setActiveNotice(null)}
-              className="text-blue-600 hover:text-blue-800 font-bold text-xs"
-            >
-              Dismiss
-            </button>
-          </div>
-        )}
-
         {/* Action Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {/* Card 1: Find Health Schemes */}
@@ -160,7 +137,7 @@ const Dashboard = () => {
             </Link>
           </div>
 
-          {/* Card 3: Ask AI Assistant */}
+          {/* Card 3: Ask AI Assistant (RAG Microservice Integrated) */}
           <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition flex flex-col justify-between">
             <div>
               <div className="w-10 h-10 bg-purple-100 text-purple-700 rounded-lg flex items-center justify-center font-bold mb-4">
@@ -168,15 +145,15 @@ const Dashboard = () => {
               </div>
               <h3 className="text-base font-bold text-slate-900">Ask AI Assistant</h3>
               <p className="text-xs text-slate-500 mt-1">
-                Chat with our grounded AI assistant to resolve eligibility questions and document guidance.
+                Chat with our grounded AI assistant powered by HuggingFace E5, pgvector, and Groq.
               </p>
             </div>
-            <button
-              onClick={() => handlePlaceholderClick('Ask AI Assistant')}
-              className="mt-6 w-full py-2 px-3 bg-slate-800 hover:bg-slate-700 text-white font-medium text-xs rounded-lg transition"
+            <Link
+              to="/chat"
+              className="mt-6 w-full text-center py-2 px-3 bg-purple-600 hover:bg-purple-500 text-white font-medium text-xs rounded-lg transition"
             >
-              Ask AI Assistant
-            </button>
+              Launch AI Assistant →
+            </Link>
           </div>
         </div>
       </div>

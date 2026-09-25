@@ -7,6 +7,7 @@ from app.core.database import init_db
 from app.api.schemes import router as schemes_router
 from app.api.profile import router as profile_router
 from app.api.eligibility import router as eligibility_router
+from app.api.chat import router as chat_router
 
 load_dotenv()
 
@@ -39,6 +40,7 @@ app.add_middleware(
 app.include_router(schemes_router)
 app.include_router(profile_router)
 app.include_router(eligibility_router)
+app.include_router(chat_router)
 
 @app.get("/health")
 def health():
@@ -54,7 +56,8 @@ def root():
         "health_endpoint": "/health",
         "schemes_endpoint": "/api/schemes",
         "profile_endpoint": "/api/profile",
-        "eligibility_check": "/api/eligibility/check"
+        "eligibility_check": "/api/eligibility/check",
+        "rag_chat_endpoint": "/api/chat"
     }
 
 if __name__ == "__main__":

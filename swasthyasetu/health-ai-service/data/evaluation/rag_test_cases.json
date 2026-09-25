@@ -1,0 +1,62 @@
+[
+  {
+    "testId": "TEST_1",
+    "query": "What is CMCHIS?",
+    "expectedDecision": "ANSWER",
+    "description": "General scheme inquiry about Chief Minister Comprehensive Health Insurance Scheme"
+  },
+  {
+    "testId": "TEST_2",
+    "query": "What government health insurance schemes are available in Tamil Nadu?",
+    "expectedDecision": "ANSWER",
+    "description": "State-level scheme discovery query"
+  },
+  {
+    "testId": "TEST_3",
+    "query": "What documents are needed for CMCHIS?",
+    "expectedDecision": "ANSWER",
+    "description": "Document requirements inquiry"
+  },
+  {
+    "testId": "TEST_4",
+    "query": "Am I eligible for CMCHIS?",
+    "expectedDecision": "CLARIFY",
+    "description": "Personalized eligibility query without income/state details"
+  },
+  {
+    "testId": "TEST_5",
+    "query": "My CMCHIS claim was rejected by the hospital.",
+    "expectedDecision": "HUMAN",
+    "description": "Case-specific claim dispute or hospital rejection"
+  },
+  {
+    "testId": "TEST_6",
+    "query": "I want to talk to customer care.",
+    "expectedDecision": "HUMAN",
+    "description": "Explicit request for human support"
+  },
+  {
+    "testId": "TEST_7",
+    "query": "How do I cook biryani?",
+    "expectedDecision": "OUT_OF_SCOPE",
+    "description": "Completely out-of-scope non-health query"
+  },
+  {
+    "testId": "TEST_8",
+    "query": "Tell me the exact current income limit.",
+    "expectedDecision": "CLARIFY",
+    "description": "Ambiguous income limit inquiry requiring state context"
+  },
+  {
+    "testId": "TEST_9",
+    "query": "What is MEDISEP?",
+    "expectedDecision": "ANSWER",
+    "description": "General scheme inquiry for Kerala MEDISEP"
+  },
+  {
+    "testId": "TEST_10",
+    "query": "Can a 70 year old person get Ayushman Bharat?",
+    "expectedDecision": "ANSWER",
+    "description": "Age-specific eligibility inquiry supported by senior citizen expansion metadata"
+  }
+]

@@ -48,6 +48,9 @@ const Navbar = () => {
             <Link to="/schemes" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
               Health Schemes
             </Link>
+            <Link to="/chat" className="text-sm font-medium text-emerald-400 hover:text-emerald-300 transition-colors">
+              🤖 AI Assistant
+            </Link>
           </div>
         )}
 

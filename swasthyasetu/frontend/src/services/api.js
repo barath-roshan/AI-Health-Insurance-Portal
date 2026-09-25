@@ -55,4 +55,16 @@ export const checkEligibility = async (payload = {}) => {
   return response.data;
 };
 
+export const sendChatMessage = async (message, conversationId = null) => {
+  const payload = { message };
+  if (conversationId) payload.conversation_id = conversationId;
+  const response = await api.post('/api/chat', payload);
+  return response.data;
+};
+
+export const getChatHealth = async () => {
+  const response = await api.get('/api/chat/health');
+  return response.data;
+};
+
 export default api;
