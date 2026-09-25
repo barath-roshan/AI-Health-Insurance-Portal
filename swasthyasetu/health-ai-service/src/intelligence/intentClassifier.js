@@ -43,7 +43,7 @@ function classifyIntent(userQuery) {
     /\b(python|javascript|java|c\+\+|programming|coding|algorithm|compiler)\b/i,
     /\b(weather|forecast|rain|temperature|cricket|football|match|movie|song)\b/i
   ];
-  if (outOfScopePatterns.some(pattern => pattern.test(queryLower)) && !/\b(health|insurance|scheme|hospital|medical|bima|arogya)\b/i.test(queryLower)) {
+  if (outOfScopePatterns.some(pattern => pattern.test(queryLower)) && !/\b(health|insurance|scheme|hospital|medical|bima|arogya|ayushman|pmjay|cmchis|medisep|cghs|echs|esic)\b/i.test(queryLower)) {
     return INTENTS.OUT_OF_SCOPE;
   }
 
@@ -73,7 +73,7 @@ function classifyIntent(userQuery) {
 
   // 6. Application / Registration procedure
   const applicationPatterns = [
-    /\b(how to apply|apply online|registration|enrollment|how can i register|where to apply|portal link|form fill)\b/i
+    /\b(how to apply|how do i apply|apply online|apply for|registration|enrollment|how can i register|where to apply|portal link|form fill)\b/i
   ];
   if (applicationPatterns.some(pattern => pattern.test(queryLower))) {
     return INTENTS.APPLICATION;

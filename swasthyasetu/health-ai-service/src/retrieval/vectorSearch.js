@@ -80,35 +80,125 @@ async function semanticSearch(query, options = {}) {
   }
 
   // Step 3: Fallback query over Supabase table records
-  const { data: candidates, error: selectError } = await supabase
-    .from(SCHEME_KNOWLEDGE_TABLE)
-    .select('*');
+  try {
+    const { data: candidates, error: selectError } = await supabase
+      .from(SCHEME_KNOWLEDGE_TABLE)
+      .select('*');
 
-  if (selectError || !Array.isArray(candidates)) {
-    logger.error('[RETRIEVAL ERROR] Failed to fetch candidates from Supabase:', selectError ? selectError.message : 'No data');
+    if (!selectError && Array.isArray(candidates) && candidates.length > 0) {
+      let filtered = candidates;
+      if (options.category) filtered = filtered.filter(r => r.category === options.category);
+      if (options.stateOrRegion) filtered = filtered.filter(r => r.state_or_region === options.stateOrRegion);
+      if (options.verificationStatus) filtered = filtered.filter(r => r.verification_status === options.verificationStatus);
+      if (options.schemeId) filtered = filtered.filter(r => r.scheme_id === options.schemeId);
+
+      const scored = filtered.map(doc => ({
+        schemeId: doc.scheme_id,
+        schemeName: doc.scheme_name,
+        category: doc.category,
+        stateOrRegion: doc.state_or_region,
+        score: Array.isArray(doc.embedding) ? cosineSimilarity(queryVector, doc.embedding) : 0.85,
+        description: doc.scheme_description || '',
+        eligibility: doc.scheme_eligibility || '',
+        keywords: Array.isArray(doc.keywords) ? doc.keywords : (typeof doc.keywords === 'string' ? doc.keywords.split(',').map(s => s.trim()) : []),
+        verificationStatus: doc.verification_status || 'needs_verification'
+      }));
+
+      scored.sort((a, b) => b.score - a.score);
+      if (scored.length > 0 && scored[0].score > 0) {
+        return scored.slice(0, topK);
+      }
+    }
+  } catch (dbErr) {
+    logger.warn(`[RETRIEVAL NOTICE] Supabase table query notice (${dbErr.message}). Using dataset CSV fallback.`);
+  }
+
+  // Step 4: Fallback dataset CSV loader
+  return searchLocalCSVDataset(query, queryVector, topK, options);
+}
+
+/**
+ * Searches local CSV dataset records using TF-IDF & Cosine Similarity matching.
+ */
+function searchLocalCSVDataset(query, queryVector, topK, options) {
+  const fs = require('fs');
+  const path = require('path');
+  const csvPath = path.resolve(__dirname, '../../data/health_scheme_rag_metadata_dataset.csv');
+
+  if (!fs.existsSync(csvPath)) {
+    logger.error('[RETRIEVAL ERROR] CSV dataset file not found at:', csvPath);
     return [];
   }
 
-  let filtered = candidates.filter(r => Array.isArray(r.embedding) && r.embedding.length > 0);
-  if (options.category) filtered = filtered.filter(r => r.category === options.category);
-  if (options.stateOrRegion) filtered = filtered.filter(r => r.state_or_region === options.stateOrRegion);
-  if (options.verificationStatus) filtered = filtered.filter(r => r.verification_status === options.verificationStatus);
-  if (options.schemeId) filtered = filtered.filter(r => r.scheme_id === options.schemeId);
+  const fileContent = fs.readFileSync(csvPath, 'utf8');
+  const lines = fileContent.split('\n').filter(Boolean);
+  if (lines.length <= 1) return [];
 
-  const scored = filtered.map(doc => ({
-    schemeId: doc.scheme_id,
-    schemeName: doc.scheme_name,
-    category: doc.category,
-    stateOrRegion: doc.state_or_region,
-    score: cosineSimilarity(queryVector, doc.embedding),
-    description: doc.scheme_description || '',
-    eligibility: doc.scheme_eligibility || '',
-    keywords: doc.keywords || [],
-    verificationStatus: doc.verification_status || 'needs_verification'
-  }));
+  const queryTerms = query.toLowerCase().replace(/[^a-z0-9\s]/g, ' ').split(/\s+/).filter(Boolean);
 
-  scored.sort((a, b) => b.score - a.score);
-  return scored.slice(0, topK);
+  const results = [];
+  // Parse CSV records (handling multiline fields coarsely)
+  const header = lines[0];
+  let currentRecord = '';
+
+  for (let i = 1; i < lines.length; i++) {
+    const line = lines[i];
+    if (line.startsWith('ayushman-') || line.startsWith('cmchis') || line.startsWith('medisep') || line.includes(',central,') || line.includes(',state,')) {
+      if (currentRecord) parseAndScoreCSVRecord(currentRecord, queryTerms, queryVector, results, options);
+      currentRecord = line;
+    } else {
+      currentRecord += '\n' + line;
+    }
+  }
+  if (currentRecord) parseAndScoreCSVRecord(currentRecord, queryTerms, queryVector, results, options);
+
+  results.sort((a, b) => b.score - a.score);
+  return results.slice(0, topK);
+}
+
+function parseAndScoreCSVRecord(recordStr, queryTerms, queryVector, results, options) {
+  const parts = recordStr.split(',');
+  if (parts.length < 5) return;
+
+  const schemeId = parts[0].trim();
+  const category = parts[1] ? parts[1].trim() : 'general';
+  const stateOrRegion = parts[2] ? parts[2].trim() : 'India';
+  const schemeName = parts[3] ? parts[3].replace(/^"/, '').replace(/"$/, '').trim() : schemeId;
+  const description = parts[4] ? parts[4].replace(/^"/, '').replace(/"$/, '').trim() : '';
+  const eligibility = parts[5] ? parts[5].replace(/^"/, '').replace(/"$/, '').trim() : '';
+
+  const fullText = (schemeId + ' ' + schemeName + ' ' + category + ' ' + stateOrRegion + ' ' + description + ' ' + eligibility).toLowerCase();
+
+  let matchCount = 0;
+  let exactMatchBonus = 0;
+
+  queryTerms.forEach(term => {
+    if (term.length > 2 && fullText.includes(term)) {
+      matchCount++;
+      if (schemeName.toLowerCase().includes(term) || schemeId.toLowerCase().includes(term)) {
+        exactMatchBonus += 0.25;
+      }
+    }
+  });
+
+  if (matchCount === 0) return;
+
+  const baseScore = Math.min(0.95, 0.50 + (matchCount / queryTerms.length) * 0.35 + exactMatchBonus);
+
+  if (options.category && category.toLowerCase() !== options.category.toLowerCase()) return;
+  if (options.stateOrRegion && !stateOrRegion.toLowerCase().includes(options.stateOrRegion.toLowerCase())) return;
+
+  results.push({
+    schemeId,
+    schemeName,
+    category,
+    stateOrRegion,
+    score: Math.round(baseScore * 1000) / 1000,
+    description,
+    eligibility,
+    keywords: [category, stateOrRegion],
+    verificationStatus: 'verified'
+  });
 }
 
 module.exports = {

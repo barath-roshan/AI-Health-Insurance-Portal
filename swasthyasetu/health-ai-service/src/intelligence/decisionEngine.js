@@ -70,8 +70,9 @@ function decideNextAction({ userQuery, intent, retrievalEvaluation, conversation
   // RULE 3: Evidence clearly missing or irrelevant
   if (retrievalEvaluation.status === 'NOT_ANSWERABLE') {
     return {
-      decision: DECISIONS.HUMAN,
-      reason: `Retrieved evidence is insufficient to formulate a grounded answer: ${retrievalEvaluation.reason}`
+      decision: DECISIONS.CLARIFY,
+      reason: `Retrieved evidence is insufficient for a grounded answer: ${retrievalEvaluation.reason}`,
+      clarificationQuestion: 'I could not find verified scheme details matching your exact query in our database. Could you please specify the state or the exact name of the health insurance scheme you are inquiring about?'
     };
   }
 

@@ -1,7 +1,7 @@
 const Groq = require('groq-sdk');
 const logger = require('../utils/logger');
 
-const DEFAULT_GROQ_MODEL = process.env.GROQ_MODEL || 'llama-3.3-70b-versatile';
+const DEFAULT_GROQ_MODEL = process.env.GROQ_MODEL || 'openai/gpt-oss-120b';
 
 let client = null;
 
