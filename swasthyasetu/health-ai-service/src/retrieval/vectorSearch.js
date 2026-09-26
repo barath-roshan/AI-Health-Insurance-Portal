@@ -63,6 +63,7 @@ async function semanticSearch(query, options = {}) {
     }
 
     if (Array.isArray(rpcResults) && rpcResults.length > 0) {
+      logger.info(`[RETRIEVAL_MODE=PGVECTOR] query="${query.slice(0,60)}" results=${rpcResults.length} topScore=${rpcResults[0]?.similarity?.toFixed(3)}`);
       return rpcResults.map(doc => ({
         schemeId: doc.scheme_id,
         schemeName: doc.scheme_name,
@@ -75,8 +76,10 @@ async function semanticSearch(query, options = {}) {
         verificationStatus: doc.verification_status || 'needs_verification'
       }));
     }
+
+    logger.warn(`[RETRIEVAL_MODE=PGVECTOR] RPC returned 0 results for query="${query.slice(0,60)}". Check embeddings or match_threshold.`);
   } catch (rpcErr) {
-    logger.warn(`[RETRIEVAL NOTICE] Supabase pgvector RPC call notice (${rpcErr.message}). Using standard table query fallback.`);
+    logger.warn(`[RETRIEVAL_MODE=PGVECTOR_FAILED] ${rpcErr.message}. Trying table fallback.`);
   }
 
   // Step 3: Fallback query over Supabase table records
@@ -86,6 +89,7 @@ async function semanticSearch(query, options = {}) {
       .select('*');
 
     if (!selectError && Array.isArray(candidates) && candidates.length > 0) {
+      logger.warn(`[RETRIEVAL_MODE=TABLE_FALLBACK] pgvector RPC unavailable. Using table scan + local cosine for query="${query.slice(0,60)}".`);
       let filtered = candidates;
       if (options.category) filtered = filtered.filter(r => r.category === options.category);
       if (options.stateOrRegion) filtered = filtered.filter(r => r.state_or_region === options.stateOrRegion);
@@ -110,10 +114,16 @@ async function semanticSearch(query, options = {}) {
       }
     }
   } catch (dbErr) {
-    logger.warn(`[RETRIEVAL NOTICE] Supabase table query notice (${dbErr.message}). Using dataset CSV fallback.`);
+    logger.warn(`[RETRIEVAL_MODE=TABLE_FALLBACK_FAILED] ${dbErr.message}. Falling back to CSV keyword search.`);
   }
 
-  // Step 4: Fallback dataset CSV loader
+  // Step 4: CSV TF-IDF fallback — only emergency backup, NOT normal RAG path
+  const testMode = process.env.TEST_MODE === 'true';
+  if (testMode) {
+    logger.warn(`[RETRIEVAL_MODE=CSV_TFIDF_FALLBACK] TEST_MODE. Using keyword CSV for query="${query.slice(0,60)}".`);
+  } else {
+    logger.error(`[RETRIEVAL_MODE=CSV_TFIDF_FALLBACK] pgvector AND table query BOTH failed. Falling back to TF-IDF keyword CSV. THIS IS AN INFRASTRUCTURE FAILURE — semantic RAG is NOT active.`);
+  }
   return searchLocalCSVDataset(query, queryVector, topK, options);
 }
 

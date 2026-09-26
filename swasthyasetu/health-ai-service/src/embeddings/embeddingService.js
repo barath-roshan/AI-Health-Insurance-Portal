@@ -72,8 +72,9 @@ function extract1DVector(data) {
  * @returns {Promise<number[]>} Embedding float vector
  */
 /**
- * Generates a deterministic 1024-dimensional feature vector from text tokens as a fallback.
- * Uses character & token hashing to produce compatible 1024-float vector.
+ * Generates a deterministic 1024-dimensional feature vector from text tokens.
+ * ONLY for use in unit tests (TEST_MODE=true).
+ * NEVER use in production ingestion — these are not semantic vectors.
  */
 function generateDeterministic1024Vector(text) {
   const dim = parseInt(process.env.EMBEDDING_DIMENSIONS) || 1024;
@@ -92,14 +93,12 @@ function generateDeterministic1024Vector(text) {
     const weight = 1.0 / Math.sqrt(wIdx + 1);
     vec[idx] += weight;
 
-    // Secondary hash for character bi-grams
     for (let i = 0; i < word.length - 1; i++) {
       const biHash = (word.charCodeAt(i) * 31 + word.charCodeAt(i + 1)) % dim;
       vec[biHash] += 0.5 * weight;
     }
   });
 
-  // L2 normalize
   let norm = 0;
   for (let i = 0; i < dim; i++) norm += vec[i] * vec[i];
   norm = Math.sqrt(norm);
@@ -110,49 +109,83 @@ function generateDeterministic1024Vector(text) {
   return vec;
 }
 
-async function callHuggingFaceInference(textWithPrefix, maxRetries = 1) {
+async function callHuggingFaceInference(textWithPrefix, maxRetries = 2) {
   const token = process.env.HF_TOKEN;
   const provider = process.env.HF_PROVIDER || HF_PROVIDER;
   const model = process.env.HF_EMBEDDING_MODEL || HF_EMBEDDING_MODEL;
+  const testMode = process.env.TEST_MODE === 'true';
 
   if (!token || token === 'your_huggingface_token') {
-    logger.warn('[HF WARNING] HF_TOKEN is missing or default placeholder. Using deterministic 1024-dim fallback vector.');
-    return generateDeterministic1024Vector(textWithPrefix);
+    if (testMode) {
+      logger.warn('[HF WARNING] TEST_MODE=true — using deterministic fallback vector (not semantic).');
+      return generateDeterministic1024Vector(textWithPrefix);
+    }
+    throw new Error('[EMBEDDING ERROR] HF_TOKEN is missing or placeholder. Cannot generate real embeddings for production.');
   }
 
-  // Attempt via direct Hugging Face Router API (with provider)
+  // Attempt via direct Hugging Face Router API (with provider), then fallback URL
   const routerUrl = `https://router.huggingface.co/${provider}/models/${model}`;
   const hfInferenceUrl = `https://router.huggingface.co/hf-inference/models/${model}`;
 
-  for (const targetUrl of [routerUrl, hfInferenceUrl]) {
-    try {
-      const res = await fetch(targetUrl, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json',
-          'x-use-cache': 'false'
-        },
-        body: JSON.stringify({ inputs: textWithPrefix })
-      });
+  const errors = [];
 
-      if (res.ok) {
-        const responseData = await res.json();
-        const vector = extract1DVector(responseData);
-        if (Array.isArray(vector) && vector.length > 0) {
-          return vector;
+  for (const targetUrl of [routerUrl, hfInferenceUrl]) {
+    for (let attempt = 1; attempt <= maxRetries; attempt++) {
+      try {
+        const res = await fetch(targetUrl, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json',
+            'x-use-cache': 'false'
+          },
+          body: JSON.stringify({ inputs: textWithPrefix })
+        });
+
+        if (res.ok) {
+          const responseData = await res.json();
+          const vector = extract1DVector(responseData);
+          if (Array.isArray(vector) && vector.length > 0) {
+            logger.info(`[HF OK] Embedded via ${targetUrl} (dim=${vector.length})`);
+            return vector;
+          }
+          errors.push(`${targetUrl} attempt ${attempt}: empty vector returned`);
+        } else if (res.status === 429) {
+          // Rate limited — exponential backoff
+          const waitMs = Math.pow(2, attempt) * 1000;
+          logger.warn(`[HF RATE LIMIT] ${targetUrl} — waiting ${waitMs}ms before retry...`);
+          await sleep(waitMs);
+          const errorText = await res.text().catch(() => '');
+          errors.push(`${targetUrl} attempt ${attempt}: rate limited (${errorText.slice(0, 100)})`);
+        } else if (res.status === 503) {
+          // Model loading
+          const waitMs = 5000;
+          logger.warn(`[HF LOADING] ${targetUrl} — model loading, waiting 5s...`);
+          await sleep(waitMs);
+          errors.push(`${targetUrl} attempt ${attempt}: model loading (503)`);
+        } else {
+          const errorText = await res.text().catch(() => '');
+          errors.push(`${targetUrl} attempt ${attempt}: HTTP ${res.status} — ${errorText.slice(0, 150)}`);
+          logger.warn(`[HF ERROR] ${targetUrl} returned status ${res.status}: ${errorText.slice(0, 150)}`);
+          break; // Non-retriable error, try next URL
         }
-      } else {
-        const errorText = await res.text();
-        logger.warn(`[HF NOTICE] ${targetUrl} returned status ${res.status}: ${errorText.slice(0, 150)}`);
+      } catch (err) {
+        errors.push(`${targetUrl} attempt ${attempt}: ${err.message}`);
+        logger.warn(`[HF NETWORK] Request to ${targetUrl} failed: ${err.message}`);
+        if (attempt < maxRetries) await sleep(1000 * attempt);
       }
-    } catch (err) {
-      logger.warn(`[HF NOTICE] Request to ${targetUrl} failed: ${err.message}`);
     }
   }
 
-  logger.warn('[HF FALLBACK] Hugging Face API call requires Inference Providers permission. Using deterministic 1024-dim fallback vector.');
-  return generateDeterministic1024Vector(textWithPrefix);
+  if (testMode) {
+    logger.error('[HF FAILED] All HF API attempts failed. TEST_MODE=true — using deterministic fallback (NOT semantic).');
+    return generateDeterministic1024Vector(textWithPrefix);
+  }
+
+  // Production: hard fail — do NOT store fake vectors
+  const errorSummary = errors.join(' | ');
+  logger.error(`[EMBEDDING ERROR] All HF API attempts failed. Errors: ${errorSummary}`);
+  throw new Error(`[EMBEDDING ERROR] Real embedding generation failed. Will not store fake vectors. Errors: ${errorSummary}`);
 }
 
 /**

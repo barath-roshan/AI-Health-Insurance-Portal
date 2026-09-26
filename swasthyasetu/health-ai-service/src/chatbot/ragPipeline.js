@@ -1,10 +1,10 @@
-const { classifyIntent, INTENTS } = require('../intelligence/intentClassifier');
+const { classifyIntent, classifyIntentWithContext, classifyIntentWithLLM, extractEntities, normalizeStateName, INTENTS } = require('../intelligence/intentClassifier');
 const { semanticSearch } = require('../retrieval/vectorSearch');
 const { evaluateAnswerability } = require('../intelligence/answerability');
 const { decideNextAction, DECISIONS } = require('../intelligence/decisionEngine');
 const { generateGroundedResponse } = require('../generation/llmService');
 const { createHandoffRequest } = require('../handoff/handoffService');
-const { getOrCreateConversation, saveMessage, getRecentMessageWindow } = require('./conversationService');
+const { getOrCreateConversation, saveMessage, getRecentMessageWindow, getConversationState, updateConversationState } = require('./conversationService');
 const logger = require('../utils/logger');
 
 const UNVERIFIED_DISCLAIMER = 'This information is from the current knowledge base and should be verified against the latest official government source.';
@@ -59,7 +59,7 @@ async function processChat({ conversationId, userQuery }) {
 
   const cleanQuery = userQuery.trim();
 
-  // STEP 1: Get or create conversation memory
+  // STEP 1: Get or create conversation memory & active state
   const conv = await getOrCreateConversation(conversationId);
   const activeConvId = conv.conversationId;
 
@@ -69,9 +69,43 @@ async function processChat({ conversationId, userQuery }) {
   // Get recent conversation history for memory context
   const historyWindow = await getRecentMessageWindow(activeConvId, 6);
 
-  // STEP 2: Intent Classification
-  const intent = classifyIntent(cleanQuery);
-  logger.info(`[RAG PIPELINE] Query: "${cleanQuery}" | Intent: ${intent}`);
+  // Retrieve existing state
+  const conversationState = getConversationState(activeConvId);
+
+  // Extract structured entities (state, scheme, income, age, relationship)
+  const entities = extractEntities(cleanQuery);
+  if (entities.state) conversationState.activeState = entities.state;
+  if (entities.scheme) conversationState.activeScheme = entities.scheme;
+  if (entities.income) conversationState.annualIncome = entities.income;
+
+  // STEP 2: Intent Classification (Context-Aware & LLM Fallback)
+  let intent = classifyIntentWithContext(cleanQuery, historyWindow, conversationState);
+
+  // If query is classified as OUT_OF_SCOPE or GENERAL_INFORMATION, try LLM intent classifier for ambiguous queries
+  if ((intent === INTENTS.OUT_OF_SCOPE || intent === INTENTS.GENERAL_INFORMATION) && cleanQuery.length > 5) {
+    const isExplicitNonHealth = /\b(cook|recipe|biryani|pizza|burger|python|javascript|compiler|weather|cricket|movie)\b/i.test(cleanQuery);
+    if (!isExplicitNonHealth) {
+      const llmResult = await classifyIntentWithLLM({
+        userQuery: cleanQuery,
+        conversationHistory: historyWindow,
+        conversationState
+      });
+      if (llmResult && llmResult.intent && INTENTS[llmResult.intent]) {
+        intent = llmResult.intent;
+        if (llmResult.entities) {
+          if (llmResult.entities.state && !conversationState.activeState) conversationState.activeState = llmResult.entities.state;
+          if (llmResult.entities.scheme && !conversationState.activeScheme) conversationState.activeScheme = llmResult.entities.scheme;
+          if (llmResult.entities.income && !conversationState.annualIncome) conversationState.annualIncome = llmResult.entities.income;
+        }
+      }
+    }
+  }
+
+  logger.info(`[RAG PIPELINE] Query: "${cleanQuery}" | Resolved Intent: ${intent}`);
+
+  if (intent !== INTENTS.OUT_OF_SCOPE) {
+    conversationState.activeIntent = intent;
+  }
 
   // STEP 3: Handle explicit Human Request intent immediately
   if (intent === INTENTS.HUMAN_REQUEST) {
@@ -86,6 +120,7 @@ async function processChat({ conversationId, userQuery }) {
 
     const assistantAnswer = 'I am transferring your request to customer care for personalized human assistance.';
     await saveMessage(activeConvId, 'assistant', assistantAnswer);
+    updateConversationState(activeConvId, conversationState);
 
     return {
       conversationId: activeConvId,
@@ -104,6 +139,18 @@ async function processChat({ conversationId, userQuery }) {
     const outOfScopeAnswer = 'I am specialized in Indian government health insurance schemes, eligibility, coverage benefits, documents, and application procedures. How can I help you with government health schemes today?';
     await saveMessage(activeConvId, 'assistant', outOfScopeAnswer);
 
+    // Diagnostics logging (Requirement 11)
+    logger.info('[CHATBOT DIAGNOSTICS]', JSON.stringify({
+      current_message: cleanQuery,
+      previous_message: historyWindow.length > 1 ? historyWindow[historyWindow.length - 2].content : null,
+      previous_intent: conversationState.activeIntent || null,
+      conversation_state: conversationState,
+      classified_intent: intent,
+      retrieval_count: 0,
+      answerability: 'N/A',
+      decision: DECISIONS.OUT_OF_SCOPE
+    }));
+
     return {
       conversationId: activeConvId,
       decision: DECISIONS.OUT_OF_SCOPE,
@@ -114,8 +161,22 @@ async function processChat({ conversationId, userQuery }) {
 
   // STEP 5 & 6: Vector Retrieval using Hugging Face E5 query embedding
   let searchResults = [];
+  let retrievalQuery = cleanQuery;
+
+  // Query enrichment for contextual short queries
+  if (cleanQuery.length < 50) {
+    const schemeContext = conversationState.activeScheme || '';
+    const stateContext = conversationState.activeState || '';
+    retrievalQuery = `${schemeContext} ${cleanQuery} ${stateContext} health insurance`.trim();
+  }
+
+  const searchOptions = { topK: 5 };
+  if (intent === INTENTS.SCHEME_DISCOVERY && conversationState.activeState) {
+    searchOptions.stateOrRegion = conversationState.activeState;
+  }
+
   try {
-    searchResults = await semanticSearch(cleanQuery, { topK: 5 });
+    searchResults = await semanticSearch(retrievalQuery, searchOptions);
   } catch (searchErr) {
     logger.error('[RAG PIPELINE] Semantic search failed:', searchErr.message);
   }
@@ -132,10 +193,22 @@ async function processChat({ conversationId, userQuery }) {
     userQuery: cleanQuery,
     intent,
     retrievalEvaluation: evaluation,
-    conversationContext: historyWindow
+    conversationContext: { ...conversationState, history: historyWindow }
   });
 
   logger.info(`[RAG DECISION] Decision: ${decisionResult.decision} | Reason: ${decisionResult.reason}`);
+
+  // Diagnostics logging (Requirement 11)
+  logger.info('[CHATBOT DIAGNOSTICS]', JSON.stringify({
+    current_message: cleanQuery,
+    previous_message: historyWindow.length > 1 ? historyWindow[historyWindow.length - 2].content : null,
+    previous_intent: conversationState.activeIntent || null,
+    conversation_state: conversationState,
+    classified_intent: intent,
+    retrieval_count: searchResults.length,
+    answerability: evaluation.status,
+    decision: decisionResult.decision
+  }));
 
   let responsePayload = {};
 
@@ -166,6 +239,9 @@ async function processChat({ conversationId, userQuery }) {
         answer: finalAnswerText,
         sources
       };
+
+      // Clear awaiting state since question was answered
+      conversationState.awaiting = [];
       break;
     }
 
@@ -177,6 +253,10 @@ async function processChat({ conversationId, userQuery }) {
         intent,
         answer: clarifyAnswer
       };
+
+      if (intent === INTENTS.ELIGIBILITY) {
+        conversationState.awaiting = ['state', 'annual_income'];
+      }
       break;
     }
 
@@ -206,7 +286,8 @@ async function processChat({ conversationId, userQuery }) {
     }
   }
 
-  // STEP 10: Save assistant message in conversation memory
+  // STEP 10: Persist updated state & save assistant message
+  updateConversationState(activeConvId, conversationState);
   await saveMessage(activeConvId, 'assistant', responsePayload.answer);
 
   // STEP 11: Return response

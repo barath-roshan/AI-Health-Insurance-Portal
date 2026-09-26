@@ -23,7 +23,10 @@ async function getOrCreateConversation(conversationId) {
       .single();
 
     if (existing) {
-      return existing;
+      return {
+        ...existing,
+        conversationId: existing.conversation_id
+      };
     }
   }
 
@@ -117,10 +120,37 @@ async function getRecentMessageWindow(conversationId, windowSize = 6) {
   }));
 }
 
+// In-memory conversation state store keyed by conversation_id
+const conversationStates = new Map();
+
+/**
+ * Gets conversation state context (activeIntent, activeScheme, activeState, awaiting, etc.)
+ */
+function getConversationState(conversationId) {
+  if (!conversationId) return { activeIntent: null, activeScheme: null, activeState: null, awaiting: [] };
+  return conversationStates.get(conversationId) || { activeIntent: null, activeScheme: null, activeState: null, awaiting: [] };
+}
+
+/**
+ * Updates conversation state context
+ */
+function updateConversationState(conversationId, newState) {
+  if (!conversationId) return;
+  const current = getConversationState(conversationId);
+  const updated = {
+    ...current,
+    ...newState,
+    awaiting: newState.awaiting !== undefined ? newState.awaiting : current.awaiting
+  };
+  conversationStates.set(conversationId, updated);
+}
+
 module.exports = {
   CONVERSATIONS_TABLE,
   MESSAGES_TABLE,
   getOrCreateConversation,
   saveMessage,
-  getRecentMessageWindow
+  getRecentMessageWindow,
+  getConversationState,
+  updateConversationState
 };

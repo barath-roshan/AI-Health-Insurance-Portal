@@ -1,12 +1,38 @@
-# Environment & Secrets
+# Secrets
 .env
 .env.local
+.env.*.local
 
-# Dependencies
-node_modules/
+# Python
 __pycache__/
+*.py[cod]
 .venv/
+venv/
+*.egg-info/
 
-# Build & Dist outputs
+# Node
+node_modules/
+*.log
+
+# Build outputs
 dist/
+build/
 .vite/
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Archives
+*.zip
+*.tar.gz
+
+# Playwright
+playwright-report/
+test-results/
+screenshots/
+
+# OS
+.DS_Store
+Thumbs.db

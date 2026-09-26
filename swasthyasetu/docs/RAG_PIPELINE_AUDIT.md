@@ -109,5 +109,5 @@ User Citizen Query
 
 To re-enable direct Hugging Face Inference Providers model routing:
 1. Log into `https://huggingface.co/settings/tokens`.
-2. Edit token `HF_TOKEN_REDACTED` (or generate a new fine-grained token).
+2. Edit your existing token (or generate a new fine-grained token).
 3. Under **Permissions**, enable **Inference** -> **Make calls to Inference Providers**.

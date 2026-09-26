@@ -8,6 +8,25 @@ import {
   getAdminSystemStatus
 } from '../services/api';
 import MainLayout from '../layouts/MainLayout';
+import Badge from '../components/ui/Badge';
+import Button from '../components/ui/Button';
+import Card from '../components/ui/Card';
+import { 
+  Settings, 
+  RefreshCw, 
+  Activity, 
+  FileText, 
+  Headphones, 
+  ShieldCheck, 
+  Database, 
+  Server, 
+  Layers,
+  CheckCircle2,
+  AlertCircle,
+  Clock,
+  Edit2,
+  Check
+} from 'lucide-react';
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -58,7 +77,7 @@ const AdminDashboard = () => {
     setSuccessMsg(null);
     try {
       await updateAdminHandoffStatus(handoffId, nextStatus);
-      setSuccessMsg(`Handoff status updated to ${nextStatus}`);
+      setSuccessMsg(`Handoff ticket status updated to ${nextStatus}`);
       loadAdminData();
     } catch (err) {
       setError(err.response?.data?.detail || err.message || 'Failed to update handoff status.');
@@ -74,7 +93,6 @@ const AdminDashboard = () => {
       description: scheme.description || '',
       verification_status: scheme.verification_status || 'verified'
     });
-    // Load versions
     getAdminSchemeVersions(scheme.id)
       .then((vers) => setSelectedSchemeVersions(vers))
       .catch(() => setSelectedSchemeVersions([]));
@@ -106,352 +124,375 @@ const AdminDashboard = () => {
   return (
     <MainLayout>
       <div className="space-y-6">
-        {/* Header Hero */}
-        <div className="bg-slate-900 text-white rounded-xl p-6 sm:p-8 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-          <div>
-            <span className="inline-block px-2.5 py-1 text-xs font-semibold uppercase tracking-wider text-rose-400 bg-slate-800 rounded mb-2 border border-slate-700">
-              Admin Governance Portal
-            </span>
-            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">
-              SwasthyaSetu System Administration
+        
+        {/* HEADER HERO */}
+        <div className="bg-[#0B2545] text-white rounded-2xl p-6 sm:p-8 shadow-md border border-slate-800 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+          <div className="space-y-2">
+            <div className="inline-flex items-center space-x-1.5 bg-rose-950/80 border border-rose-500/30 px-3 py-1 rounded-full text-xs font-semibold text-rose-300">
+              <Settings className="w-3.5 h-3.5 text-rose-300" />
+              <span>Admin Operations Dashboard</span>
+            </div>
+            <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
+              KAAPAN System Governance
             </h1>
-            <p className="text-sm text-slate-300 mt-1">
-              Backend Role Authorization Enforced • Support Handoffs • Scheme Versioning • Cache Invalidation
+            <p className="text-sm text-slate-300 leading-relaxed">
+              Role Authorization Enforced • Support Handoffs • Scheme Version Audit • Cache Management
             </p>
           </div>
 
-          <button
-            onClick={loadAdminData}
-            className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold rounded-lg border border-slate-700 transition"
-          >
-            🔄 Refresh Status
-          </button>
+          <Button variant="outline" size="sm" onClick={loadAdminData} icon={RefreshCw} className="!bg-slate-900 !text-white !border-slate-700">
+            Refresh Data
+          </Button>
         </div>
 
-        {/* Global Notifications */}
+        {/* Global Alerts */}
         {error && (
-          <div className="p-4 bg-rose-50 border border-rose-200 text-rose-700 text-sm rounded-xl flex justify-between items-center">
-            <span>{error}</span>
+          <div className="p-4 bg-rose-50 border border-rose-200 text-rose-800 text-xs sm:text-sm rounded-xl flex justify-between items-center">
+            <div className="flex items-center space-x-2">
+              <AlertCircle className="w-4 h-4 text-rose-600 flex-shrink-0" />
+              <span>{error}</span>
+            </div>
             <button onClick={() => setError(null)} className="font-bold text-xs">✕</button>
           </div>
         )}
 
         {successMsg && (
-          <div className="p-4 bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm rounded-xl flex justify-between items-center">
-            <span>{successMsg}</span>
+          <div className="p-4 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs sm:text-sm rounded-xl flex justify-between items-center">
+            <div className="flex items-center space-x-2">
+              <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+              <span>{successMsg}</span>
+            </div>
             <button onClick={() => setSuccessMsg(null)} className="font-bold text-xs">✕</button>
           </div>
         )}
 
-        {/* Admin Navigation Tabs */}
-        <div className="flex flex-wrap gap-2 border-b border-slate-200 pb-3">
+        {/* ADMIN NAVIGATION TABS */}
+        <div className="flex flex-wrap gap-2 border-b border-slate-200/90 pb-3">
           {[
-            { key: 'overview', label: '📊 System Overview' },
-            { key: 'support', label: `🎧 Support Handoffs (${counts.pendingHandoffs})` },
-            { key: 'schemes', label: `📋 Schemes & Versions (${counts.activeSchemes})` },
-            { key: 'system', label: '⚙️ Services & Redis Status' }
-          ].map((tab) => (
-            <button
-              key={tab.key}
-              onClick={() => { setActiveTab(tab.key); setEditingScheme(null); }}
-              className={`px-4 py-2 text-xs font-bold rounded-lg transition border ${
-                activeTab === tab.key
-                  ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
-                  : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50'
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
+            { key: 'overview', label: 'System Overview', icon: Activity },
+            { key: 'support', label: `Support Handoffs (${counts.pendingHandoffs})`, icon: Headphones },
+            { key: 'schemes', label: `Schemes & Versioning (${counts.activeSchemes})`, icon: FileText },
+            { key: 'system', label: 'Services & Infrastructure', icon: Server }
+          ].map((tab) => {
+            const isActive = activeTab === tab.key;
+            const TabIcon = tab.icon;
+
+            return (
+              <button
+                key={tab.key}
+                onClick={() => { setActiveTab(tab.key); setEditingScheme(null); }}
+                className={`px-4 py-2.5 text-xs font-bold rounded-xl transition flex items-center space-x-2 border cursor-pointer ${
+                  isActive
+                    ? 'bg-[#0F4C5C] text-white border-[#0F4C5C] shadow-xs'
+                    : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50'
+                }`}
+              >
+                <TabIcon className="w-3.5 h-3.5" />
+                <span>{tab.label}</span>
+              </button>
+            );
+          })}
         </div>
 
         {loading ? (
-          <div className="py-20 text-center space-y-3">
-            <div className="w-10 h-10 border-4 border-emerald-600 border-t-transparent rounded-full animate-spin mx-auto"></div>
-            <p className="text-slate-500 text-sm font-medium">Authorizing admin & loading system state...</p>
+          <div className="py-16 text-center space-y-3 max-w-md mx-auto">
+            <div className="w-10 h-10 border-4 border-[#0F4C5C] border-t-transparent rounded-full animate-spin mx-auto"></div>
+            <p className="text-slate-500 text-sm font-medium">Authorizing role & loading operations state...</p>
           </div>
         ) : (
           <>
             {/* OVERVIEW TAB */}
             {activeTab === 'overview' && (
               <div className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                  <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
-                    <span className="text-xs font-bold text-slate-500 uppercase">Pending Support Handoffs</span>
-                    <div className="text-3xl font-extrabold text-amber-600 mt-2">{counts.pendingHandoffs}</div>
-                    <span className="text-[11px] text-slate-400 block mt-1">Requires admin review</span>
-                  </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                  <Card hoverEffect className="space-y-2">
+                    <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block">Pending Support Handoffs</span>
+                    <div className="text-3xl font-extrabold text-amber-600 font-mono">{counts.pendingHandoffs}</div>
+                    <span className="text-[11px] text-slate-400 block">Requires human review</span>
+                  </Card>
 
-                  <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
-                    <span className="text-xs font-bold text-slate-500 uppercase">Active Schemes</span>
-                    <div className="text-3xl font-extrabold text-emerald-600 mt-2">{counts.activeSchemes}</div>
-                    <span className="text-[11px] text-slate-400 block mt-1">PostgreSQL database records</span>
-                  </div>
+                  <Card hoverEffect className="space-y-2">
+                    <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block">Active Health Schemes</span>
+                    <div className="text-3xl font-extrabold text-emerald-600 font-mono">{counts.activeSchemes}</div>
+                    <span className="text-[11px] text-slate-400 block">PostgreSQL scheme catalog</span>
+                  </Card>
 
-                  <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
-                    <span className="text-xs font-bold text-slate-500 uppercase">Needs Verification</span>
-                    <div className="text-3xl font-extrabold text-blue-600 mt-2">{counts.needsVerification}</div>
-                    <span className="text-[11px] text-slate-400 block mt-1">Audit status</span>
-                  </div>
+                  <Card hoverEffect className="space-y-2">
+                    <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block">Needs Audit Verification</span>
+                    <div className="text-3xl font-extrabold text-indigo-600 font-mono">{counts.needsVerification}</div>
+                    <span className="text-[11px] text-slate-400 block">Verification queue</span>
+                  </Card>
 
-                  <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
-                    <span className="text-xs font-bold text-slate-500 uppercase">RAG Reindex Stale</span>
-                    <div className="text-3xl font-extrabold text-purple-600 mt-2">{counts.staleRag}</div>
-                    <span className="text-[11px] text-slate-400 block mt-1">Marked for reindex</span>
-                  </div>
+                  <Card hoverEffect className="space-y-2">
+                    <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block">RAG Reindex Stale</span>
+                    <div className="text-3xl font-extrabold text-rose-600 font-mono">{counts.staleRag}</div>
+                    <span className="text-[11px] text-slate-400 block">Marked for vector reindex</span>
+                  </Card>
                 </div>
               </div>
             )}
 
             {/* SUPPORT HANDOFFS TAB */}
             {activeTab === 'support' && (
-              <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm space-y-4">
-                <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3 flex justify-between items-center">
-                  <span>Human Support Handoff Requests</span>
-                  <span className="text-xs font-normal text-slate-500">{handoffs.length} Total Tickets</span>
-                </h2>
+              <Card className="space-y-4">
+                <div className="flex justify-between items-center border-b border-slate-100 pb-3">
+                  <h2 className="text-base font-bold text-slate-900">
+                    Human Support Handoff Tickets
+                  </h2>
+                  <Badge variant="neutral" size="sm" className="font-mono">
+                    {handoffs.length} Total Requests
+                  </Badge>
+                </div>
 
-                <div className="space-y-4">
+                <div className="space-y-3">
                   {handoffs.map((h) => (
-                    <div key={h.id} className="p-4 border border-slate-200 rounded-lg space-y-3 bg-slate-50">
+                    <div key={h.id} className="p-4 border border-slate-200/80 rounded-xl space-y-3 bg-slate-50/60">
                       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
                         <div>
-                          <span className="text-[11px] font-mono text-slate-400 block">ID: {h.id}</span>
+                          <span className="text-[11px] font-mono text-slate-400 block">TICKET ID: {h.id}</span>
                           <h4 className="text-sm font-bold text-slate-900">
                             Query: "{h.user_query}"
                           </h4>
                         </div>
-                        <span className="px-2.5 py-1 text-xs font-bold rounded bg-slate-900 text-white">
+                        <Badge variant="neutral" size="sm">
                           {h.status}
-                        </span>
+                        </Badge>
                       </div>
 
                       <p className="text-xs text-slate-700">
-                        <strong>Reason:</strong> {h.reason || 'N/A'}
+                        <strong className="text-slate-900 font-semibold">Reason:</strong> {h.reason || 'N/A'}
                       </p>
 
-                      {/* Status Transition Action Buttons */}
-                      <div className="pt-2 border-t border-slate-200 flex flex-wrap items-center gap-2">
+                      <div className="pt-2 border-t border-slate-200/80 flex flex-wrap items-center gap-2">
                         <span className="text-xs font-semibold text-slate-500 mr-2">Update Status:</span>
 
                         {h.status === 'PENDING' && (
-                          <button
+                          <Button
+                            variant="secondary"
+                            size="sm"
                             onClick={() => handleStatusTransition(h.id, 'IN_PROGRESS')}
-                            className="px-3 py-1 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold rounded transition"
                           >
                             Mark IN_PROGRESS →
-                          </button>
+                          </Button>
                         )}
 
                         {h.status === 'IN_PROGRESS' && (
-                          <button
+                          <Button
+                            variant="primary"
+                            size="sm"
                             onClick={() => handleStatusTransition(h.id, 'RESOLVED')}
-                            className="px-3 py-1 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold rounded transition"
                           >
                             Mark RESOLVED →
-                          </button>
+                          </Button>
                         )}
 
                         {h.status === 'RESOLVED' && (
-                          <button
+                          <Button
+                            variant="outline"
+                            size="sm"
                             onClick={() => handleStatusTransition(h.id, 'CLOSED')}
-                            className="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded transition"
                           >
                             Mark CLOSED →
-                          </button>
+                          </Button>
                         )}
 
                         {h.status === 'CLOSED' && (
-                          <span className="text-xs text-slate-400 italic">Ticket fully resolved and closed</span>
+                          <span className="text-xs text-slate-400 italic">Ticket fully resolved & closed</span>
                         )}
                       </div>
                     </div>
                   ))}
                 </div>
-              </div>
+              </Card>
             )}
 
-            {/* SCHEMES MANAGEMENT & VERSIONING TAB */}
+            {/* SCHEMES MANAGEMENT TAB */}
             {activeTab === 'schemes' && (
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                {/* Schemes Catalog List */}
-                <div className="lg:col-span-6 bg-white border border-slate-200 rounded-xl p-6 shadow-sm space-y-4">
-                  <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3">
-                    Scheme Management
+                
+                {/* Catalog List */}
+                <div className="lg:col-span-6 space-y-3">
+                  <h2 className="text-sm font-bold text-slate-700 uppercase tracking-wider px-1">
+                    Scheme Catalog Directory
                   </h2>
 
-                  <div className="space-y-3 max-h-[600px] overflow-y-auto pr-2">
+                  <div className="space-y-3 max-h-[600px] overflow-y-auto pr-1">
                     {schemes.map((s) => (
-                      <div
+                      <Card
                         key={s.id}
                         onClick={() => handleEditSchemeClick(s)}
-                        className={`p-4 border rounded-lg cursor-pointer transition ${
+                        className={`cursor-pointer transition-all ${
                           editingScheme?.id === s.id
-                            ? 'border-emerald-600 bg-emerald-50'
-                            : 'border-slate-200 hover:border-slate-300 bg-white'
+                            ? 'border-[#0F4C5C] bg-teal-50/50 shadow-xs'
+                            : 'hover:border-slate-300'
                         }`}
+                        padding="compact"
                       >
                         <div className="flex justify-between items-start gap-2">
-                          <h4 className="text-sm font-bold text-slate-900 leading-snug">
+                          <h4 className="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
                             {s.scheme_name}
                           </h4>
-                          <span className="px-2 py-0.5 text-[10px] font-bold uppercase bg-slate-100 text-slate-700 rounded">
+                          <Badge variant="brand" size="sm">
                             v{s.current_version}
-                          </span>
+                          </Badge>
                         </div>
                         <p className="text-xs text-slate-500 mt-1 line-clamp-2">{s.description}</p>
-                        <div className="mt-2 flex items-center justify-between text-[11px]">
-                          <span className="text-slate-400">Code: {s.scheme_code}</span>
+                        <div className="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[11px]">
+                          <span className="font-mono text-slate-400">Code: {s.scheme_code}</span>
                           {s.rag_stale && (
-                            <span className="text-purple-700 font-bold bg-purple-50 px-1.5 py-0.5 rounded">
+                            <span className="text-rose-700 font-bold bg-rose-50 px-2 py-0.5 rounded border border-rose-200">
                               RAG Reindex Required
                             </span>
                           )}
                         </div>
-                      </div>
+                      </Card>
                     ))}
                   </div>
                 </div>
 
-                {/* Edit Scheme Panel */}
-                <div className="lg:col-span-6 bg-white border border-slate-200 rounded-xl p-6 shadow-sm space-y-4">
-                  <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3">
-                    {editingScheme ? `Edit: ${editingScheme.scheme_name}` : 'Select a Scheme to Edit'}
-                  </h2>
+                {/* Edit Form */}
+                <div className="lg:col-span-6">
+                  <Card className="space-y-4">
+                    <h2 className="text-base font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center justify-between">
+                      <span>{editingScheme ? `Edit Metadata: ${editingScheme.scheme_name}` : 'Select a Scheme to Edit'}</span>
+                      {editingScheme && <Edit2 className="w-4 h-4 text-[#0F4C5C]" />}
+                    </h2>
 
-                  {editingScheme ? (
-                    <form onSubmit={handleSaveScheme} className="space-y-4">
-                      <div>
-                        <label className="block text-xs font-semibold uppercase text-slate-700 mb-1">
-                          Scheme Title
-                        </label>
-                        <input
-                          type="text"
-                          required
-                          value={schemeForm.scheme_name}
-                          onChange={(e) => setSchemeForm({ ...schemeForm, scheme_name: e.target.value })}
-                          className="w-full px-3 py-2 border border-slate-300 rounded text-sm text-slate-900"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-semibold uppercase text-slate-700 mb-1">
-                          Category
-                        </label>
-                        <input
-                          type="text"
-                          value={schemeForm.category}
-                          onChange={(e) => setSchemeForm({ ...schemeForm, category: e.target.value })}
-                          className="w-full px-3 py-2 border border-slate-300 rounded text-sm text-slate-900"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-semibold uppercase text-slate-700 mb-1">
-                          State / Region
-                        </label>
-                        <input
-                          type="text"
-                          value={schemeForm.state_or_region}
-                          onChange={(e) => setSchemeForm({ ...schemeForm, state_or_region: e.target.value })}
-                          className="w-full px-3 py-2 border border-slate-300 rounded text-sm text-slate-900"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-semibold uppercase text-slate-700 mb-1">
-                          Verification Status
-                        </label>
-                        <select
-                          value={schemeForm.verification_status}
-                          onChange={(e) => setSchemeForm({ ...schemeForm, verification_status: e.target.value })}
-                          className="w-full px-3 py-2 border border-slate-300 rounded text-sm text-slate-900"
-                        >
-                          <option value="verified">Verified</option>
-                          <option value="needs_verification">Needs Verification</option>
-                          <option value="draft">Draft</option>
-                        </select>
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-semibold uppercase text-slate-700 mb-1">
-                          Description
-                        </label>
-                        <textarea
-                          rows={3}
-                          value={schemeForm.description}
-                          onChange={(e) => setSchemeForm({ ...schemeForm, description: e.target.value })}
-                          className="w-full px-3 py-2 border border-slate-300 rounded text-sm text-slate-900"
-                        />
-                      </div>
-
-                      <button
-                        type="submit"
-                        className="w-full py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded transition shadow-sm"
-                      >
-                        Save & Create New Version (Invalidates Redis Cache)
-                      </button>
-
-                      {/* Historical Version Audit List */}
-                      <div className="pt-4 border-t border-slate-100 space-y-2">
-                        <span className="text-xs font-bold text-slate-700 block">
-                          Historical Version Records ({selectedSchemeVersions.length})
-                        </span>
-                        <div className="space-y-1.5 max-h-36 overflow-y-auto text-xs">
-                          {selectedSchemeVersions.map((v) => (
-                            <div key={v.id} className="p-2 bg-slate-50 rounded border border-slate-200 flex justify-between">
-                              <span>Version #{v.version}</span>
-                              <span className="text-slate-400">{new Date(v.effective_from).toLocaleDateString()}</span>
-                            </div>
-                          ))}
+                    {editingScheme ? (
+                      <form onSubmit={handleSaveScheme} className="space-y-4">
+                        <div>
+                          <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                            Scheme Title
+                          </label>
+                          <input
+                            type="text"
+                            required
+                            value={schemeForm.scheme_name}
+                            onChange={(e) => setSchemeForm({ ...schemeForm, scheme_name: e.target.value })}
+                            className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs sm:text-sm text-slate-900"
+                          />
                         </div>
-                      </div>
-                    </form>
-                  ) : (
-                    <p className="text-slate-400 text-xs py-10 text-center">
-                      Click any scheme from the catalog list on the left to edit metadata and view version history.
-                    </p>
-                  )}
+
+                        <div className="grid grid-cols-2 gap-3">
+                          <div>
+                            <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                              Category
+                            </label>
+                            <input
+                              type="text"
+                              value={schemeForm.category}
+                              onChange={(e) => setSchemeForm({ ...schemeForm, category: e.target.value })}
+                              className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs sm:text-sm text-slate-900"
+                            />
+                          </div>
+
+                          <div>
+                            <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                              State / Region
+                            </label>
+                            <input
+                              type="text"
+                              value={schemeForm.state_or_region}
+                              onChange={(e) => setSchemeForm({ ...schemeForm, state_or_region: e.target.value })}
+                              className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs sm:text-sm text-slate-900"
+                            />
+                          </div>
+                        </div>
+
+                        <div>
+                          <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                            Verification Status
+                          </label>
+                          <select
+                            value={schemeForm.verification_status}
+                            onChange={(e) => setSchemeForm({ ...schemeForm, verification_status: e.target.value })}
+                            className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs sm:text-sm text-slate-900"
+                          >
+                            <option value="verified">Verified</option>
+                            <option value="needs_verification">Needs Verification</option>
+                            <option value="draft">Draft</option>
+                          </select>
+                        </div>
+
+                        <div>
+                          <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                            Description
+                          </label>
+                          <textarea
+                            rows={3}
+                            value={schemeForm.description}
+                            onChange={(e) => setSchemeForm({ ...schemeForm, description: e.target.value })}
+                            className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs sm:text-sm text-slate-900"
+                          />
+                        </div>
+
+                        <Button type="submit" variant="primary" size="md" className="w-full" icon={Check}>
+                          Save & Create New Version
+                        </Button>
+
+                        <div className="pt-4 border-t border-slate-100 space-y-2">
+                          <span className="text-xs font-bold text-slate-700 block uppercase tracking-wider">
+                            Version History Audit ({selectedSchemeVersions.length})
+                          </span>
+                          <div className="space-y-1.5 max-h-36 overflow-y-auto text-xs">
+                            {selectedSchemeVersions.map((v) => (
+                              <div key={v.id} className="p-2 bg-slate-50 rounded-lg border border-slate-200 flex justify-between">
+                                <span className="font-mono">Version #{v.version}</span>
+                                <span className="text-slate-400">{new Date(v.effective_from).toLocaleDateString()}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </form>
+                    ) : (
+                      <p className="text-slate-400 text-xs py-12 text-center">
+                        Select any scheme from the list on the left to edit metadata and inspect version history.
+                      </p>
+                    )}
+                  </Card>
                 </div>
+
               </div>
             )}
 
-            {/* SYSTEM & REDIS STATUS TAB */}
+            {/* SERVICES & SYSTEM TAB */}
             {activeTab === 'system' && systemStatus && (
-              <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm space-y-6">
-                <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3">
-                  Live Infrastructure & Cache Status
+              <Card className="space-y-6">
+                <h2 className="text-base font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center space-x-2">
+                  <Server className="w-4 h-4 text-[#0F4C5C]" />
+                  <span>Live Infrastructure Operational Health</span>
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                  <div className="p-4 border border-slate-200 rounded-lg space-y-2 bg-slate-50">
-                    <span className="font-bold text-slate-700 uppercase">KAAPAN FastAPI Backend</span>
+                  <div className="p-4 border border-slate-200/80 rounded-xl space-y-2 bg-slate-50/80">
+                    <span className="font-bold text-slate-700 uppercase tracking-wider">FastAPI Backend</span>
                     <div className="text-emerald-700 font-mono font-bold">STATUS: {systemStatus.kaapan_backend?.status?.toUpperCase()}</div>
                     <span className="text-slate-500 block">Service: {systemStatus.kaapan_backend?.service}</span>
                   </div>
 
-                  <div className="p-4 border border-slate-200 rounded-lg space-y-2 bg-slate-50">
-                    <span className="font-bold text-slate-700 uppercase">PostgreSQL Database</span>
+                  <div className="p-4 border border-slate-200/80 rounded-xl space-y-2 bg-slate-50/80">
+                    <span className="font-bold text-slate-700 uppercase tracking-wider">PostgreSQL Database</span>
                     <div className="text-emerald-700 font-mono font-bold">STATUS: {systemStatus.postgresql?.status?.toUpperCase()}</div>
                     <span className="text-slate-500 block">Driver: SQLAlchemy / psycopg2</span>
                   </div>
 
-                  <div className="p-4 border border-slate-200 rounded-lg space-y-2 bg-slate-50">
-                    <span className="font-bold text-slate-700 uppercase">Redis Cache (Port 6379)</span>
+                  <div className="p-4 border border-slate-200/80 rounded-xl space-y-2 bg-slate-50/80">
+                    <span className="font-bold text-slate-700 uppercase tracking-wider">Redis Cache (Port 6379)</span>
                     <div className="text-emerald-700 font-mono font-bold">STATUS: {systemStatus.redis_cache?.status?.toUpperCase()}</div>
                     <span className="text-slate-500 block">Host: {systemStatus.redis_cache?.host}:{systemStatus.redis_cache?.port}</span>
                   </div>
 
-                  <div className="p-4 border border-slate-200 rounded-lg space-y-2 bg-slate-50">
-                    <span className="font-bold text-slate-700 uppercase">Node.js RAG Microservice (Port 5000)</span>
+                  <div className="p-4 border border-slate-200/80 rounded-xl space-y-2 bg-slate-50/80">
+                    <span className="font-bold text-slate-700 uppercase tracking-wider">Node.js RAG Microservice (Port 5000)</span>
                     <div className="text-emerald-700 font-mono font-bold">STATUS: {systemStatus.rag_microservice?.status?.toUpperCase()}</div>
                     <span className="text-slate-500 block">Service: {systemStatus.rag_microservice?.service}</span>
                   </div>
                 </div>
-              </div>
+              </Card>
             )}
           </>
         )}
+
       </div>
     </MainLayout>
   );

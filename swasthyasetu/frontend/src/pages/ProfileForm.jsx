@@ -2,6 +2,21 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getProfile, updateProfile } from '../services/api';
 import MainLayout from '../layouts/MainLayout';
+import Button from '../components/ui/Button';
+import Card from '../components/ui/Card';
+import Badge from '../components/ui/Badge';
+import { 
+  User, 
+  MapPin, 
+  Briefcase, 
+  ShieldCheck, 
+  ArrowRight, 
+  ArrowLeft, 
+  Check, 
+  AlertCircle,
+  IndianRupee,
+  Users
+} from 'lucide-react';
 
 const INDIAN_STATES = [
   'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh',
@@ -101,72 +116,110 @@ const ProfileForm = () => {
   if (loading) {
     return (
       <MainLayout>
-        <div className="py-20 text-center space-y-3">
-          <div className="w-10 h-10 border-4 border-emerald-600 border-t-transparent rounded-full animate-spin mx-auto"></div>
-          <p className="text-slate-500 text-sm font-medium">Loading citizen profile...</p>
+        <div className="py-20 text-center space-y-3 max-w-md mx-auto">
+          <div className="w-10 h-10 border-4 border-[#0F4C5C] border-t-transparent rounded-full animate-spin mx-auto"></div>
+          <p className="text-slate-500 text-sm font-medium">Loading citizen profile information...</p>
         </div>
       </MainLayout>
     );
   }
 
+  const progressPercent = step * 25;
+
   return (
     <MainLayout>
       <div className="max-w-2xl mx-auto my-6 space-y-6">
-        {/* Wizard Header */}
-        <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm text-center">
-          <h1 className="text-2xl font-bold text-slate-900 tracking-tight">Citizen Profile</h1>
-          <p className="text-sm text-slate-500 mt-1">
-            Complete your profile steps to check government scheme eligibility.
-          </p>
+        
+        {/* WIZARD HEADER & PROGRESS BAR */}
+        <Card className="text-center space-y-4">
+          <div>
+            <Badge variant="brand" size="sm" className="mb-2">
+              Citizen Guided Wizard
+            </Badge>
+            <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">
+              Scheme Eligibility Check
+            </h1>
+            <p className="text-xs text-slate-500 mt-1 max-w-md mx-auto">
+              Provide state, district, income, and household details to run deterministic scheme rules.
+            </p>
+          </div>
 
-          {/* Stepper indicator */}
-          <div className="flex items-center justify-center space-x-2 sm:space-x-4 mt-6">
+          {/* Progress Bar */}
+          <div className="space-y-1.5 pt-2">
+            <div className="flex justify-between text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+              <span>Progress</span>
+              <span>{progressPercent}% Complete</span>
+            </div>
+            <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden border border-slate-200/60">
+              <div
+                className="bg-[#0F4C5C] h-full transition-all duration-300 rounded-full"
+                style={{ width: `${progressPercent}%` }}
+              />
+            </div>
+          </div>
+
+          {/* Stepper Node Indicators */}
+          <div className="grid grid-cols-4 gap-2 pt-2 border-t border-slate-100">
             {[
-              { num: 1, label: 'Location' },
-              { num: 2, label: 'Demographics' },
-              { num: 3, label: 'Income & Work' },
-              { num: 4, label: 'Coverage & Family' },
-            ].map((s) => (
-              <div key={s.num} className="flex items-center space-x-2">
+              { num: 1, label: 'Location', icon: MapPin },
+              { num: 2, label: 'Personal', icon: User },
+              { num: 3, label: 'Income', icon: IndianRupee },
+              { num: 4, label: 'Coverage', icon: ShieldCheck },
+            ].map((s) => {
+              const StepIcon = s.icon;
+              const isDone = step > s.num;
+              const isCurrent = step === s.num;
+
+              return (
                 <button
+                  key={s.num}
                   type="button"
                   onClick={() => setStep(s.num)}
-                  className={`w-8 h-8 rounded-full text-xs font-bold flex items-center justify-center transition ${
-                    step === s.num
-                      ? 'bg-emerald-600 text-white shadow-sm'
-                      : step > s.num
-                      ? 'bg-emerald-100 text-emerald-800'
-                      : 'bg-slate-100 text-slate-500'
+                  className={`p-2 rounded-xl text-center transition flex flex-col items-center gap-1 cursor-pointer border ${
+                    isCurrent
+                      ? 'bg-[#0F4C5C] text-white border-[#0F4C5C] shadow-2xs'
+                      : isDone
+                      ? 'bg-teal-50 text-teal-800 border-teal-200'
+                      : 'bg-slate-50 text-slate-400 border-slate-200'
                   }`}
                 >
-                  {s.num}
+                  <div className="flex items-center space-x-1 text-xs font-bold">
+                    {isDone ? <Check className="w-3.5 h-3.5 text-teal-700" /> : <StepIcon className="w-3.5 h-3.5" />}
+                    <span>Step {s.num}</span>
+                  </div>
+                  <span className="text-[10px] font-medium hidden sm:inline">{s.label}</span>
                 </button>
-                <span className={`text-xs hidden sm:inline ${step === s.num ? 'font-bold text-slate-900' : 'text-slate-500'}`}>
-                  {s.label}
-                </span>
-              </div>
-            ))}
+              );
+            })}
           </div>
-        </div>
+        </Card>
 
         {error && (
-          <div className="p-4 bg-rose-50 border border-rose-200 text-rose-700 text-sm rounded-xl">
-            {error}
+          <div className="p-4 bg-rose-50 border border-rose-200 text-rose-800 text-xs sm:text-sm rounded-xl flex items-center space-x-2">
+            <AlertCircle className="w-4 h-4 text-rose-600 flex-shrink-0" />
+            <span>{error}</span>
           </div>
         )}
 
-        {/* Wizard Form Card */}
-        <div className="bg-white border border-slate-200 rounded-xl p-6 sm:p-8 shadow-sm">
+        {/* WIZARD FORM CARD */}
+        <Card className="p-6 sm:p-8">
           <form onSubmit={step === 4 ? handleSubmit : handleNext} className="space-y-6">
-            {/* Step 1: State + District */}
+            
+            {/* STEP 1: STATE & DISTRICT */}
             {step === 1 && (
               <div className="space-y-4">
-                <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
-                  Step 1: State & District
-                </h2>
+                <div className="border-b border-slate-100 pb-3">
+                  <h2 className="text-base font-bold text-slate-900 flex items-center space-x-2">
+                    <MapPin className="w-4 h-4 text-[#0F4C5C]" />
+                    <span>Step 1: State & District Jurisdiction</span>
+                  </h2>
+                  <p className="text-xs text-slate-500 mt-0.5">
+                    State government health schemes (e.g. CMCHIS in Tamil Nadu) require state residency.
+                  </p>
+                </div>
 
                 <div>
-                  <label className="block text-xs font-semibold uppercase text-slate-700 mb-1">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
                     State / Union Territory *
                   </label>
                   <select
@@ -174,9 +227,9 @@ const ProfileForm = () => {
                     required
                     value={formData.state}
                     onChange={handleChange}
-                    className="w-full px-3.5 py-2.5 border border-slate-300 rounded-lg text-sm text-slate-900 focus:ring-2 focus:ring-emerald-500 outline-none"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-900 focus:ring-2 focus:ring-[#0F4C5C] focus:bg-white outline-none transition"
                   >
-                    <option value="">-- Select State --</option>
+                    <option value="">-- Select Your Residence State --</option>
                     {INDIAN_STATES.map((s) => (
                       <option key={s} value={s}>{s}</option>
                     ))}
@@ -184,7 +237,7 @@ const ProfileForm = () => {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold uppercase text-slate-700 mb-1">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
                     District Name
                   </label>
                   <input
@@ -193,21 +246,27 @@ const ProfileForm = () => {
                     value={formData.district}
                     onChange={handleChange}
                     placeholder="e.g. Chennai, Madurai, Salem"
-                    className="w-full px-3.5 py-2.5 border border-slate-300 rounded-lg text-sm text-slate-900 focus:ring-2 focus:ring-emerald-500 outline-none"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-900 focus:ring-2 focus:ring-[#0F4C5C] focus:bg-white outline-none transition"
                   />
                 </div>
               </div>
             )}
 
-            {/* Step 2: Age + Gender */}
+            {/* STEP 2: AGE & GENDER */}
             {step === 2 && (
               <div className="space-y-4">
-                <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
-                  Step 2: Age & Gender
-                </h2>
+                <div className="border-b border-slate-100 pb-3">
+                  <h2 className="text-base font-bold text-slate-900 flex items-center space-x-2">
+                    <User className="w-4 h-4 text-[#0F4C5C]" />
+                    <span>Step 2: Demographics (Age & Gender)</span>
+                  </h2>
+                  <p className="text-xs text-slate-500 mt-0.5">
+                    Senior citizen or gender-specific scheme rules evaluate age boundaries.
+                  </p>
+                </div>
 
                 <div>
-                  <label className="block text-xs font-semibold uppercase text-slate-700 mb-1">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
                     Age (Years) *
                   </label>
                   <input
@@ -219,19 +278,19 @@ const ProfileForm = () => {
                     value={formData.age}
                     onChange={handleChange}
                     placeholder="e.g. 45"
-                    className="w-full px-3.5 py-2.5 border border-slate-300 rounded-lg text-sm text-slate-900 focus:ring-2 focus:ring-emerald-500 outline-none"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-900 focus:ring-2 focus:ring-[#0F4C5C] focus:bg-white outline-none transition"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold uppercase text-slate-700 mb-1">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
                     Gender
                   </label>
                   <select
                     name="gender"
                     value={formData.gender}
                     onChange={handleChange}
-                    className="w-full px-3.5 py-2.5 border border-slate-300 rounded-lg text-sm text-slate-900 focus:ring-2 focus:ring-emerald-500 outline-none"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-900 focus:ring-2 focus:ring-[#0F4C5C] focus:bg-white outline-none transition"
                   >
                     <option value="male">Male</option>
                     <option value="female">Female</option>
@@ -241,22 +300,28 @@ const ProfileForm = () => {
               </div>
             )}
 
-            {/* Step 3: Occupation + Income */}
+            {/* STEP 3: OCCUPATION & INCOME */}
             {step === 3 && (
               <div className="space-y-4">
-                <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
-                  Step 3: Occupation & Annual Income
-                </h2>
+                <div className="border-b border-slate-100 pb-3">
+                  <h2 className="text-base font-bold text-slate-900 flex items-center space-x-2">
+                    <IndianRupee className="w-4 h-4 text-[#0F4C5C]" />
+                    <span>Step 3: Occupation & Household Income</span>
+                  </h2>
+                  <p className="text-xs text-slate-500 mt-0.5">
+                    Most government schemes evaluate annual household income caps (e.g. ₹1,20,000/yr).
+                  </p>
+                </div>
 
                 <div>
-                  <label className="block text-xs font-semibold uppercase text-slate-700 mb-1">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
                     Primary Occupation
                   </label>
                   <select
                     name="occupation"
                     value={formData.occupation}
                     onChange={handleChange}
-                    className="w-full px-3.5 py-2.5 border border-slate-300 rounded-lg text-sm text-slate-900 focus:ring-2 focus:ring-emerald-500 outline-none"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-900 focus:ring-2 focus:ring-[#0F4C5C] focus:bg-white outline-none transition"
                   >
                     <option value="">-- Select Occupation --</option>
                     <option value="farmer">Farmer / Agricultural Worker</option>
@@ -271,8 +336,8 @@ const ProfileForm = () => {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold uppercase text-slate-700 mb-1">
-                    Annual Family Income (₹ INR) *
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                    Annual Household Income (₹ INR) *
                   </label>
                   <input
                     type="number"
@@ -282,25 +347,31 @@ const ProfileForm = () => {
                     value={formData.annual_income}
                     onChange={handleChange}
                     placeholder="e.g. 120000"
-                    className="w-full px-3.5 py-2.5 border border-slate-300 rounded-lg text-sm text-slate-900 focus:ring-2 focus:ring-emerald-500 outline-none"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-900 focus:ring-2 focus:ring-[#0F4C5C] focus:bg-white outline-none transition"
                   />
                   <span className="text-[11px] text-slate-500 mt-1 block">
-                    Enter gross annual household income in Rupees.
+                    Enter gross total annual income of all family members combined in Rupees.
                   </span>
                 </div>
               </div>
             )}
 
-            {/* Step 4: Family Size + Existing Coverage */}
+            {/* STEP 4: FAMILY SIZE & EXISTING COVERAGE */}
             {step === 4 && (
               <div className="space-y-4">
-                <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2">
-                  Step 4: Family Size & Existing Coverage
-                </h2>
+                <div className="border-b border-slate-100 pb-3">
+                  <h2 className="text-base font-bold text-slate-900 flex items-center space-x-2">
+                    <ShieldCheck className="w-4 h-4 text-[#0F4C5C]" />
+                    <span>Step 4: Family Members & Existing Coverage</span>
+                  </h2>
+                  <p className="text-xs text-slate-500 mt-0.5">
+                    Determine floater coverage limits and existing insurance conflict rules.
+                  </p>
+                </div>
 
                 <div>
-                  <label className="block text-xs font-semibold uppercase text-slate-700 mb-1">
-                    Total Family Members
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                    Total Household Family Members
                   </label>
                   <input
                     type="number"
@@ -309,19 +380,19 @@ const ProfileForm = () => {
                     max="20"
                     value={formData.family_size}
                     onChange={handleChange}
-                    className="w-full px-3.5 py-2.5 border border-slate-300 rounded-lg text-sm text-slate-900 focus:ring-2 focus:ring-emerald-500 outline-none"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-900 focus:ring-2 focus:ring-[#0F4C5C] focus:bg-white outline-none transition"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold uppercase text-slate-700 mb-1">
-                    Existing Health Insurance Coverage
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                    Existing Health Insurance Status
                   </label>
                   <select
                     name="existing_coverage"
                     value={formData.existing_coverage}
                     onChange={handleChange}
-                    className="w-full px-3.5 py-2.5 border border-slate-300 rounded-lg text-sm text-slate-900 focus:ring-2 focus:ring-emerald-500 outline-none"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-900 focus:ring-2 focus:ring-[#0F4C5C] focus:bg-white outline-none transition"
                   >
                     <option value="none">No Existing Health Insurance</option>
                     <option value="state_scheme">Existing State Health Scheme Card</option>
@@ -332,46 +403,49 @@ const ProfileForm = () => {
               </div>
             )}
 
-            {/* Navigation Buttons */}
+            {/* NAV BUTTONS */}
             <div className="pt-6 border-t border-slate-100 flex items-center justify-between">
               {step > 1 ? (
-                <button
+                <Button
                   type="button"
+                  variant="outline"
+                  size="sm"
                   onClick={handleBack}
-                  className="px-4 py-2 text-sm font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition"
+                  icon={ArrowLeft}
                 >
-                  ← Previous
-                </button>
+                  Previous Step
+                </Button>
               ) : (
-                <div></div>
+                <div />
               )}
 
               {step < 4 ? (
-                <button
+                <Button
                   type="submit"
-                  className="px-5 py-2.5 text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-500 rounded-lg transition shadow-sm"
+                  variant="primary"
+                  size="sm"
+                  icon={ArrowRight}
+                  iconPosition="right"
                 >
-                  Next Step →
-                </button>
+                  Continue to Step {step + 1}
+                </Button>
               ) : (
-                <button
+                <Button
                   type="submit"
-                  disabled={saving}
-                  className="px-6 py-2.5 text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-500 rounded-lg transition shadow-sm disabled:opacity-50 flex items-center space-x-2"
+                  variant="secondary"
+                  size="md"
+                  isLoading={saving}
+                  icon={Check}
+                  iconPosition="right"
                 >
-                  {saving ? (
-                    <>
-                      <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                      <span>Saving Profile & Checking...</span>
-                    </>
-                  ) : (
-                    <span>Save Profile & Check Eligibility →</span>
-                  )}
-                </button>
+                  Save Profile & Evaluate Eligibility
+                </Button>
               )}
             </div>
+
           </form>
-        </div>
+        </Card>
+
       </div>
     </MainLayout>
   );

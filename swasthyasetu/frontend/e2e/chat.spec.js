@@ -5,7 +5,7 @@ test.describe('6. Chatbot / RAG Integration Suite', () => {
   test('AI Assistant chat interface loads and handles citizen prompt', async ({ page }) => {
     await page.goto('/chat');
 
-    await expect(page.locator('h1')).toContainText('SwasthyaSetu AI Assistant');
+    await expect(page.locator('body')).toContainText('KAAPAN AI Assistant');
 
     // Input prompt
     const chatInput = page.locator('input[placeholder*="Type your question"]');

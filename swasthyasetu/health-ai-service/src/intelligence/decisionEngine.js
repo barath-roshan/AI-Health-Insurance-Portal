@@ -1,4 +1,4 @@
-const { INTENTS } = require('./intentClassifier');
+const { INTENTS, normalizeStateName, isPersonalizedEligibilityQuery } = require('./intentClassifier');
 
 const DECISIONS = {
   ANSWER: 'ANSWER',
@@ -51,19 +51,23 @@ function decideNextAction({ userQuery, intent, retrievalEvaluation, conversation
     };
   }
 
-  // RULE 4: Personalized eligibility safety check
-  // RAG chatbot does NOT make eligibility decisions!
+  // RULE 4: Eligibility Handling (General vs Personalized)
   if (intent === INTENTS.ELIGIBILITY) {
-    const textLower = userQuery.toLowerCase();
-    const hasIncomeMention = /\b(income|salary|lakh|rupees|rs|per annum|earning)\b/i.test(textLower);
-    const hasStateMention = /\b(tamil nadu|kerala|rajasthan|andhra|bihar|assam|delhi|maharashtra|haryana|goa|gujarat|jharkhand|himachal)\b/i.test(textLower);
+    const isPersonal = isPersonalizedEligibilityQuery(userQuery);
 
-    if (!hasIncomeMention || !hasStateMention) {
-      return {
-        decision: DECISIONS.CLARIFY,
-        reason: 'Personalized eligibility request missing key citizen profile details (state and annual household income).',
-        clarificationQuestion: 'To check your eligibility, could you please specify your state of residence and approximate annual household income?'
-      };
+    if (isPersonal) {
+      const textLower = userQuery.toLowerCase();
+      const stateFromQuery = normalizeStateName ? normalizeStateName(userQuery) : null;
+      const hasIncomeMention = /\b(income|salary|lakh|rupees|rs|per annum|earning|\d{4,7})\b/i.test(textLower) || (conversationContext && conversationContext.annualIncome);
+      const hasStateMention = Boolean(stateFromQuery) || /\b(tamil nadu|kerala|rajasthan|andhra|bihar|assam|delhi|maharashtra|haryana|goa|gujarat|jharkhand|himachal|tn|kl|rj|ap|mh|dl)\b/i.test(textLower) || (conversationContext && conversationContext.activeState);
+
+      if (!hasIncomeMention || !hasStateMention) {
+        return {
+          decision: DECISIONS.CLARIFY,
+          reason: 'Personalized eligibility request missing key citizen profile details (state and annual household income).',
+          clarificationQuestion: 'To check your eligibility, could you please specify your state of residence and approximate annual household income?'
+        };
+      }
     }
   }
 
@@ -93,10 +97,11 @@ function decideNextAction({ userQuery, intent, retrievalEvaluation, conversation
     };
   }
 
-  // Fallback
+  // Safe Fallback (Do NOT route ordinary unhandled path to HUMAN)
   return {
-    decision: DECISIONS.HUMAN,
-    reason: 'Default safety fallback for unhandled decision path.'
+    decision: DECISIONS.CLARIFY,
+    reason: 'Safe clarification fallback for unhandled decision path.',
+    clarificationQuestion: 'Could you please specify your state or the health scheme name so I can provide accurate details?'
   };
 }
 
