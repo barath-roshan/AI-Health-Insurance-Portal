@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-ayushman-bharat-pradhan-mantri-jan-arogya-yojana-ab-pmjay",
+  "tree_id": "tree-ayushman-bharat-pradhan-mantri-jan-arogya-yojana-ab-pmjay",
+  "scheme_id": "ayushman-bharat-pradhan-mantri-jan-arogya-yojana-ab-pmjay",
+  "title": "Ayushman Bharat \u2013 Pradhan Mantri Jan Arogya Yojana (AB-PMJAY) Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Government-funded health assurance for secondary and tertiary hospitalization, generally providing up to \u20b95 lakh per eligible family per year on a family-floater basis through empanelled hospitals.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligibility is based primarily on the scheme's notified beneficiary database/eligibility criteria and applicable government rules; implementation can include state-specific beneficiary categories. Eligibility should be verified using the official PM-JAY/state beneficiary system.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Ayushman Bharat \u2013 Pradhan Mantri Jan Arogya Yojana (AB-PMJAY).",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

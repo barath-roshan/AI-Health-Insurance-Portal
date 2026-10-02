@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-assam-arogya-nidhi",
+  "tree_id": "tree-assam-arogya-nidhi",
+  "scheme_id": "assam-arogya-nidhi",
+  "title": "Assam Arogya Nidhi Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Financial assistance scheme of Assam for needy patients requiring treatment and hospitalization, particularly where other government insurance pathways do not cover the case.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Poor/needy patients satisfying the current Assam Arogya Nidhi guidelines and eligible medical/hospital conditions.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Assam Arogya Nidhi.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-railway-employees-liberalized-health-scheme-relhs",
+  "tree_id": "tree-railway-employees-liberalized-health-scheme-relhs",
+  "scheme_id": "railway-employees-liberalized-health-scheme-relhs",
+  "title": "Railway Employees Liberalized Health Scheme (RELHS) Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Post-retirement medical benefit scheme for eligible retired railway employees and specified family members.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligible retired railway employees and family/dependants covered under Railway health-service rules and RELHS conditions.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Railway Employees Liberalized Health Scheme (RELHS).",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

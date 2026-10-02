@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-contributory-health-service-scheme-chss",
+  "tree_id": "tree-contributory-health-service-scheme-chss",
+  "scheme_id": "contributory-health-service-scheme-chss",
+  "title": "Contributory Health Service Scheme (CHSS) Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Medical benefit scheme for eligible employees and beneficiaries of the Department of Atomic Energy and associated covered establishments.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligible serving/retired DAE employees and specified family/dependant categories under CHSS rules.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Contributory Health Service Scheme (CHSS).",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "document_id": "pid-in-jssk",
+  "tree_id": "tree-in-jssk",
+  "scheme_id": "IN-JSSK",
+  "title": "Janani Shishu Suraksha Karyakram (JSSK) Policy & Guidelines",
+  "nodes": [
+    {
+      "section_id": "sec-1-overview",
+      "title": "1. Programme Overview & Type",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Programme Name: Janani Shishu Suraksha Karyakram (JSSK)\nJurisdiction: India\nCategory: Maternal and newborn healthcare entitlements\nType: Public Healthcare Entitlement\nDetails: Entitlements intended to provide free/cashless services for pregnant women and sick newborns/infants in public institutions, according to guidelines."
+    },
+    {
+      "section_id": "sec-2-eligibility",
+      "title": "2. Eligibility Criteria & Conditions",
+      "page_start": 2,
+      "page_end": 2,
+      "content": "Eligibility: Pregnant women and sick newborns/infants covered by current JSSK rules; confirm exact scope from national/state guidance.\nIndividual Enrolment Required: False"
+    },
+    {
+      "section_id": "sec-3-documents",
+      "title": "3. Required Documents & Documentation",
+      "page_start": 3,
+      "page_end": 3,
+      "content": "Required Documents: Pregnancy/MCP card or child health records and identity/facility records where available. Confirm local requirements."
+    },
+    {
+      "section_id": "sec-4-application",
+      "title": "4. Application Procedure & Access Desks",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Where to Apply / Access: Access services at eligible government health facilities; contact facility help desk, ANM or ASHA.\nOfficial Portal: https://nhm.gov.in/"
+    }
+  ]
+}

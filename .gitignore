@@ -6,6 +6,8 @@
 .env.*.local
 .env.production
 .env.staging
+.env.*
+!.env.example
 
 # ============================================================
 # PYTHON — backend / health-ai-service python scripts

@@ -129,7 +129,94 @@ class AuditLog(Base):
 
     id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     admin_user_id = Column(String(255), nullable=False)
-    action = Column(String(100), nullable=False)  # SCHEME_UPDATED, SCHEME_VERSION_CREATED, HANDOFF_STATUS_CHANGED, RAG_REINDEX_REQUIRED
+    action = Column(String(100), nullable=False)
     affected_entity = Column(String(255), nullable=False)
     details = Column(JSON, default={})
     timestamp = Column(DateTime, default=datetime.utcnow)
+
+
+class Conversation(Base):
+    __tablename__ = "conversations"
+
+    id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    user_id = Column(String(36), nullable=True, index=True)
+    title = Column(String(255), default="Scheme Assistance")
+    active_scheme_id = Column(String(100), nullable=True)
+    status = Column(String(50), default="ACTIVE", index=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+    messages = relationship("ChatMessage", back_populates="conversation", cascade="all, delete-orphan")
+
+
+class ChatMessage(Base):
+    __tablename__ = "messages"
+
+    id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    conversation_id = Column(String(36), ForeignKey("conversations.id", ondelete="CASCADE"), nullable=False, index=True)
+    role = Column(String(50), nullable=False)  # user, assistant, system
+    content = Column(Text, nullable=False)
+    intent = Column(String(100), nullable=True)
+    decision = Column(String(50), default="ANSWER")
+    sources = Column(JSON, default=[])
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    conversation = relationship("Conversation", back_populates="messages")
+
+
+class DocumentSource(Base):
+    __tablename__ = "document_sources"
+
+    id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    scheme_id = Column(String(100), nullable=False, index=True)
+    document_title = Column(String(255), nullable=False)
+    issuing_authority = Column(String(255), nullable=True)
+    source_url = Column(Text, nullable=True)
+    verification_status = Column(String(50), default="VERIFIED_OFFICIAL", index=True)
+    checksum = Column(String(100), nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+
+class PageIndexDocument(Base):
+    __tablename__ = "pageindex_documents"
+
+    id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    document_id = Column(String(100), unique=True, nullable=False)
+    tree_id = Column(String(100), nullable=False)
+    scheme_id = Column(String(100), nullable=False)
+    section_count = Column(Integer, default=0)
+    ingestion_status = Column(String(50), default="COMPLETED")
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+
+class PageIndexTreeVersion(Base):
+    __tablename__ = "pageindex_tree_versions"
+
+    id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    tree_id = Column(String(100), nullable=False, index=True)
+    version = Column(Integer, default=1)
+    tree_data = Column(JSON, nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+
+class SupportRequest(Base):
+    __tablename__ = "support_requests"
+
+    id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    user_id = Column(String(36), nullable=True)
+    conversation_id = Column(String(36), nullable=True)
+    subject = Column(String(255), nullable=False)
+    description = Column(Text, nullable=False)
+    status = Column(String(50), default="OPEN", index=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+
+class ChatbotAuditEvent(Base):
+    __tablename__ = "chatbot_audit_events"
+
+    id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    conversation_id = Column(String(36), nullable=True)
+    event_type = Column(String(100), nullable=False)
+    details = Column(JSON, default={})
+    timestamp = Column(DateTime, default=datetime.utcnow)
+

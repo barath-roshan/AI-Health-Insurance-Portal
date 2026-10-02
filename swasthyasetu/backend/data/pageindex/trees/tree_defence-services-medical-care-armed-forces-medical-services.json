@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-defence-services-medical-care-armed-forces-medical-services",
+  "tree_id": "tree-defence-services-medical-care-armed-forces-medical-services",
+  "scheme_id": "defence-services-medical-care-armed-forces-medical-services",
+  "title": "Defence Services medical care / Armed Forces medical services Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Government-funded medical-care system for eligible serving defence personnel, pensioners and dependants through military healthcare facilities.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligible armed forces personnel, pensioners and dependants under defence medical-service rules.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Defence Services medical care / Armed Forces medical services.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

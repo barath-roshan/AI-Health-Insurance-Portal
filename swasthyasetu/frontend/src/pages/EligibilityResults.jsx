@@ -92,10 +92,10 @@ const EligibilityResults = () => {
 
   return (
     <MainLayout>
-      <div className="space-y-8">
+      <div className="space-y-8 px-4 sm:px-6">
         
         {/* HEADER HERO SECTION */}
-        <div className="bg-[#0B2545] text-white rounded-2xl p-6 sm:p-10 shadow-md border border-slate-800 space-y-6">
+        <div className="bg-[#102A43] text-white rounded-2xl p-6 sm:p-10 shadow-md border border-slate-800 space-y-6">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-slate-800 pb-6">
             <div className="space-y-2">
               <div className="inline-flex items-center space-x-1.5 bg-teal-950/80 border border-teal-500/30 px-3 py-1 rounded-full text-xs font-semibold text-teal-300">
@@ -105,7 +105,7 @@ const EligibilityResults = () => {
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
                 Your Scheme Results
               </h1>
-              <p className="text-sm text-slate-300 leading-relaxed max-w-2xl">
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl">
                 Calculated by evaluating your demographic profile against official government eligibility constraints.
               </p>
             </div>
@@ -120,19 +120,19 @@ const EligibilityResults = () => {
           {/* Citizen Profile Summary Banner */}
           {userProfile && (
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs text-slate-300">
-              <div className="bg-slate-900/80 p-2.5 rounded-xl border border-slate-800">
+              <div className="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
                 <span className="text-[10px] text-slate-400 uppercase tracking-wider block">State / Region</span>
                 <strong className="text-white text-xs">{userProfile.state || 'Not Specified'}</strong>
               </div>
-              <div className="bg-slate-900/80 p-2.5 rounded-xl border border-slate-800">
+              <div className="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
                 <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Age & Gender</span>
                 <strong className="text-white text-xs">{userProfile.age ? `${userProfile.age} Yrs` : 'N/A'} • {userProfile.gender || 'N/A'}</strong>
               </div>
-              <div className="bg-slate-900/80 p-2.5 rounded-xl border border-slate-800">
+              <div className="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
                 <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Household Income</span>
                 <strong className="text-white text-xs">{userProfile.annual_income ? `₹${userProfile.annual_income.toLocaleString()}/yr` : 'N/A'}</strong>
               </div>
-              <div className="bg-slate-900/80 p-2.5 rounded-xl border border-slate-800">
+              <div className="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
                 <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Evaluated Schemes</span>
                 <strong className="text-emerald-400 text-xs">{counts.ALL} Total ({counts.ELIGIBLE} Eligible)</strong>
               </div>
@@ -158,7 +158,7 @@ const EligibilityResults = () => {
                 onClick={() => setActiveTab(tab.key)}
                 className={`px-4 py-2 text-xs font-bold rounded-xl transition-all duration-150 flex items-center space-x-2 border cursor-pointer ${
                   isActive
-                    ? 'bg-[#0F4C5C] text-white border-[#0F4C5C] shadow-xs'
+                    ? 'bg-[#102A43] text-white border-[#102A43] shadow-xs'
                     : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50'
                 }`}
               >
@@ -182,7 +182,7 @@ const EligibilityResults = () => {
         {/* RESULTS CARDS LIST */}
         {loading ? (
           <div className="py-16 text-center space-y-3 max-w-md mx-auto">
-            <div className="w-10 h-10 border-4 border-[#0F4C5C] border-t-transparent rounded-full animate-spin mx-auto"></div>
+            <div className="w-10 h-10 border-4 border-[#0F766E] border-t-transparent rounded-full animate-spin mx-auto"></div>
             <p className="text-slate-500 text-sm font-medium">Evaluating scheme rule constraints...</p>
           </div>
         ) : filteredResults.length === 0 ? (
@@ -216,7 +216,7 @@ const EligibilityResults = () => {
                           <span>{result.state_or_region || 'All India'}</span>
                         </span>
                       </div>
-                      <h3 className="text-lg font-bold text-slate-900 leading-snug">
+                      <h3 className="text-lg font-bold text-[#102A43] leading-snug">
                         {result.scheme_name}
                       </h3>
                     </div>
@@ -234,7 +234,7 @@ const EligibilityResults = () => {
                     <ul className="space-y-1.5 text-xs text-slate-800">
                       {result.explanation?.map((exp, i) => (
                         <li key={i} className="flex items-start space-x-2 leading-relaxed">
-                          <span className="text-[#0F4C5C] font-bold flex-shrink-0">•</span>
+                          <span className="text-[#0F766E] font-bold flex-shrink-0">•</span>
                           <span className="font-mono text-[11px] text-slate-700">{exp}</span>
                         </li>
                       ))}

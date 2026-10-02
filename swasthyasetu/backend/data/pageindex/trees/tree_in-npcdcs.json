@@ -1,0 +1,36 @@
+{
+  "document_id": "pid-in-npcdcs",
+  "tree_id": "tree-in-npcdcs",
+  "scheme_id": "IN-NPCDCS",
+  "title": "National Programme for Prevention and Control of Non-Communicable Diseases (NP-NCD; formerly NPCDCS) Policy & Guidelines",
+  "nodes": [
+    {
+      "section_id": "sec-1-overview",
+      "title": "1. Programme Overview & Type",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Programme Name: National Programme for Prevention and Control of Non-Communicable Diseases (NP-NCD; formerly NPCDCS)\nJurisdiction: India\nCategory: Screening and chronic disease services\nType: Public Healthcare Service\nDetails: Public health programme supporting prevention, screening, early diagnosis and management of major non-communicable diseases."
+    },
+    {
+      "section_id": "sec-2-eligibility",
+      "title": "2. Eligibility Criteria & Conditions",
+      "page_start": 2,
+      "page_end": 2,
+      "content": "Eligibility: People accessing participating public facilities; screening follows programme protocols and age/risk criteria.\nIndividual Enrolment Required: False"
+    },
+    {
+      "section_id": "sec-3-documents",
+      "title": "3. Required Documents & Documentation",
+      "page_start": 3,
+      "page_end": 3,
+      "content": "Required Documents: Identity details and available prior medical records; requirements vary by facility."
+    },
+    {
+      "section_id": "sec-4-application",
+      "title": "4. Application Procedure & Access Desks",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Where to Apply / Access: Visit a participating Ayushman Arogya Mandir, PHC, CHC or designated government facility.\nOfficial Portal: https://nhm.gov.in/"
+    }
+  ]
+}

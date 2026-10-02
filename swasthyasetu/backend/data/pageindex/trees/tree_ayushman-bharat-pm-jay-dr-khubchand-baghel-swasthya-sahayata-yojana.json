@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-ayushman-bharat-pm-jay-dr-khubchand-baghel-swasthya-sahayata-yojana",
+  "tree_id": "tree-ayushman-bharat-pm-jay-dr-khubchand-baghel-swasthya-sahayata-yojana",
+  "scheme_id": "ayushman-bharat-pm-jay-dr-khubchand-baghel-swasthya-sahayata-yojana",
+  "title": "Ayushman Bharat PM-JAY \u2013 Dr. Khubchand Baghel Swasthya Sahayata Yojana Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Integrated government health assurance programme in Chhattisgarh providing cashless treatment packages through the state/PM-JAY network.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligibility follows the applicable Chhattisgarh beneficiary categories and PM-JAY/state scheme rules; beneficiary verification is required.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Ayushman Bharat PM-JAY \u2013 Dr. Khubchand Baghel Swasthya Sahayata Yojana.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

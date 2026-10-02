@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-ayushman-bharat-pm-jay-sehat-jammu-kashmir",
+  "tree_id": "tree-ayushman-bharat-pm-jay-sehat-jammu-kashmir",
+  "scheme_id": "ayushman-bharat-pm-jay-sehat-jammu-kashmir",
+  "title": "Ayushman Bharat PM-JAY SEHAT \u2013 Jammu & Kashmir Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Universalized government health assurance pathway for eligible Jammu and Kashmir residents, providing cashless hospitalization through the PM-JAY network.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligibility follows the current J&K SEHAT/PM-JAY enrolment and identity requirements applicable to residents.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Ayushman Bharat PM-JAY SEHAT \u2013 Jammu & Kashmir.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

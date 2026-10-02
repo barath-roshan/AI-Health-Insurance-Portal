@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-dr-ysr-aarogyasri-dr-ntr-vaidya-seva-andhra-pradesh",
+  "tree_id": "tree-dr-ysr-aarogyasri-dr-ntr-vaidya-seva-andhra-pradesh",
+  "scheme_id": "dr-ysr-aarogyasri-dr-ntr-vaidya-seva-andhra-pradesh",
+  "title": "Dr. YSR Aarogyasri / Dr. NTR Vaidya Seva \u2013 Andhra Pradesh Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "State-supported health assurance programme providing financial protection for eligible families for specified secondary and tertiary treatments at empanelled hospitals.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligible Andhra Pradesh residents/families identified under the state's current beneficiary and socioeconomic rules; exact categories and coverage should be checked against the current state portal.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Dr. YSR Aarogyasri / Dr. NTR Vaidya Seva \u2013 Andhra Pradesh.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

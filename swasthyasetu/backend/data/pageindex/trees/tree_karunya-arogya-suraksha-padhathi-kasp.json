@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-karunya-arogya-suraksha-padhathi-kasp",
+  "tree_id": "tree-karunya-arogya-suraksha-padhathi-kasp",
+  "scheme_id": "karunya-arogya-suraksha-padhathi-kasp",
+  "title": "Karunya Arogya Suraksha Padhathi (KASP) Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Kerala's government-funded health protection programme aligned with PM-JAY, providing cashless hospitalization for eligible beneficiaries.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligibility follows the current Kerala beneficiary database and PM-JAY/KASP criteria.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Karunya Arogya Suraksha Padhathi (KASP).",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

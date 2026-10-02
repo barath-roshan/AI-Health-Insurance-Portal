@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-assam-chief-minister-s-jan-arogya-yojana-mmjay-state-pathway",
+  "tree_id": "tree-assam-chief-minister-s-jan-arogya-yojana-mmjay-state-pathway",
+  "scheme_id": "assam-chief-minister-s-jan-arogya-yojana-mmjay-state-pathway",
+  "title": "Assam Chief Minister's Jan Arogya Yojana (MMJAY/State pathway) Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "State-linked health assurance pathway providing government-funded hospitalization support to eligible Assam beneficiaries.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligibility depends on the current Assam beneficiary database and state/PM-JAY implementation rules.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Assam Chief Minister's Jan Arogya Yojana (MMJAY/State pathway).",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

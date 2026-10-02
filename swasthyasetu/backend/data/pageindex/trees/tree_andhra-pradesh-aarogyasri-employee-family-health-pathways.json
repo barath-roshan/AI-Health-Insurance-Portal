@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-andhra-pradesh-aarogyasri-employee-family-health-pathways",
+  "tree_id": "tree-andhra-pradesh-aarogyasri-employee-family-health-pathways",
+  "scheme_id": "andhra-pradesh-aarogyasri-employee-family-health-pathways",
+  "title": "Andhra Pradesh Aarogyasri employee/family health pathways Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "State healthcare assurance pathways serving eligible beneficiaries under the Andhra Pradesh Aarogyasri framework.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligibility depends on current AP beneficiary category, household status and state rules.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Andhra Pradesh Aarogyasri employee/family health pathways.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

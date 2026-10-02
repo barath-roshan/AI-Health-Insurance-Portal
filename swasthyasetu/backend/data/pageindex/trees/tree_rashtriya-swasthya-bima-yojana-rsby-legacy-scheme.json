@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-rashtriya-swasthya-bima-yojana-rsby-legacy-scheme",
+  "tree_id": "tree-rashtriya-swasthya-bima-yojana-rsby-legacy-scheme",
+  "scheme_id": "rashtriya-swasthya-bima-yojana-rsby-legacy-scheme",
+  "title": "Rashtriya Swasthya Bima Yojana (RSBY) \u2013 legacy scheme Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Former Government of India health insurance scheme for below-poverty-line households and certain unorganised-sector workers; largely superseded by PM-JAY.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Historically targeted BPL families and specified unorganised-sector worker categories; not to be treated as a current enrolment route without official confirmation.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Rashtriya Swasthya Bima Yojana (RSBY) \u2013 legacy scheme.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

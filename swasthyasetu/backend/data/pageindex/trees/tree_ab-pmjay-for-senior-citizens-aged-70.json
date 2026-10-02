@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-ab-pmjay-for-senior-citizens-aged-70",
+  "tree_id": "tree-ab-pmjay-for-senior-citizens-aged-70",
+  "scheme_id": "ab-pmjay-for-senior-citizens-aged-70",
+  "title": "AB-PMJAY for Senior Citizens aged 70+ Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Ayushman Bharat health coverage pathway for eligible senior citizens aged 70 years and above, subject to the currently notified rules and beneficiary enrolment process.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Indian citizens aged 70 years and above are the core target group under the senior-citizen expansion; applicable enrolment, Aadhaar/identity and scheme rules must be checked at the official portal.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under AB-PMJAY for Senior Citizens aged 70+.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

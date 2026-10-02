@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-jharkhand-state-employee-health-insurance-scheme",
+  "tree_id": "tree-jharkhand-state-employee-health-insurance-scheme",
+  "scheme_id": "jharkhand-state-employee-health-insurance-scheme",
+  "title": "Jharkhand State Employee Health Insurance Scheme Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Group health insurance scheme for Jharkhand state employees, pensioners and other notified beneficiary groups and their dependants.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligible state employees, pensioners/family pensioners and other notified categories subject to registration and approval.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Jharkhand State Employee Health Insurance Scheme.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

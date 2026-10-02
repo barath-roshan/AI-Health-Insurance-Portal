@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-karunya-benevolent-fund-kbf",
+  "tree_id": "tree-karunya-benevolent-fund-kbf",
+  "scheme_id": "karunya-benevolent-fund-kbf",
+  "title": "Karunya Benevolent Fund (KBF) Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Financial assistance programme supporting eligible patients with specified serious diseases and treatment expenses.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligibility is based on Kerala residency and current income/medical/category requirements prescribed for the programme.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Karunya Benevolent Fund (KBF).",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

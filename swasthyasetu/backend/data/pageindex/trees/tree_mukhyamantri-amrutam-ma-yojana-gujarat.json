@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-mukhyamantri-amrutam-ma-yojana-gujarat",
+  "tree_id": "tree-mukhyamantri-amrutam-ma-yojana-gujarat",
+  "scheme_id": "mukhyamantri-amrutam-ma-yojana-gujarat",
+  "title": "Mukhyamantri Amrutam (MA) Yojana \u2013 Gujarat Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Government health assurance programme for eligible economically vulnerable families, providing cashless treatment for specified procedures.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligibility is based on current Gujarat government beneficiary categories and household/economic criteria; verify with the state beneficiary system.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Mukhyamantri Amrutam (MA) Yojana \u2013 Gujarat.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

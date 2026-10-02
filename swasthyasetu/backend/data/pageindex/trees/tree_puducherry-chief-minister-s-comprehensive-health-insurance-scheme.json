@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-puducherry-chief-minister-s-comprehensive-health-insurance-scheme",
+  "tree_id": "tree-puducherry-chief-minister-s-comprehensive-health-insurance-scheme",
+  "scheme_id": "puducherry-chief-minister-s-comprehensive-health-insurance-scheme",
+  "title": "Puducherry Chief Minister's Comprehensive Health Insurance Scheme Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Government health protection arrangement for eligible Puducherry residents for specified hospitalization services.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligibility depends on current Puducherry residency, beneficiary category and scheme enrolment rules.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Puducherry Chief Minister's Comprehensive Health Insurance Scheme.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

@@ -15,7 +15,8 @@ import {
   Check, 
   AlertCircle,
   IndianRupee,
-  Users
+  Users,
+  Sparkles
 } from 'lucide-react';
 
 const INDIAN_STATES = [
@@ -117,7 +118,7 @@ const ProfileForm = () => {
     return (
       <MainLayout>
         <div className="py-20 text-center space-y-3 max-w-md mx-auto">
-          <div className="w-10 h-10 border-4 border-[#0F4C5C] border-t-transparent rounded-full animate-spin mx-auto"></div>
+          <div className="w-10 h-10 border-4 border-[#0F766E] border-t-transparent rounded-full animate-spin mx-auto"></div>
           <p className="text-slate-500 text-sm font-medium">Loading citizen profile information...</p>
         </div>
       </MainLayout>
@@ -128,38 +129,39 @@ const ProfileForm = () => {
 
   return (
     <MainLayout>
-      <div className="max-w-2xl mx-auto my-6 space-y-6">
+      <div className="max-w-2xl mx-auto my-6 px-4 space-y-6">
         
         {/* WIZARD HEADER & PROGRESS BAR */}
-        <Card className="text-center space-y-4">
+        <Card className="text-center space-y-5 p-6">
           <div>
-            <Badge variant="brand" size="sm" className="mb-2">
-              Citizen Guided Wizard
-            </Badge>
-            <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">
+            <div className="inline-flex items-center space-x-1.5 bg-teal-50 border border-teal-200 text-[#0F766E] px-3 py-1 rounded-full text-xs font-semibold mb-3">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Citizen Guided Wizard</span>
+            </div>
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-[#102A43] tracking-tight">
               Scheme Eligibility Check
             </h1>
-            <p className="text-xs text-slate-500 mt-1 max-w-md mx-auto">
-              Provide state, district, income, and household details to run deterministic scheme rules.
+            <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-md mx-auto">
+              Provide state, district, income, and household details to evaluate deterministic scheme rules.
             </p>
           </div>
 
           {/* Progress Bar */}
-          <div className="space-y-1.5 pt-2">
+          <div className="space-y-2 pt-2">
             <div className="flex justify-between text-[11px] font-bold text-slate-500 uppercase tracking-wider">
-              <span>Progress</span>
-              <span>{progressPercent}% Complete</span>
+              <span>Step {step} of 4</span>
+              <span>{progressPercent}% Completed</span>
             </div>
-            <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden border border-slate-200/60">
+            <div className="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden border border-slate-200/80">
               <div
-                className="bg-[#0F4C5C] h-full transition-all duration-300 rounded-full"
+                className="bg-[#0F766E] h-full transition-all duration-300 rounded-full"
                 style={{ width: `${progressPercent}%` }}
               />
             </div>
           </div>
 
           {/* Stepper Node Indicators */}
-          <div className="grid grid-cols-4 gap-2 pt-2 border-t border-slate-100">
+          <div className="grid grid-cols-4 gap-2 pt-3 border-t border-slate-100">
             {[
               { num: 1, label: 'Location', icon: MapPin },
               { num: 2, label: 'Personal', icon: User },
@@ -175,16 +177,16 @@ const ProfileForm = () => {
                   key={s.num}
                   type="button"
                   onClick={() => setStep(s.num)}
-                  className={`p-2 rounded-xl text-center transition flex flex-col items-center gap-1 cursor-pointer border ${
+                  className={`p-2.5 rounded-xl text-center transition flex flex-col items-center gap-1 cursor-pointer border ${
                     isCurrent
-                      ? 'bg-[#0F4C5C] text-white border-[#0F4C5C] shadow-2xs'
+                      ? 'bg-[#102A43] text-white border-[#102A43] shadow-xs'
                       : isDone
-                      ? 'bg-teal-50 text-teal-800 border-teal-200'
+                      ? 'bg-teal-50 text-[#0F766E] border-teal-200'
                       : 'bg-slate-50 text-slate-400 border-slate-200'
                   }`}
                 >
                   <div className="flex items-center space-x-1 text-xs font-bold">
-                    {isDone ? <Check className="w-3.5 h-3.5 text-teal-700" /> : <StepIcon className="w-3.5 h-3.5" />}
+                    {isDone ? <Check className="w-3.5 h-3.5 text-[#0F766E]" /> : <StepIcon className="w-3.5 h-3.5" />}
                     <span>Step {s.num}</span>
                   </div>
                   <span className="text-[10px] font-medium hidden sm:inline">{s.label}</span>
@@ -209,11 +211,11 @@ const ProfileForm = () => {
             {step === 1 && (
               <div className="space-y-4">
                 <div className="border-b border-slate-100 pb-3">
-                  <h2 className="text-base font-bold text-slate-900 flex items-center space-x-2">
-                    <MapPin className="w-4 h-4 text-[#0F4C5C]" />
+                  <h2 className="text-base font-bold text-[#102A43] flex items-center space-x-2">
+                    <MapPin className="w-5 h-5 text-[#0F766E]" />
                     <span>Step 1: State & District Jurisdiction</span>
                   </h2>
-                  <p className="text-xs text-slate-500 mt-0.5">
+                  <p className="text-xs text-slate-500 mt-1">
                     State government health schemes (e.g. CMCHIS in Tamil Nadu) require state residency.
                   </p>
                 </div>
@@ -227,7 +229,7 @@ const ProfileForm = () => {
                     required
                     value={formData.state}
                     onChange={handleChange}
-                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-900 focus:ring-2 focus:ring-[#0F4C5C] focus:bg-white outline-none transition"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-900 focus:ring-2 focus:ring-[#0F766E] focus:bg-white outline-none transition"
                   >
                     <option value="">-- Select Your Residence State --</option>
                     {INDIAN_STATES.map((s) => (
@@ -246,7 +248,7 @@ const ProfileForm = () => {
                     value={formData.district}
                     onChange={handleChange}
                     placeholder="e.g. Chennai, Madurai, Salem"
-                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-900 focus:ring-2 focus:ring-[#0F4C5C] focus:bg-white outline-none transition"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-900 focus:ring-2 focus:ring-[#0F766E] focus:bg-white outline-none transition"
                   />
                 </div>
               </div>
@@ -256,11 +258,11 @@ const ProfileForm = () => {
             {step === 2 && (
               <div className="space-y-4">
                 <div className="border-b border-slate-100 pb-3">
-                  <h2 className="text-base font-bold text-slate-900 flex items-center space-x-2">
-                    <User className="w-4 h-4 text-[#0F4C5C]" />
+                  <h2 className="text-base font-bold text-[#102A43] flex items-center space-x-2">
+                    <User className="w-5 h-5 text-[#0F766E]" />
                     <span>Step 2: Demographics (Age & Gender)</span>
                   </h2>
-                  <p className="text-xs text-slate-500 mt-0.5">
+                  <p className="text-xs text-slate-500 mt-1">
                     Senior citizen or gender-specific scheme rules evaluate age boundaries.
                   </p>
                 </div>
@@ -278,7 +280,7 @@ const ProfileForm = () => {
                     value={formData.age}
                     onChange={handleChange}
                     placeholder="e.g. 45"
-                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-900 focus:ring-2 focus:ring-[#0F4C5C] focus:bg-white outline-none transition"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-900 focus:ring-2 focus:ring-[#0F766E] focus:bg-white outline-none transition"
                   />
                 </div>
 
@@ -290,7 +292,7 @@ const ProfileForm = () => {
                     name="gender"
                     value={formData.gender}
                     onChange={handleChange}
-                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-900 focus:ring-2 focus:ring-[#0F4C5C] focus:bg-white outline-none transition"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-900 focus:ring-2 focus:ring-[#0F766E] focus:bg-white outline-none transition"
                   >
                     <option value="male">Male</option>
                     <option value="female">Female</option>
@@ -304,11 +306,11 @@ const ProfileForm = () => {
             {step === 3 && (
               <div className="space-y-4">
                 <div className="border-b border-slate-100 pb-3">
-                  <h2 className="text-base font-bold text-slate-900 flex items-center space-x-2">
-                    <IndianRupee className="w-4 h-4 text-[#0F4C5C]" />
+                  <h2 className="text-base font-bold text-[#102A43] flex items-center space-x-2">
+                    <IndianRupee className="w-5 h-5 text-[#0F766E]" />
                     <span>Step 3: Occupation & Household Income</span>
                   </h2>
-                  <p className="text-xs text-slate-500 mt-0.5">
+                  <p className="text-xs text-slate-500 mt-1">
                     Most government schemes evaluate annual household income caps (e.g. ₹1,20,000/yr).
                   </p>
                 </div>
@@ -321,7 +323,7 @@ const ProfileForm = () => {
                     name="occupation"
                     value={formData.occupation}
                     onChange={handleChange}
-                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-900 focus:ring-2 focus:ring-[#0F4C5C] focus:bg-white outline-none transition"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-900 focus:ring-2 focus:ring-[#0F766E] focus:bg-white outline-none transition"
                   >
                     <option value="">-- Select Occupation --</option>
                     <option value="farmer">Farmer / Agricultural Worker</option>
@@ -347,7 +349,7 @@ const ProfileForm = () => {
                     value={formData.annual_income}
                     onChange={handleChange}
                     placeholder="e.g. 120000"
-                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-900 focus:ring-2 focus:ring-[#0F4C5C] focus:bg-white outline-none transition"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-900 focus:ring-2 focus:ring-[#0F766E] focus:bg-white outline-none transition"
                   />
                   <span className="text-[11px] text-slate-500 mt-1 block">
                     Enter gross total annual income of all family members combined in Rupees.
@@ -360,11 +362,11 @@ const ProfileForm = () => {
             {step === 4 && (
               <div className="space-y-4">
                 <div className="border-b border-slate-100 pb-3">
-                  <h2 className="text-base font-bold text-slate-900 flex items-center space-x-2">
-                    <ShieldCheck className="w-4 h-4 text-[#0F4C5C]" />
+                  <h2 className="text-base font-bold text-[#102A43] flex items-center space-x-2">
+                    <ShieldCheck className="w-5 h-5 text-[#0F766E]" />
                     <span>Step 4: Family Members & Existing Coverage</span>
                   </h2>
-                  <p className="text-xs text-slate-500 mt-0.5">
+                  <p className="text-xs text-slate-500 mt-1">
                     Determine floater coverage limits and existing insurance conflict rules.
                   </p>
                 </div>
@@ -380,7 +382,7 @@ const ProfileForm = () => {
                     max="20"
                     value={formData.family_size}
                     onChange={handleChange}
-                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-900 focus:ring-2 focus:ring-[#0F4C5C] focus:bg-white outline-none transition"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-900 focus:ring-2 focus:ring-[#0F766E] focus:bg-white outline-none transition"
                   />
                 </div>
 
@@ -392,7 +394,7 @@ const ProfileForm = () => {
                     name="existing_coverage"
                     value={formData.existing_coverage}
                     onChange={handleChange}
-                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-900 focus:ring-2 focus:ring-[#0F4C5C] focus:bg-white outline-none transition"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-900 focus:ring-2 focus:ring-[#0F766E] focus:bg-white outline-none transition"
                   >
                     <option value="none">No Existing Health Insurance</option>
                     <option value="state_scheme">Existing State Health Scheme Card</option>
@@ -438,7 +440,7 @@ const ProfileForm = () => {
                   icon={Check}
                   iconPosition="right"
                 >
-                  Save Profile & Evaluate Eligibility
+                  Evaluate Eligibility
                 </Button>
               )}
             </div>
@@ -452,3 +454,4 @@ const ProfileForm = () => {
 };
 
 export default ProfileForm;
+

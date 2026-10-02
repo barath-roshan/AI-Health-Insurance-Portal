@@ -1,0 +1,36 @@
+{
+  "document_id": "pid-in-pmndp",
+  "tree_id": "tree-in-pmndp",
+  "scheme_id": "IN-PMNDP",
+  "title": "Pradhan Mantri National Dialysis Programme (PMNDP) Policy & Guidelines",
+  "nodes": [
+    {
+      "section_id": "sec-1-overview",
+      "title": "1. Programme Overview & Type",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Programme Name: Pradhan Mantri National Dialysis Programme (PMNDP)\nJurisdiction: India\nCategory: Public dialysis services\nType: Public Healthcare Service\nDetails: Programme supporting access to dialysis through designated public facilities and PPP arrangements, subject to state implementation."
+    },
+    {
+      "section_id": "sec-2-eligibility",
+      "title": "2. Eligibility Criteria & Conditions",
+      "page_start": 2,
+      "page_end": 2,
+      "content": "Eligibility: Patients requiring dialysis who meet service and facility conditions in the relevant state/UT.\nIndividual Enrolment Required: False"
+    },
+    {
+      "section_id": "sec-3-documents",
+      "title": "3. Required Documents & Documentation",
+      "page_start": 3,
+      "page_end": 3,
+      "content": "Required Documents: Doctor's referral/clinical assessment, diagnostic records and identity or registration details as required by facility."
+    },
+    {
+      "section_id": "sec-4-application",
+      "title": "4. Application Procedure & Access Desks",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Where to Apply / Access: Contact district hospital or designated public dialysis centre to confirm availability, registration and charges.\nOfficial Portal: https://nhm.gov.in/"
+    }
+  ]
+}

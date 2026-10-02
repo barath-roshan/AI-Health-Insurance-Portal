@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-pmjay-cmchis-tamil-nadu",
+  "tree_id": "tree-pmjay-cmchis-tamil-nadu",
+  "scheme_id": "pmjay-cmchis-tamil-nadu",
+  "title": "PMJAY\u2013CMCHIS (Tamil Nadu) Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Integrated PM-JAY and Tamil Nadu CMCHIS health assurance arrangement for eligible beneficiaries, using a common government-funded hospitalization framework.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligibility depends on the applicable PM-JAY/CMCHIS beneficiary category and current Tamil Nadu implementation rules.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under PMJAY\u2013CMCHIS (Tamil Nadu).",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

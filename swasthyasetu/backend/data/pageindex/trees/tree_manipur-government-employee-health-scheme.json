@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-manipur-government-employee-health-scheme",
+  "tree_id": "tree-manipur-government-employee-health-scheme",
+  "scheme_id": "manipur-government-employee-health-scheme",
+  "title": "Manipur Government Employee Health Scheme Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Healthcare benefit arrangement for eligible Manipur government employees and covered dependants.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligible state government employees and family members under current service/medical rules.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Manipur Government Employee Health Scheme.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

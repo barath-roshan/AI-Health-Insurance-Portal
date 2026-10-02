@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-madhya-pradesh-sambal-linked-health-assistance",
+  "tree_id": "tree-madhya-pradesh-sambal-linked-health-assistance",
+  "scheme_id": "madhya-pradesh-sambal-linked-health-assistance",
+  "title": "Madhya Pradesh Sambal-linked health assistance Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Government welfare-linked support pathway for eligible registered workers and families, with health-related benefits administered under applicable state programmes.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligibility depends on registration under the relevant Madhya Pradesh welfare programme and current rules.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Madhya Pradesh Sambal-linked health assistance.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

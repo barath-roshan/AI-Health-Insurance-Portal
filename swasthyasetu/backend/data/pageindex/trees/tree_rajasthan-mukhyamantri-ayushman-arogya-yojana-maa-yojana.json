@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-rajasthan-mukhyamantri-ayushman-arogya-yojana-maa-yojana",
+  "tree_id": "tree-rajasthan-mukhyamantri-ayushman-arogya-yojana-maa-yojana",
+  "scheme_id": "rajasthan-mukhyamantri-ayushman-arogya-yojana-maa-yojana",
+  "title": "Rajasthan Mukhyamantri Ayushman Arogya Yojana (MAA-Yojana) Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "State health assurance programme providing cashless treatment for eligible Rajasthan residents under the current state framework.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligibility follows current Rajasthan beneficiary/enrolment rules and applicable categories.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Rajasthan Mukhyamantri Ayushman Arogya Yojana (MAA-Yojana).",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

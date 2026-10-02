@@ -57,3 +57,34 @@ def get_user_support_request_by_id(
         raise HTTPException(status_code=403, detail="Access denied: You are not authorized to view this support request")
 
     return req
+
+
+class CreateSupportRequestSchema(BaseModel):
+    user_id: Optional[str] = "demo_user"
+    conversation_id: Optional[str] = None
+    subject: str = "Health Scheme Assistance"
+    description: str
+
+@router.post("/requests", response_model=HandoffResponseSchema)
+def create_support_request(
+    payload: CreateSupportRequestSchema,
+    db: Session = Depends(get_db)
+):
+    import uuid
+    new_req = HandoffRequest(
+        id=f"supp-{uuid.uuid4().hex[:8]}",
+        user_id=payload.user_id,
+        conversation_id=payload.conversation_id,
+        user_query=payload.description,
+        intent="HUMAN_REQUEST",
+        reason=payload.subject,
+        summary=payload.description,
+        status="PENDING",
+        created_at=datetime.utcnow(),
+        updated_at=datetime.utcnow()
+    )
+    db.add(new_req)
+    db.commit()
+    db.refresh(new_req)
+    return new_req
+

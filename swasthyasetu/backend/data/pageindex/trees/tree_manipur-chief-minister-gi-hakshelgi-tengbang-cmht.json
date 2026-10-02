@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-manipur-chief-minister-gi-hakshelgi-tengbang-cmht",
+  "tree_id": "tree-manipur-chief-minister-gi-hakshelgi-tengbang-cmht",
+  "scheme_id": "manipur-chief-minister-gi-hakshelgi-tengbang-cmht",
+  "title": "Manipur Chief Minister-gi Hakshelgi Tengbang (CMHT) Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Manipur government health assurance scheme providing cashless treatment for eligible poor and vulnerable beneficiaries through government and empanelled hospitals.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligibility is based on the current Manipur beneficiary identification criteria and notified categories.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Manipur Chief Minister-gi Hakshelgi Tengbang (CMHT).",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

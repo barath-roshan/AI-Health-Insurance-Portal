@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-biju-swasthya-kalyan-yojana-bsky",
+  "tree_id": "tree-biju-swasthya-kalyan-yojana-bsky",
+  "scheme_id": "biju-swasthya-kalyan-yojana-bsky",
+  "title": "Biju Swasthya Kalyan Yojana (BSKY) Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Odisha government health assurance programme providing cashless treatment and health protection for eligible residents through public and empanelled private facilities.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligibility depends on Odisha's current beneficiary identification and state scheme rules; categories and implementation may change over time.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Biju Swasthya Kalyan Yojana (BSKY).",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

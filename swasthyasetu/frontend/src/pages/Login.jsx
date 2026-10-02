@@ -7,6 +7,8 @@ import Card from '../components/ui/Card';
 import Badge from '../components/ui/Badge';
 import { ShieldCheck, LogIn, AlertCircle, CheckCircle2, Sparkles, Lock, Mail } from 'lucide-react';
 
+import KaapanLogo from '../components/ui/KaapanLogo';
+
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -53,8 +55,12 @@ const Login = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
           {/* LEFT: Branding & Value Proposition (Hidden on small screens, visible on LG) */}
-          <div className="lg:col-span-6 bg-gradient-to-br from-[#0B2545] via-[#0F4C5C] to-[#126E82] text-white p-8 sm:p-10 rounded-2xl shadow-md border border-slate-700/50 flex flex-col justify-between space-y-6">
+          <div className="lg:col-span-6 bg-gradient-to-br from-[#102A43] via-[#0F766E] to-[#102A43] text-white p-8 sm:p-10 rounded-2xl shadow-md border border-slate-700/50 flex flex-col justify-between space-y-6">
             <div className="space-y-4">
+              <div className="px-4 py-2 bg-[#0F766E] rounded-xl border border-teal-500/30 inline-block shadow-xs">
+                <KaapanLogo variant="light" height={36} />
+              </div>
+
               <div className="inline-flex items-center space-x-2 bg-teal-950/80 border border-teal-400/30 px-3 py-1 rounded-full text-xs font-semibold text-teal-300">
                 <ShieldCheck className="w-4 h-4 text-teal-300" />
                 <span>Government Citizen Portal</span>

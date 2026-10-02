@@ -17,13 +17,9 @@ import {
   Activity, 
   FileText, 
   Headphones, 
-  ShieldCheck, 
-  Database, 
   Server, 
-  Layers,
   CheckCircle2,
   AlertCircle,
-  Clock,
   Edit2,
   Check
 } from 'lucide-react';

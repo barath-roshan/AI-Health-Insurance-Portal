@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-ladakh-ab-pmjay-health-assurance",
+  "tree_id": "tree-ladakh-ab-pmjay-health-assurance",
+  "scheme_id": "ladakh-ab-pmjay-health-assurance",
+  "title": "Ladakh AB-PMJAY health assurance Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Government health assurance access for eligible Ladakh residents through the applicable PM-JAY/UT implementation framework.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligibility follows current Ladakh beneficiary and PM-JAY/UT rules.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Ladakh AB-PMJAY health assurance.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

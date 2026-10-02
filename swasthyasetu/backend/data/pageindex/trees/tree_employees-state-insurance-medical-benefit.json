@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-employees-state-insurance-medical-benefit",
+  "tree_id": "tree-employees-state-insurance-medical-benefit",
+  "scheme_id": "employees-state-insurance-medical-benefit",
+  "title": "Employees' State Insurance \u2013 Medical Benefit Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Medical-care component of the ESI social-security system covering insured workers and eligible dependants through ESI healthcare facilities and tie-up services.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Covered employees and eligible dependants under the ESI Act and applicable contribution/coverage conditions.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Employees' State Insurance \u2013 Medical Benefit.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

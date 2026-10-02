@@ -62,6 +62,21 @@ export const sendChatMessage = async (message, conversationId = null) => {
   return response.data;
 };
 
+export const createChatSession = async (title = 'Scheme Assistance') => {
+  const response = await api.post('/api/chat/sessions', { title });
+  return response.data;
+};
+
+export const getChatSessions = async () => {
+  const response = await api.get('/api/chat/sessions');
+  return response.data;
+};
+
+export const getChatSourceMetadata = async (sourceId) => {
+  const response = await api.get(`/api/chat/sources/${sourceId}`);
+  return response.data;
+};
+
 export const getChatHealth = async () => {
   const response = await api.get('/api/chat/health');
   return response.data;

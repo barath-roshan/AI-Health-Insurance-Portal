@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-mukhyamantri-jan-arogya-yojana-bihar",
+  "tree_id": "tree-mukhyamantri-jan-arogya-yojana-bihar",
+  "scheme_id": "mukhyamantri-jan-arogya-yojana-bihar",
+  "title": "Mukhyamantri Jan Arogya Yojana \u2013 Bihar Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Bihar government health assurance pathway linked to the state's implementation of government-funded hospitalization coverage for eligible households.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligible Bihar residents/households meeting the current state beneficiary criteria and applicable PM-JAY/state rules.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Mukhyamantri Jan Arogya Yojana \u2013 Bihar.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

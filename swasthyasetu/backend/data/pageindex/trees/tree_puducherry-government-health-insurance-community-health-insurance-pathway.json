@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-puducherry-government-health-insurance-community-health-insurance-pathway",
+  "tree_id": "tree-puducherry-government-health-insurance-community-health-insurance-pathway",
+  "scheme_id": "puducherry-government-health-insurance-community-health-insurance-pathway",
+  "title": "Puducherry Government Health Insurance / Community Health Insurance pathway Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Government-supported health protection arrangements for eligible Puducherry residents under applicable health assurance programmes.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligibility depends on the current Puducherry government scheme and beneficiary category; verify with the current state/UT health authority.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Puducherry Government Health Insurance / Community Health Insurance pathway.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

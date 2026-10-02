@@ -1,0 +1,36 @@
+{
+  "document_id": "pid-in-pmssy",
+  "tree_id": "tree-in-pmssy",
+  "scheme_id": "IN-PMSSY",
+  "title": "Pradhan Mantri Swasthya Suraksha Yojana (PMSSY) Policy & Guidelines",
+  "nodes": [
+    {
+      "section_id": "sec-1-overview",
+      "title": "1. Programme Overview & Type",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Programme Name: Pradhan Mantri Swasthya Suraksha Yojana (PMSSY)\nJurisdiction: India\nCategory: Public healthcare infrastructure\nType: Public Healthcare Infrastructure\nDetails: Programme focused on correcting regional imbalances in tertiary healthcare and improving medical education through institutions such as AIIMS and upgraded government medical colleges."
+    },
+    {
+      "section_id": "sec-2-eligibility",
+      "title": "2. Eligibility Criteria & Conditions",
+      "page_start": 2,
+      "page_end": 2,
+      "content": "Eligibility: Not an individual enrolment-based insurance benefit. Patients access services at participating institutions under institution-specific rules.\nIndividual Enrolment Required: False"
+    },
+    {
+      "section_id": "sec-3-documents",
+      "title": "3. Required Documents & Documentation",
+      "page_start": 3,
+      "page_end": 3,
+      "content": "Required Documents: Hospital registration documents and clinical records as required by the treating institution; no general scheme beneficiary card."
+    },
+    {
+      "section_id": "sec-4-application",
+      "title": "4. Application Procedure & Access Desks",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Where to Apply / Access: Contact the relevant participating AIIMS or upgraded government medical college for patient registration and service details.\nOfficial Portal: https://pmssy.mohfw.gov.in/"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-telangana-aarogyasri-health-insurance-scheme",
+  "tree_id": "tree-telangana-aarogyasri-health-insurance-scheme",
+  "scheme_id": "telangana-aarogyasri-health-insurance-scheme",
+  "title": "Telangana Aarogyasri Health Insurance Scheme Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Telangana government health assurance programme providing cashless treatment for eligible low-income families through network hospitals.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligibility follows the current Telangana Aarogyasri beneficiary database and state rules.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Telangana Aarogyasri Health Insurance Scheme.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

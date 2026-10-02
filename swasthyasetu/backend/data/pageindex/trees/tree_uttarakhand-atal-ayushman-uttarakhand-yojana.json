@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-uttarakhand-atal-ayushman-uttarakhand-yojana",
+  "tree_id": "tree-uttarakhand-atal-ayushman-uttarakhand-yojana",
+  "scheme_id": "uttarakhand-atal-ayushman-uttarakhand-yojana",
+  "title": "Uttarakhand Atal Ayushman Uttarakhand Yojana Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "State health assurance programme providing cashless treatment for eligible Uttarakhand residents under the state/PM-JAY framework.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligibility follows current Uttarakhand beneficiary identification and state rules.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Uttarakhand Atal Ayushman Uttarakhand Yojana.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

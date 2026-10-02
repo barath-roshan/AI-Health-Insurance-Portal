@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-ayushman-bharat-arogya-karnataka-ab-ark",
+  "tree_id": "tree-ayushman-bharat-arogya-karnataka-ab-ark",
+  "scheme_id": "ayushman-bharat-arogya-karnataka-ab-ark",
+  "title": "Ayushman Bharat \u2013 Arogya Karnataka (AB-ArK) Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Integrated Karnataka government health assurance system combining state health protection with PM-JAY for eligible beneficiaries.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligibility depends on Karnataka's current beneficiary classification and PM-JAY/state rules; resident and category documentation may be required.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Ayushman Bharat \u2013 Arogya Karnataka (AB-ArK).",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

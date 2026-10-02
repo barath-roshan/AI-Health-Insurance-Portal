@@ -1,0 +1,36 @@
+{
+  "document_id": "pid-in-ran",
+  "tree_id": "tree-in-ran",
+  "scheme_id": "IN-RAN",
+  "title": "Rashtriya Arogya Nidhi (RAN) Policy & Guidelines",
+  "nodes": [
+    {
+      "section_id": "sec-1-overview",
+      "title": "1. Programme Overview & Type",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Programme Name: Rashtriya Arogya Nidhi (RAN)\nJurisdiction: India\nCategory: Financial assistance for serious illnesses\nType: Public Healthcare Service\nDetails: Financial assistance framework for eligible patients from poor families with specified life-threatening diseases, subject to current guidelines and fund availability."
+    },
+    {
+      "section_id": "sec-2-eligibility",
+      "title": "2. Eligibility Criteria & Conditions",
+      "page_start": 2,
+      "page_end": 2,
+      "content": "Eligibility: Poor patients meeting income and treatment conditions in current RAN guidelines; covered institutions, diseases and exclusions must be checked.\nIndividual Enrolment Required: False"
+    },
+    {
+      "section_id": "sec-3-documents",
+      "title": "3. Required Documents & Documentation",
+      "page_start": 3,
+      "page_end": 3,
+      "content": "Required Documents: Income/poverty proof, medical certificate and estimate from treating government hospital, identity and prescribed forms; additional items may apply."
+    },
+    {
+      "section_id": "sec-4-application",
+      "title": "4. Application Procedure & Access Desks",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Where to Apply / Access: Follow the prescribed process through the treating government hospital and relevant Ministry of Health and Family Welfare channel.\nOfficial Portal: https://mohfw.gov.in/"
+    }
+  ]
+}

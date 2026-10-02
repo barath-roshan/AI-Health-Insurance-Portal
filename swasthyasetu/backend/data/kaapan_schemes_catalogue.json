@@ -1,0 +1,405 @@
+{
+  "metadata": {
+    "dataset_name": "KAAPAN Comprehensive Health Schemes Catalogue",
+    "version": "2.0.0",
+    "schema_type": "Vectorless PageIndex Knowledge Base",
+    "source_workbook": "kaapan_comprehensive_health_schemes_dataset.xlsx",
+    "total_schemes": 13,
+    "generated_at": "2026-09-29T18:45:10.925940+00:00"
+  },
+  "table_of_contents": [
+    [
+      "Purpose",
+      "Consolidated starter catalogue for scheme discovery and grounded assistance. Not a substitute for official eligibility decisions.",
+      "",
+      ""
+    ],
+    [
+      "Section",
+      "Title",
+      "Description",
+      "Location"
+    ],
+    [
+      "01",
+      "Dataset overview",
+      "Purpose, coverage, field definitions and safe-use rules",
+      "Read me"
+    ],
+    [
+      "02",
+      "Scheme catalogue",
+      "One record per scheme/programme with summary, eligibility, documents and application route",
+      "Schemes"
+    ],
+    [
+      "03",
+      "Source and verification",
+      "Official URLs, source type, verification status and last-checked date",
+      "Schemes"
+    ],
+    [
+      "04",
+      "Classification",
+      "Insurance/assurance vs cash assistance vs service programme vs digital health",
+      "Schemes"
+    ],
+    [
+      "05",
+      "Data quality",
+      "State-dependent and unverified fields must be checked before definitive guidance",
+      "Schemes"
+    ],
+    [
+      "Important",
+      "This is a curated starter catalogue, not an exhaustive list of all Indian schemes.",
+      "",
+      ""
+    ],
+    [
+      "Important",
+      "Entries marked NEEDS_* or PARTIALLY_VERIFIED require official-source review before production use.",
+      "",
+      ""
+    ],
+    [
+      "Important",
+      "Use official source documents as PageIndex evidence. Do not use catalogue metadata as conclusive proof for personalized eligibility.",
+      "",
+      ""
+    ],
+    [
+      "Important",
+      "Compilation date: 2026-09-30. Re-verify rules before production deployment.",
+      "",
+      ""
+    ]
+  ],
+  "schemes": [
+    {
+      "scheme_id": "IN-PMJAY",
+      "scheme_name": "Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (AB-PMJAY)",
+      "normalized_name": "ayushman bharat pradhan mantri jan arogya yojana (ab-pmjay)",
+      "jurisdiction": "India",
+      "category": "Publicly funded health assurance",
+      "scheme_type": "Insurance / Health Assurance",
+      "is_enrolment_required": true,
+      "brief_details": "Cashless secondary and tertiary hospitalization cover at empanelled hospitals. Standard cover is up to \u20b95 lakh per eligible family per year, subject to applicable rules and package limits.",
+      "eligibility": "Eligibility for most beneficiaries is based on the applicable beneficiary database and scheme rules. Separately, Indian citizens aged 70+ are eligible under the senior-citizen expansion regardless of income; Aadhaar-based e-KYC is required for that enrolment.",
+      "required_documents": "For 70+ enrolment: Aadhaar for e-KYC. For other beneficiaries, carry accepted identity and family/beneficiary details; exact requirements depend on the verification channel.",
+      "where_to_apply": "Check eligibility and enrol through the official beneficiary portal or Ayushman App; alternatively visit a CSC or empanelled hospital/Ayushman Mitra.",
+      "official_url": "https://beneficiary.nha.gov.in/",
+      "source_url": "https://nha.gov.in/img/resources/English_FAQs_related_to_the_benefits_for_senior_citizens.pdf",
+      "source_type": "National Health Authority official portal and FAQ",
+      "verification_status": "PARTIALLY_VERIFIED",
+      "last_verified": "2026-09-30",
+      "notes": "70+ details supported by official NHA FAQ. Verify other beneficiary rules against current official guidance.",
+      "provenance": {
+        "input_source": "kaapan_comprehensive_health_schemes_dataset.xlsx",
+        "row_number": 1,
+        "imported_at": "2026-09-29T18:45:10.925940+00:00",
+        "verified_against_official_sources": false
+      }
+    },
+    {
+      "scheme_id": "TN-CMCHIS",
+      "scheme_name": "Chief Minister's Comprehensive Health Insurance Scheme (CMCHIS)",
+      "normalized_name": "chief minister's comprehensive health insurance scheme (cmchis)",
+      "jurisdiction": "Tamil Nadu, India",
+      "category": "State health insurance",
+      "scheme_type": "Insurance / Health Assurance",
+      "is_enrolment_required": true,
+      "brief_details": "Tamil Nadu programme providing cashless treatment for covered procedures at empanelled hospitals, subject to packages and current rules.",
+      "eligibility": "Tamil Nadu resident family; official eligibility page states annual family income below \u20b91,20,000. Family-member inclusion is subject to scheme rules and ration-card records.",
+      "required_documents": "Income certificate, family ration card and Aadhaar are listed in official eligibility guidance. Additional proof may be requested.",
+      "where_to_apply": "Visit the designated CMCHIS card-issuing/enrolment centre at the District Collector's Office with required documents; consult the official portal.",
+      "official_url": "https://www.cmchistn.com/",
+      "source_url": "https://www.cmchistn.com/eligibility",
+      "source_type": "Government of Tamil Nadu CMCHIS official portal",
+      "verification_status": "VERIFIED_PORTAL_GUIDANCE",
+      "last_verified": "2026-09-30",
+      "notes": "Use current portal and government orders for final decisions. Older pages may show superseded income limits.",
+      "provenance": {
+        "input_source": "kaapan_comprehensive_health_schemes_dataset.xlsx",
+        "row_number": 2,
+        "imported_at": "2026-09-29T18:45:10.925940+00:00",
+        "verified_against_official_sources": false
+      }
+    },
+    {
+      "scheme_id": "IN-ESIC",
+      "scheme_name": "Employees' State Insurance Scheme (ESI)",
+      "normalized_name": "employees' state insurance scheme (esi)",
+      "jurisdiction": "India (notified areas/establishments)",
+      "category": "Employment-linked social health insurance",
+      "scheme_type": "Public Healthcare Service",
+      "is_enrolment_required": false,
+      "brief_details": "Contributory social security scheme for covered employees, including medical care and specified cash benefits under the ESI Act and regulations.",
+      "eligibility": "Employees in covered establishments/notified areas who meet applicable wage ceiling and coverage conditions. Verify the current wage ceiling and establishment coverage.",
+      "required_documents": "ESI insurance number/e-Pehchan details, identity and family/dependent details as requested by ESIC.",
+      "where_to_apply": "Coverage is generally initiated through the employer's ESIC registration. Access care through the assigned ESIC dispensary/hospital.",
+      "official_url": "https://www.esic.gov.in/",
+      "source_url": "https://esic.gov.in/attachments/citizens_charter/435aa370631fb916efa4a38c94478011.pdf",
+      "source_type": "ESIC official website and Citizen's Charter",
+      "verification_status": "PARTIALLY_VERIFIED",
+      "last_verified": "2026-09-30",
+      "notes": "Do not hardcode wage ceiling without checking latest ESIC notification.",
+      "provenance": {
+        "input_source": "kaapan_comprehensive_health_schemes_dataset.xlsx",
+        "row_number": 3,
+        "imported_at": "2026-09-29T18:45:10.925940+00:00",
+        "verified_against_official_sources": false
+      }
+    },
+    {
+      "scheme_id": "IN-CGHS",
+      "scheme_name": "Central Government Health Scheme (CGHS)",
+      "normalized_name": "central government health scheme (cghs)",
+      "jurisdiction": "India (eligible central government groups/cities)",
+      "category": "Government employee and pensioner healthcare",
+      "scheme_type": "Insurance / Health Assurance",
+      "is_enrolment_required": true,
+      "brief_details": "Healthcare scheme providing eligible beneficiaries access to wellness centres and empanelled providers under CGHS rules.",
+      "eligibility": "Central Government employees, eligible pensioners and other notified categories, subject to current rules and city/service conditions.",
+      "required_documents": "Proof of eligible employment or pension status, identity details, family/dependent details and documents specified in current application process.",
+      "where_to_apply": "Apply through official CGHS online services or designated CGHS wellness centre/office, as applicable.",
+      "official_url": "https://cghs.mohfw.gov.in/",
+      "source_url": "https://cghs.mohfw.gov.in/",
+      "source_type": "Ministry of Health and Family Welfare CGHS portal",
+      "verification_status": "NEEDS_DETAILED_VERIFICATION",
+      "last_verified": "2026-09-30",
+      "notes": "Confirm current beneficiary categories, contribution rates, city availability and process.",
+      "provenance": {
+        "input_source": "kaapan_comprehensive_health_schemes_dataset.xlsx",
+        "row_number": 4,
+        "imported_at": "2026-09-29T18:45:10.925940+00:00",
+        "verified_against_official_sources": false
+      }
+    },
+    {
+      "scheme_id": "IN-RAN",
+      "scheme_name": "Rashtriya Arogya Nidhi (RAN)",
+      "normalized_name": "rashtriya arogya nidhi (ran)",
+      "jurisdiction": "India",
+      "category": "Financial assistance for serious illnesses",
+      "scheme_type": "Public Healthcare Service",
+      "is_enrolment_required": false,
+      "brief_details": "Financial assistance framework for eligible patients from poor families with specified life-threatening diseases, subject to current guidelines and fund availability.",
+      "eligibility": "Poor patients meeting income and treatment conditions in current RAN guidelines; covered institutions, diseases and exclusions must be checked.",
+      "required_documents": "Income/poverty proof, medical certificate and estimate from treating government hospital, identity and prescribed forms; additional items may apply.",
+      "where_to_apply": "Follow the prescribed process through the treating government hospital and relevant Ministry of Health and Family Welfare channel.",
+      "official_url": "https://mohfw.gov.in/",
+      "source_url": "https://mohfw.gov.in/",
+      "source_type": "Ministry of Health and Family Welfare official portal",
+      "verification_status": "NEEDS_DETAILED_VERIFICATION",
+      "last_verified": "2026-09-30",
+      "notes": "Not automatic insurance coverage. Verify current disease list, ceilings and application channel.",
+      "provenance": {
+        "input_source": "kaapan_comprehensive_health_schemes_dataset.xlsx",
+        "row_number": 5,
+        "imported_at": "2026-09-29T18:45:10.925940+00:00",
+        "verified_against_official_sources": false
+      }
+    },
+    {
+      "scheme_id": "IN-JSY",
+      "scheme_name": "Janani Suraksha Yojana (JSY)",
+      "normalized_name": "janani suraksha yojana (jsy)",
+      "jurisdiction": "India",
+      "category": "Maternal health cash assistance",
+      "scheme_type": "Public Healthcare Service",
+      "is_enrolment_required": false,
+      "brief_details": "Safe motherhood programme providing conditional cash assistance for eligible pregnant women for institutional delivery.",
+      "eligibility": "Pregnant women meeting applicable state/UT category, age, parity and other current JSY conditions; rules vary by state/UT.",
+      "required_documents": "Pregnancy/MCP card or ANC records, identity and bank details, plus state-required eligibility documents.",
+      "where_to_apply": "Contact local ASHA/ANM, primary health centre or government health facility; follow state health department process.",
+      "official_url": "https://nhm.gov.in/",
+      "source_url": "https://nhm.gov.in/",
+      "source_type": "National Health Mission official portal",
+      "verification_status": "NEEDS_STATE_SPECIFIC_VERIFICATION",
+      "last_verified": "2026-09-30",
+      "notes": "Amounts and eligibility vary; do not generalize a single amount.",
+      "provenance": {
+        "input_source": "kaapan_comprehensive_health_schemes_dataset.xlsx",
+        "row_number": 6,
+        "imported_at": "2026-09-29T18:45:10.925940+00:00",
+        "verified_against_official_sources": false
+      }
+    },
+    {
+      "scheme_id": "IN-JSSK",
+      "scheme_name": "Janani Shishu Suraksha Karyakram (JSSK)",
+      "normalized_name": "janani shishu suraksha karyakram (jssk)",
+      "jurisdiction": "India",
+      "category": "Maternal and newborn healthcare entitlements",
+      "scheme_type": "Public Healthcare Entitlement",
+      "is_enrolment_required": false,
+      "brief_details": "Entitlements intended to provide free/cashless services for pregnant women and sick newborns/infants in public institutions, according to guidelines.",
+      "eligibility": "Pregnant women and sick newborns/infants covered by current JSSK rules; confirm exact scope from national/state guidance.",
+      "required_documents": "Pregnancy/MCP card or child health records and identity/facility records where available. Confirm local requirements.",
+      "where_to_apply": "Access services at eligible government health facilities; contact facility help desk, ANM or ASHA.",
+      "official_url": "https://nhm.gov.in/",
+      "source_url": "https://nhm.gov.in/",
+      "source_type": "National Health Mission official portal",
+      "verification_status": "NEEDS_DETAILED_VERIFICATION",
+      "last_verified": "2026-09-30",
+      "notes": "Verify current entitlements and local implementation.",
+      "provenance": {
+        "input_source": "kaapan_comprehensive_health_schemes_dataset.xlsx",
+        "row_number": 7,
+        "imported_at": "2026-09-29T18:45:10.925940+00:00",
+        "verified_against_official_sources": false
+      }
+    },
+    {
+      "scheme_id": "IN-RBSK",
+      "scheme_name": "Rashtriya Bal Swasthya Karyakram (RBSK)",
+      "normalized_name": "rashtriya bal swasthya karyakram (rbsk)",
+      "jurisdiction": "India",
+      "category": "Child health screening and early intervention",
+      "scheme_type": "Public Healthcare Service",
+      "is_enrolment_required": false,
+      "brief_details": "Child health screening and early intervention addressing defects at birth, diseases, deficiencies and developmental delays including disabilities.",
+      "eligibility": "Children in age groups and settings covered by current RBSK guidelines, including newborns and children reached through public health and educational platforms.",
+      "required_documents": "Child identity/age details and available health or school records; facility may specify additional records.",
+      "where_to_apply": "Contact an RBSK mobile health team, Anganwadi centre, government school or public health facility, depending on age and location.",
+      "official_url": "https://nhm.gov.in/",
+      "source_url": "https://nhm.gov.in/",
+      "source_type": "National Health Mission official portal",
+      "verification_status": "NEEDS_DETAILED_VERIFICATION",
+      "last_verified": "2026-09-30",
+      "notes": "Confirm operational age groups, referral pathways and local availability.",
+      "provenance": {
+        "input_source": "kaapan_comprehensive_health_schemes_dataset.xlsx",
+        "row_number": 8,
+        "imported_at": "2026-09-29T18:45:10.925940+00:00",
+        "verified_against_official_sources": false
+      }
+    },
+    {
+      "scheme_id": "IN-PMSSY",
+      "scheme_name": "Pradhan Mantri Swasthya Suraksha Yojana (PMSSY)",
+      "normalized_name": "pradhan mantri swasthya suraksha yojana (pmssy)",
+      "jurisdiction": "India",
+      "category": "Public healthcare infrastructure",
+      "scheme_type": "Public Healthcare Infrastructure",
+      "is_enrolment_required": false,
+      "brief_details": "Programme focused on correcting regional imbalances in tertiary healthcare and improving medical education through institutions such as AIIMS and upgraded government medical colleges.",
+      "eligibility": "Not an individual enrolment-based insurance benefit. Patients access services at participating institutions under institution-specific rules.",
+      "required_documents": "Hospital registration documents and clinical records as required by the treating institution; no general scheme beneficiary card.",
+      "where_to_apply": "Contact the relevant participating AIIMS or upgraded government medical college for patient registration and service details.",
+      "official_url": "https://pmssy.mohfw.gov.in/",
+      "source_url": "https://pmssy.mohfw.gov.in/",
+      "source_type": "PMSSY official portal",
+      "verification_status": "NEEDS_DETAILED_VERIFICATION",
+      "last_verified": "2026-09-30",
+      "notes": "Healthcare infrastructure, not insurance. Include only if discovery supports non-insurance programmes.",
+      "provenance": {
+        "input_source": "kaapan_comprehensive_health_schemes_dataset.xlsx",
+        "row_number": 9,
+        "imported_at": "2026-09-29T18:45:10.925940+00:00",
+        "verified_against_official_sources": false
+      }
+    },
+    {
+      "scheme_id": "IN-NPCDCS",
+      "scheme_name": "National Programme for Prevention and Control of Non-Communicable Diseases (NP-NCD; formerly NPCDCS)",
+      "normalized_name": "national programme for prevention and control of non-communicable diseases (np-ncd; formerly npcdcs)",
+      "jurisdiction": "India",
+      "category": "Screening and chronic disease services",
+      "scheme_type": "Public Healthcare Service",
+      "is_enrolment_required": false,
+      "brief_details": "Public health programme supporting prevention, screening, early diagnosis and management of major non-communicable diseases.",
+      "eligibility": "People accessing participating public facilities; screening follows programme protocols and age/risk criteria.",
+      "required_documents": "Identity details and available prior medical records; requirements vary by facility.",
+      "where_to_apply": "Visit a participating Ayushman Arogya Mandir, PHC, CHC or designated government facility.",
+      "official_url": "https://nhm.gov.in/",
+      "source_url": "https://nhm.gov.in/",
+      "source_type": "National Health Mission official portal",
+      "verification_status": "NEEDS_DETAILED_VERIFICATION",
+      "last_verified": "2026-09-30",
+      "notes": "Not insurance. Verify current programme name, age criteria and local availability.",
+      "provenance": {
+        "input_source": "kaapan_comprehensive_health_schemes_dataset.xlsx",
+        "row_number": 10,
+        "imported_at": "2026-09-29T18:45:10.925940+00:00",
+        "verified_against_official_sources": false
+      }
+    },
+    {
+      "scheme_id": "IN-PMNDP",
+      "scheme_name": "Pradhan Mantri National Dialysis Programme (PMNDP)",
+      "normalized_name": "pradhan mantri national dialysis programme (pmndp)",
+      "jurisdiction": "India",
+      "category": "Public dialysis services",
+      "scheme_type": "Public Healthcare Service",
+      "is_enrolment_required": false,
+      "brief_details": "Programme supporting access to dialysis through designated public facilities and PPP arrangements, subject to state implementation.",
+      "eligibility": "Patients requiring dialysis who meet service and facility conditions in the relevant state/UT.",
+      "required_documents": "Doctor's referral/clinical assessment, diagnostic records and identity or registration details as required by facility.",
+      "where_to_apply": "Contact district hospital or designated public dialysis centre to confirm availability, registration and charges.",
+      "official_url": "https://nhm.gov.in/",
+      "source_url": "https://nhm.gov.in/",
+      "source_type": "National Health Mission official portal",
+      "verification_status": "NEEDS_DETAILED_VERIFICATION",
+      "last_verified": "2026-09-30",
+      "notes": "Availability, charges and referral requirements differ by state and facility.",
+      "provenance": {
+        "input_source": "kaapan_comprehensive_health_schemes_dataset.xlsx",
+        "row_number": 11,
+        "imported_at": "2026-09-29T18:45:10.925940+00:00",
+        "verified_against_official_sources": false
+      }
+    },
+    {
+      "scheme_id": "TN-NK48",
+      "scheme_name": "Nammai Kaakkum 48 \u2013 Innuyir Kappom",
+      "normalized_name": "nammai kaakkum 48 \u2013 innuyir kappom",
+      "jurisdiction": "Tamil Nadu, India",
+      "category": "Emergency road-accident treatment",
+      "scheme_type": "Emergency Healthcare Assistance",
+      "is_enrolment_required": false,
+      "brief_details": "Tamil Nadu initiative supporting emergency treatment for eligible road-accident victims at designated hospitals, subject to current rules.",
+      "eligibility": "Road-accident victims meeting current Tamil Nadu programme conditions and receiving care at designated hospitals; verify current limits.",
+      "required_documents": "Emergency/accident and hospital records; identity details if available. Do not delay emergency stabilization to obtain documents.",
+      "where_to_apply": "Seek immediate care at a designated participating hospital and ask the scheme desk to confirm eligibility and formalities.",
+      "official_url": "https://www.cmchistn.com/",
+      "source_url": "https://www.cmchistn.com/",
+      "source_type": "Government of Tamil Nadu CMCHIS official portal",
+      "verification_status": "NEEDS_DETAILED_VERIFICATION",
+      "last_verified": "2026-09-30",
+      "notes": "Confirm current coverage amount, time window, participating hospitals and process.",
+      "provenance": {
+        "input_source": "kaapan_comprehensive_health_schemes_dataset.xlsx",
+        "row_number": 12,
+        "imported_at": "2026-09-29T18:45:10.925940+00:00",
+        "verified_against_official_sources": false
+      }
+    },
+    {
+      "scheme_id": "IN-ABHA",
+      "scheme_name": "Ayushman Bharat Health Account (ABHA)",
+      "normalized_name": "ayushman bharat health account (abha)",
+      "jurisdiction": "India",
+      "category": "Digital health identity",
+      "scheme_type": "Digital Health Identity",
+      "is_enrolment_required": false,
+      "brief_details": "Digital health account identifier to help individuals link and manage records in participating digital health services. It is not insurance and does not itself guarantee free treatment.",
+      "eligibility": "Individuals can create an ABHA under current ABDM registration rules; record linking is subject to participation and consent.",
+      "required_documents": "Aadhaar or another supported identity/verification method, depending on current creation flow.",
+      "where_to_apply": "Use the official ABHA/ABDM portal or supported health applications and facilities.",
+      "official_url": "https://abha.abdm.gov.in/",
+      "source_url": "https://abdm.gov.in/",
+      "source_type": "Ayushman Bharat Digital Mission official portal",
+      "verification_status": "NEEDS_DETAILED_VERIFICATION",
+      "last_verified": "2026-09-30",
+      "notes": "Digital health infrastructure, not insurance; ABHA does not itself confer PM-JAY/CMCHIS eligibility.",
+      "provenance": {
+        "input_source": "kaapan_comprehensive_health_schemes_dataset.xlsx",
+        "row_number": 13,
+        "imported_at": "2026-09-29T18:45:10.925940+00:00",
+        "verified_against_official_sources": false
+      }
+    }
+  ]
+}

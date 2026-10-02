@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-state-government-health-scheme-sghs-uttarakhand",
+  "tree_id": "tree-state-government-health-scheme-sghs-uttarakhand",
+  "scheme_id": "state-government-health-scheme-sghs-uttarakhand",
+  "title": "State Government Health Scheme (SGHS) \u2013 Uttarakhand Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Cashless government health scheme for eligible Uttarakhand state government employees, pensioners and specified family members.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligibility depends on Uttarakhand government employment/pension status and the current SGHS beneficiary rules.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under State Government Health Scheme (SGHS) \u2013 Uttarakhand.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

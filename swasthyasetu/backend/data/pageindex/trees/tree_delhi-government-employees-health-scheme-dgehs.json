@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-delhi-government-employees-health-scheme-dgehs",
+  "tree_id": "tree-delhi-government-employees-health-scheme-dgehs",
+  "scheme_id": "delhi-government-employees-health-scheme-dgehs",
+  "title": "Delhi Government Employees Health Scheme (DGEHS) Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Medical reimbursement/healthcare scheme for eligible Delhi Government employees, pensioners and specified dependants.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligible Delhi Government employees, pensioners and family members under DGEHS rules.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Delhi Government Employees Health Scheme (DGEHS).",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

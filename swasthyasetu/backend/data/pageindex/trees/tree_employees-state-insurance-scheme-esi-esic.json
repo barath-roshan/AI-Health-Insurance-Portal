@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-employees-state-insurance-scheme-esi-esic",
+  "tree_id": "tree-employees-state-insurance-scheme-esi-esic",
+  "scheme_id": "employees-state-insurance-scheme-esi-esic",
+  "title": "Employees' State Insurance Scheme (ESI/ESIC) Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Contributory social security and medical benefit scheme providing healthcare and related social-security benefits to insured employees and eligible family members.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Employees covered under the ESI Act and applicable wage/employment coverage conditions, plus eligible dependants; contribution and establishment coverage rules apply.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Employees' State Insurance Scheme (ESI/ESIC).",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

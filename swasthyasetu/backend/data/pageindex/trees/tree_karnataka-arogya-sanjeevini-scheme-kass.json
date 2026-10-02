@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-karnataka-arogya-sanjeevini-scheme-kass",
+  "tree_id": "tree-karnataka-arogya-sanjeevini-scheme-kass",
+  "scheme_id": "karnataka-arogya-sanjeevini-scheme-kass",
+  "title": "Karnataka Arogya Sanjeevini Scheme (KASS) Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Government health scheme for eligible Karnataka government employees and related beneficiaries under the state employee health framework.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligible Karnataka government employees and specified dependants/pensioner categories as notified under KASS rules.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Karnataka Arogya Sanjeevini Scheme (KASS).",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

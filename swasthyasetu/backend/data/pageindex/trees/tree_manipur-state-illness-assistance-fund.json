@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-manipur-state-illness-assistance-fund",
+  "tree_id": "tree-manipur-state-illness-assistance-fund",
+  "scheme_id": "manipur-state-illness-assistance-fund",
+  "title": "Manipur State Illness Assistance Fund Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Financial assistance route for eligible patients requiring costly treatment for serious diseases.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligibility depends on current state medical, income and treatment conditions.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Manipur State Illness Assistance Fund.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

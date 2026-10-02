@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-ayushman-bharat-digital-mission-abdm-health-access-infrastructure",
+  "tree_id": "tree-ayushman-bharat-digital-mission-abdm-health-access-infrastructure",
+  "scheme_id": "ayushman-bharat-digital-mission-abdm-health-access-infrastructure",
+  "title": "Ayushman Bharat Digital Mission (ABDM) \u2013 health-access infrastructure Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "National digital health infrastructure supporting interoperable health records, health IDs and digital discovery of healthcare services; it is not itself an insurance policy.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Open to citizens/users participating in the digital health ecosystem according to current ABDM rules; insurance eligibility is determined separately by schemes such as PM-JAY.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Ayushman Bharat Digital Mission (ABDM) \u2013 health-access infrastructure.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

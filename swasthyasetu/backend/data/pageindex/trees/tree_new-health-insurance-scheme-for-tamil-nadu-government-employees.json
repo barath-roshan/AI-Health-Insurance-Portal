@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-new-health-insurance-scheme-for-tamil-nadu-government-employees",
+  "tree_id": "tree-new-health-insurance-scheme-for-tamil-nadu-government-employees",
+  "scheme_id": "new-health-insurance-scheme-for-tamil-nadu-government-employees",
+  "title": "New Health Insurance Scheme for Tamil Nadu Government Employees Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "State employee health insurance programme providing health treatment coverage to eligible Tamil Nadu government employees and their family members.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligible serving Tamil Nadu government employees and covered family members subject to the current NHIS employee rules and enrolment conditions.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under New Health Insurance Scheme for Tamil Nadu Government Employees.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

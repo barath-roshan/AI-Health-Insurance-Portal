@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-ayushman-bharat-niramayam-madhya-pradesh",
+  "tree_id": "tree-ayushman-bharat-niramayam-madhya-pradesh",
+  "scheme_id": "ayushman-bharat-niramayam-madhya-pradesh",
+  "title": "Ayushman Bharat 'Niramayam' \u2013 Madhya Pradesh Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Government health assurance programme providing cashless hospitalization for eligible Madhya Pradesh beneficiaries under PM-JAY/state rules.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligibility is based on the current PM-JAY/state beneficiary database and notified categories.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Ayushman Bharat 'Niramayam' \u2013 Madhya Pradesh.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

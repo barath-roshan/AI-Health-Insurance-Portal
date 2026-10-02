@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-himachal-pradesh-mukhyamantri-sahayaata-kosh-himcare",
+  "tree_id": "tree-himachal-pradesh-mukhyamantri-sahayaata-kosh-himcare",
+  "scheme_id": "himachal-pradesh-mukhyamantri-sahayaata-kosh-himcare",
+  "title": "Himachal Pradesh Mukhyamantri Sahayaata Kosh / Himcare Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Himachal Pradesh government health protection programme(s) supporting eligible residents with hospitalization coverage under current state rules.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligibility depends on the current Himachal Pradesh scheme, beneficiary category and enrolment rules; verify whether the applicant is covered under HIMCARE or another state/PM-JAY pathway.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Himachal Pradesh Mukhyamantri Sahayaata Kosh / Himcare.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

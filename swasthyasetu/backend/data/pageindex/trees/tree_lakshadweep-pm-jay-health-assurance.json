@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-lakshadweep-pm-jay-health-assurance",
+  "tree_id": "tree-lakshadweep-pm-jay-health-assurance",
+  "scheme_id": "lakshadweep-pm-jay-health-assurance",
+  "title": "Lakshadweep PM-JAY health assurance Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Government health assurance access for eligible Lakshadweep residents through the applicable PM-JAY/UT health framework.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligibility follows current PM-JAY/UT beneficiary rules.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Lakshadweep PM-JAY health assurance.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

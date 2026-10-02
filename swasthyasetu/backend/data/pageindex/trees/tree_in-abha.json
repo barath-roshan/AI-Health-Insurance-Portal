@@ -1,0 +1,36 @@
+{
+  "document_id": "pid-in-abha",
+  "tree_id": "tree-in-abha",
+  "scheme_id": "IN-ABHA",
+  "title": "Ayushman Bharat Health Account (ABHA) Policy & Guidelines",
+  "nodes": [
+    {
+      "section_id": "sec-1-overview",
+      "title": "1. Programme Overview & Type",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Programme Name: Ayushman Bharat Health Account (ABHA)\nJurisdiction: India\nCategory: Digital health identity\nType: Digital Health Identity\nDetails: Digital health account identifier to help individuals link and manage records in participating digital health services. It is not insurance and does not itself guarantee free treatment."
+    },
+    {
+      "section_id": "sec-2-eligibility",
+      "title": "2. Eligibility Criteria & Conditions",
+      "page_start": 2,
+      "page_end": 2,
+      "content": "Eligibility: Individuals can create an ABHA under current ABDM registration rules; record linking is subject to participation and consent.\nIndividual Enrolment Required: False"
+    },
+    {
+      "section_id": "sec-3-documents",
+      "title": "3. Required Documents & Documentation",
+      "page_start": 3,
+      "page_end": 3,
+      "content": "Required Documents: Aadhaar or another supported identity/verification method, depending on current creation flow."
+    },
+    {
+      "section_id": "sec-4-application",
+      "title": "4. Application Procedure & Access Desks",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Where to Apply / Access: Use the official ABHA/ABDM portal or supported health applications and facilities.\nOfficial Portal: https://abha.abdm.gov.in/"
+    }
+  ]
+}

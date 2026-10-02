@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-railway-employees-health-services",
+  "tree_id": "tree-railway-employees-health-services",
+  "scheme_id": "railway-employees-health-services",
+  "title": "Railway Employees Health Services Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Medical-care framework providing healthcare to serving railway employees, pensioners and eligible dependants through railway hospitals and associated facilities.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligible Indian Railways employees, pensioners and covered family members under railway medical rules.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Railway Employees Health Services.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

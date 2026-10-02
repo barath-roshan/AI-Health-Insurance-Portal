@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-health-insurance-scheme-for-handloom-weavers-legacy-sectoral",
+  "tree_id": "tree-health-insurance-scheme-for-handloom-weavers-legacy-sectoral",
+  "scheme_id": "health-insurance-scheme-for-handloom-weavers-legacy-sectoral",
+  "title": "Health Insurance Scheme for Handloom Weavers \u2013 legacy/sectoral Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Government-supported health insurance assistance historically targeted at eligible handloom weavers and their families.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Historically targeted eligible handloom weavers and dependants under notified sectoral rules; verify current operational status before use.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Health Insurance Scheme for Handloom Weavers \u2013 legacy/sectoral.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

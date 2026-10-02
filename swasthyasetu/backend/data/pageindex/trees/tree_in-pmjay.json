@@ -1,0 +1,36 @@
+{
+  "document_id": "pid-in-pmjay",
+  "tree_id": "tree-in-pmjay",
+  "scheme_id": "IN-PMJAY",
+  "title": "Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (AB-PMJAY) Policy & Guidelines",
+  "nodes": [
+    {
+      "section_id": "sec-1-overview",
+      "title": "1. Programme Overview & Type",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Programme Name: Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (AB-PMJAY)\nJurisdiction: India\nCategory: Publicly funded health assurance\nType: Insurance / Health Assurance\nDetails: Cashless secondary and tertiary hospitalization cover at empanelled hospitals. Standard cover is up to \u20b95 lakh per eligible family per year, subject to applicable rules and package limits."
+    },
+    {
+      "section_id": "sec-2-eligibility",
+      "title": "2. Eligibility Criteria & Conditions",
+      "page_start": 2,
+      "page_end": 2,
+      "content": "Eligibility: Eligibility for most beneficiaries is based on the applicable beneficiary database and scheme rules. Separately, Indian citizens aged 70+ are eligible under the senior-citizen expansion regardless of income; Aadhaar-based e-KYC is required for that enrolment.\nIndividual Enrolment Required: True"
+    },
+    {
+      "section_id": "sec-3-documents",
+      "title": "3. Required Documents & Documentation",
+      "page_start": 3,
+      "page_end": 3,
+      "content": "Required Documents: For 70+ enrolment: Aadhaar for e-KYC. For other beneficiaries, carry accepted identity and family/beneficiary details; exact requirements depend on the verification channel."
+    },
+    {
+      "section_id": "sec-4-application",
+      "title": "4. Application Procedure & Access Desks",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Where to Apply / Access: Check eligibility and enrol through the official beneficiary portal or Ayushman App; alternatively visit a CSC or empanelled hospital/Ayushman Mitra.\nOfficial Portal: https://beneficiary.nha.gov.in/"
+    }
+  ]
+}

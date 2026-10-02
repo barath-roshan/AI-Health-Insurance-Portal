@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-kerala-state-health-insurance-scheme-legacy-chis",
+  "tree_id": "tree-kerala-state-health-insurance-scheme-legacy-chis",
+  "scheme_id": "kerala-state-health-insurance-scheme-legacy-chis",
+  "title": "Kerala State Health Insurance Scheme \u2013 legacy CHIS Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Former Kerala Comprehensive Health Insurance Scheme that provided health insurance to eligible poor and other households before convergence into KASP.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Historical eligibility based on Kerala's CHIS rules; use as legacy retrieval context rather than a current enrolment decision.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Kerala State Health Insurance Scheme \u2013 legacy CHIS.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

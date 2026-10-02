@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-goa-mediclaim-scheme-deen-dayal-swasthya-seva-yojana",
+  "tree_id": "tree-goa-mediclaim-scheme-deen-dayal-swasthya-seva-yojana",
+  "scheme_id": "goa-mediclaim-scheme-deen-dayal-swasthya-seva-yojana",
+  "title": "Goa Mediclaim Scheme / Deen Dayal Swasthya Seva Yojana Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Government-supported health protection for eligible Goa residents, including hospitalization-related assistance under the applicable state programme.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligibility depends on Goa residency and the current notified household/category criteria of the state health scheme.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Goa Mediclaim Scheme / Deen Dayal Swasthya Seva Yojana.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

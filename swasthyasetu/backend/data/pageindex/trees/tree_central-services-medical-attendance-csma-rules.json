@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-central-services-medical-attendance-csma-rules",
+  "tree_id": "tree-central-services-medical-attendance-csma-rules",
+  "scheme_id": "central-services-medical-attendance-csma-rules",
+  "title": "Central Services Medical Attendance (CSMA) Rules Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Medical attendance/reimbursement framework for eligible Central Government employees and specified beneficiaries where CGHS coverage does not apply.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligible Central Government employees and covered family members under CSMA rules and applicable department/location conditions.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Central Services Medical Attendance (CSMA) Rules.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "document_id": "pid-health-minister-s-cancer-patient-fund-hmcpf",
+  "tree_id": "tree-health-minister-s-cancer-patient-fund-hmcpf",
+  "scheme_id": "health-minister-s-cancer-patient-fund-hmcpf",
+  "title": "Health Minister's Cancer Patient Fund (HMCPF) Policy Document",
+  "nodes": [
+    {
+      "section_id": "sec-overview",
+      "title": "1. Overview & Objectives",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Cancer-treatment financial assistance channel under Rashtriya Arogya Nidhi for eligible economically vulnerable patients.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-eligibility",
+      "title": "2. Eligibility Criteria",
+      "page_start": 2,
+      "page_end": 3,
+      "content": "Eligible poor cancer patients satisfying current income, treatment and institutional requirements under HMCPF/RAN guidelines.",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-benefits",
+      "title": "3. Benefits & Coverage",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Financial assistance and healthcare benefits provided under Health Minister's Cancer Patient Fund (HMCPF).",
+      "subsections": []
+    },
+    {
+      "section_id": "sec-documents",
+      "title": "4. Required Documents & Application Process",
+      "page_start": 5,
+      "page_end": 5,
+      "content": "Aadhaar Card, Income Certificate, Ration Card, and Bank Account details.",
+      "subsections": []
+    }
+  ]
+}

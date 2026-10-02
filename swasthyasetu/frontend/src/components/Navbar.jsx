@@ -15,6 +15,8 @@ import {
   Sparkles
 } from 'lucide-react';
 
+import KaapanLogo from './ui/KaapanLogo';
+
 const Navbar = () => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
@@ -47,23 +49,18 @@ const Navbar = () => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <header className="sticky top-0 z-40 bg-[#0B2545]/95 backdrop-blur-md text-white border-b border-slate-800 shadow-xs">
+    <header className="sticky top-0 z-40 bg-[#102A43]/95 backdrop-blur-md text-white border-b border-slate-800 shadow-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         
         {/* Logo & Brand Identity */}
         <Link to="/" className="flex items-center space-x-3 group">
-          <div className="w-10 h-10 bg-gradient-to-br from-[#126E82] to-[#0F4C5C] rounded-xl flex items-center justify-center text-white shadow-md border border-teal-400/20 group-hover:scale-105 transition-transform duration-200">
-            <Shield className="w-5 h-5 text-teal-200 fill-teal-200/20" />
+          <div className="px-3.5 py-1.5 bg-[#0F766E] rounded-xl flex items-center justify-center shadow-xs border border-teal-500/30 group-hover:scale-105 transition-transform duration-200">
+            <KaapanLogo variant="light" height={26} />
           </div>
           <div>
-            <div className="flex items-center gap-1.5">
-              <span className="text-xl font-extrabold tracking-tight text-white block leading-none font-sans">
-                KAAPAN
-              </span>
-              <span className="text-[10px] bg-teal-500/20 text-teal-300 border border-teal-500/30 px-1.5 py-0.5 rounded font-mono font-semibold">
-                GOVT HEALTH
-              </span>
-            </div>
+            <span className="text-[10px] bg-teal-500/20 text-teal-300 border border-teal-500/30 px-1.5 py-0.5 rounded font-mono font-semibold">
+              GOVT HEALTH
+            </span>
             <span className="text-[10px] font-medium text-slate-300 block tracking-wide mt-0.5">
               Your Guide to Government Health Benefits
             </span>

@@ -1,0 +1,36 @@
+{
+  "document_id": "pid-in-rbsk",
+  "tree_id": "tree-in-rbsk",
+  "scheme_id": "IN-RBSK",
+  "title": "Rashtriya Bal Swasthya Karyakram (RBSK) Policy & Guidelines",
+  "nodes": [
+    {
+      "section_id": "sec-1-overview",
+      "title": "1. Programme Overview & Type",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Programme Name: Rashtriya Bal Swasthya Karyakram (RBSK)\nJurisdiction: India\nCategory: Child health screening and early intervention\nType: Public Healthcare Service\nDetails: Child health screening and early intervention addressing defects at birth, diseases, deficiencies and developmental delays including disabilities."
+    },
+    {
+      "section_id": "sec-2-eligibility",
+      "title": "2. Eligibility Criteria & Conditions",
+      "page_start": 2,
+      "page_end": 2,
+      "content": "Eligibility: Children in age groups and settings covered by current RBSK guidelines, including newborns and children reached through public health and educational platforms.\nIndividual Enrolment Required: False"
+    },
+    {
+      "section_id": "sec-3-documents",
+      "title": "3. Required Documents & Documentation",
+      "page_start": 3,
+      "page_end": 3,
+      "content": "Required Documents: Child identity/age details and available health or school records; facility may specify additional records."
+    },
+    {
+      "section_id": "sec-4-application",
+      "title": "4. Application Procedure & Access Desks",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Where to Apply / Access: Contact an RBSK mobile health team, Anganwadi centre, government school or public health facility, depending on age and location.\nOfficial Portal: https://nhm.gov.in/"
+    }
+  ]
+}

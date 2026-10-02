@@ -1,0 +1,36 @@
+{
+  "document_id": "pid-in-jsy",
+  "tree_id": "tree-in-jsy",
+  "scheme_id": "IN-JSY",
+  "title": "Janani Suraksha Yojana (JSY) Policy & Guidelines",
+  "nodes": [
+    {
+      "section_id": "sec-1-overview",
+      "title": "1. Programme Overview & Type",
+      "page_start": 1,
+      "page_end": 1,
+      "content": "Programme Name: Janani Suraksha Yojana (JSY)\nJurisdiction: India\nCategory: Maternal health cash assistance\nType: Public Healthcare Service\nDetails: Safe motherhood programme providing conditional cash assistance for eligible pregnant women for institutional delivery."
+    },
+    {
+      "section_id": "sec-2-eligibility",
+      "title": "2. Eligibility Criteria & Conditions",
+      "page_start": 2,
+      "page_end": 2,
+      "content": "Eligibility: Pregnant women meeting applicable state/UT category, age, parity and other current JSY conditions; rules vary by state/UT.\nIndividual Enrolment Required: False"
+    },
+    {
+      "section_id": "sec-3-documents",
+      "title": "3. Required Documents & Documentation",
+      "page_start": 3,
+      "page_end": 3,
+      "content": "Required Documents: Pregnancy/MCP card or ANC records, identity and bank details, plus state-required eligibility documents."
+    },
+    {
+      "section_id": "sec-4-application",
+      "title": "4. Application Procedure & Access Desks",
+      "page_start": 4,
+      "page_end": 4,
+      "content": "Where to Apply / Access: Contact local ASHA/ANM, primary health centre or government health facility; follow state health department process.\nOfficial Portal: https://nhm.gov.in/"
+    }
+  ]
+}
