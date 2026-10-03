@@ -23,8 +23,11 @@ logging.basicConfig(
 )
 logger = logging.getLogger("kaapan_main")
 
-# Initialize DB schema
-init_db()
+# Initialize DB schema safely
+try:
+    init_db()
+except Exception as e:
+    logger.warning(f"Database startup initialization warning: {e}")
 
 app = FastAPI(
     title="KAAPAN API — Government Health Benefits Guide",

@@ -1,4 +1,5 @@
 import os
+import logging
 from typing import Generator
 from sqlalchemy import create_engine, text
 from sqlalchemy.orm import sessionmaker, declarative_base
@@ -6,7 +7,14 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+logger = logging.getLogger("database")
+
 DATABASE_URL = os.getenv("DATABASE_URL") or os.getenv("SUPABASE_DB_URL")
+
+if DATABASE_URL:
+    # Fix Render / Supabase postgres:// dialect for SQLAlchemy compatibility
+    if DATABASE_URL.startswith("postgres://"):
+        DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
 
 if not DATABASE_URL or DATABASE_URL.startswith("https://placeholder"):
     DB_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "swasthyasetu.db")
@@ -34,24 +42,26 @@ def get_db() -> Generator:
 
 def init_db():
     """Ensure database schema tables and columns are created."""
-    from app.models import Base as ModelsBase
-    ModelsBase.metadata.create_all(bind=engine)
+    try:
+        from app.models import Base as ModelsBase
+        ModelsBase.metadata.create_all(bind=engine)
 
-    # Ensure rag_stale and role columns exist for SQLite schema updates
-    with engine.connect() as conn:
-        if is_sqlite:
-            try:
-                conn.execute(text("ALTER TABLE schemes ADD COLUMN rag_stale BOOLEAN DEFAULT 0;"))
-                conn.commit()
-            except Exception:
-                pass
-            try:
-                conn.execute(text("ALTER TABLE profiles ADD COLUMN role TEXT DEFAULT 'USER';"))
-                conn.commit()
-            except Exception:
-                pass
-            try:
-                conn.execute(text("ALTER TABLE handoff_requests ADD COLUMN user_id TEXT;"))
-                conn.commit()
-            except Exception:
-                pass
+        with engine.connect() as conn:
+            if is_sqlite:
+                try:
+                    conn.execute(text("ALTER TABLE schemes ADD COLUMN rag_stale BOOLEAN DEFAULT 0;"))
+                    conn.commit()
+                except Exception:
+                    pass
+                try:
+                    conn.execute(text("ALTER TABLE profiles ADD COLUMN role TEXT DEFAULT 'USER';"))
+                    conn.commit()
+                except Exception:
+                    pass
+                try:
+                    conn.execute(text("ALTER TABLE handoff_requests ADD COLUMN user_id TEXT;"))
+                    conn.commit()
+                except Exception:
+                    pass
+    except Exception as e:
+        logger.error(f"Database schema initialization warning: {e}")

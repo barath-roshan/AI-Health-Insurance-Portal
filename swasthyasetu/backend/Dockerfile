@@ -21,6 +21,7 @@ RUN groupadd -g 10001 appgroup && \
 
 COPY --from=builder /root/.local /home/appuser/.local
 ENV PATH=/home/appuser/.local/bin:$PATH
+ENV PYTHONPATH=/app
 
 COPY --chown=appuser:appgroup app /app/app
 COPY --chown=appuser:appgroup data /app/data
