@@ -13,6 +13,7 @@ from app.api.eligibility import router as eligibility_router
 from app.api.chat import router as chat_router
 from app.api.support import router as support_router
 from app.api.admin import router as admin_router
+from app.core.seeder import auto_seed_if_empty
 
 load_dotenv()
 
@@ -23,9 +24,10 @@ logging.basicConfig(
 )
 logger = logging.getLogger("kaapan_main")
 
-# Initialize DB schema safely
+# Initialize DB schema & auto-seed schemes safely on application startup
 try:
     init_db()
+    auto_seed_if_empty()
 except Exception as e:
     logger.warning(f"Database startup initialization warning: {e}")
 
@@ -41,10 +43,11 @@ allowed_origins = [
     "http://127.0.0.1:5173",
     "http://localhost:3000",
     "http://127.0.0.1:3000",
+    "https://ai-health-insurance-portal.vercel.app",
 ]
 
 frontend_url = os.getenv("FRONTEND_URL")
-if frontend_url:
+if frontend_url and frontend_url.rstrip("/") not in allowed_origins:
     allowed_origins.append(frontend_url.rstrip("/"))
 
 app.add_middleware(
@@ -65,7 +68,7 @@ async def add_security_headers(request: Request, call_next):
     response.headers["X-XSS-Protection"] = "1; mode=block"
     return response
 
-# Production Error Handling Middleware (prevents internal stack trace leakage)
+# Production Error Handling Middleware
 @app.exception_handler(Exception)
 async def global_exception_handler(request: Request, exc: Exception):
     logger.error(f"Unhandled exception on {request.method} {request.url.path}: {exc}", exc_info=True)
