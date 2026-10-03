@@ -17,7 +17,9 @@ if DATABASE_URL:
         DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
 
 if not DATABASE_URL or DATABASE_URL.startswith("https://placeholder"):
-    DB_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "swasthyasetu.db")
+    data_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "data")
+    os.makedirs(data_dir, exist_ok=True)
+    DB_PATH = os.path.join(data_dir, "swasthyasetu.db")
     DATABASE_URL = f"sqlite:///{DB_PATH}"
 
 is_sqlite = DATABASE_URL.startswith("sqlite")
